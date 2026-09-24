@@ -1,5 +1,5 @@
 (() => {
-  let audioCtx=null,lastFactorInput=null;
+  let audioCtx=null;
   function beep(freq=520,duration=.05){if(!LearnProgress.get().sound)return;try{audioCtx??=new (window.AudioContext||window.webkitAudioContext)();const o=audioCtx.createOscillator(),g=audioCtx.createGain();o.frequency.value=freq;o.type='sine';g.gain.value=.045;o.connect(g);g.connect(audioCtx.destination);o.start();g.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+duration);o.stop(audioCtx.currentTime+duration);}catch{}}
   function confetti(){const root=document.getElementById('confettiLayer');if(!root)return;for(let i=0;i<34;i++){const p=document.createElement('i');p.className='confetti-piece';p.style.left=Math.random()*100+'%';p.style.animationDelay=Math.random()*.45+'s';p.style.transform=`rotate(${Math.random()*180}deg)`;p.style.background=['#5ea8ff','#73c7a1','#ffb45c','#9e86d7'][i%4];root.appendChild(p);setTimeout(()=>p.remove(),3400);}}
   window.AppUtilities={beep,confetti};
@@ -11,10 +11,9 @@
     document.getElementById('fullscreenBtn')?.addEventListener('click',async()=>{try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen();}catch{Navigation.toast('Mode layar penuh tidak didukung browser ini.')}});
     document.getElementById('resetProgressBtn')?.addEventListener('click',()=>{if(confirm('Reset seluruh progress, jawaban tersimpan, dan hasil evaluasi?')){LearnProgress.reset();updateLocks();Navigation.navigateTo('landing',true);Navigation.toast('Progress sudah direset.')}});
   }
-  function setupPrimeChips(){document.querySelectorAll('#activity1 input').forEach(inp=>inp.addEventListener('focus',()=>{if(['a1f8','a1f12','a1f10','a1f15'].includes(inp.id))lastFactorInput=inp}));document.querySelectorAll('.prime-chip').forEach(chip=>chip.addEventListener('click',()=>{if(!lastFactorInput){Navigation.toast('Pilih kotak faktorisasi terlebih dahulu.');return;}const v=chip.textContent.trim();lastFactorInput.value+=(lastFactorInput.value.trim()?' × ':'')+v;lastFactorInput.focus();}));}
   function setupKeyboard(){document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('#alarmAnswer'))document.getElementById('checkAlarmAnswer')?.click();});}
   async function init(){
-    Navigation.bindNavigation();Navigation.setupRevealObserver();KPKModule.init();FPBModule.init();await QuizModule.init();setupTabs();setupUtilities();setupPrimeChips();setupKeyboard();updateLocks();
+    Navigation.bindNavigation();Navigation.setupRevealObserver();FactorTools.init();KPKModule.init();FPBModule.init();await QuizModule.init();setupTabs();setupUtilities();setupKeyboard();updateLocks();
     window.addEventListener('learning-progress-changed',updateLocks);
     document.querySelectorAll('.screen.active .reveal').forEach(x=>x.classList.add('visible'));
   }

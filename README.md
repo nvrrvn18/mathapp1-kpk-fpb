@@ -8,6 +8,8 @@ Aplikasi web pembelajaran interaktif berbasis **HTML5, CSS3, dan Vanilla JavaScr
 - Progress belajar tersimpan otomatis di `localStorage`.
 - Simulasi lampu untuk memahami KPK.
 - Garis bilangan dan pola kelipatan interaktif.
+- Faktorisasi prima tanpa mengetik pangkat: kartu faktor prima dapat di-drag-and-drop atau diketuk pada HP.
+- Pohon faktor interaktif: siswa memilih pasangan faktor sampai semua daun menjadi prima, lalu hasil dapat dimasukkan otomatis ke jawaban.
 - Visual pembagian buah/paket untuk memahami FPB.
 - LKPD interaktif dengan validasi otomatis dan petunjuk.
 - Kuis akhir 10 soal acak dengan komposisi konsep, KPK, FPB, strategi, dan soal cerita.
@@ -26,6 +28,7 @@ css/
 js/
   app.js
   navigation.js
+  factor-tools.js
   kpk.js
   fpb.js
   quiz.js
@@ -75,3 +78,10 @@ Edit `data/questions.json`. Setiap soal memakai properti seperti:
 ```
 
 Tipe yang tersedia: `mcq`, `number`, `truefalse`, dan `drag`.
+
+
+## Interaksi faktorisasi prima
+
+Pada Aktivitas 1 dan Aktivitas 2, siswa tidak perlu mengetik simbol pangkat. Pilih kotak faktorisasi, lalu seret atau ketuk kartu seperti `2²`, `2³`, atau `3²`. Tombol **Pohon Faktor** memandu pemecahan bilangan komposit menjadi pasangan faktor sampai seluruh ujungnya merupakan bilangan prima. Setelah selesai, tombol **Masukkan ke Jawaban** mengubah daun pohon menjadi bentuk berpangkat secara otomatis.
+
+Drag-and-drop menggunakan HTML5 Drag and Drop pada desktop. Untuk layar sentuh, tersedia fallback tap: ketuk kotak jawaban terlebih dahulu, lalu ketuk kartu faktor.

@@ -161,12 +161,28 @@
         </article>
 
         <article class="learning-card reveal task-card" data-a1-step="3">
-          <div class="section-heading"><div><span class="eyebrow">C. Gunakan Faktorisasi Prima</span><h2>Pilih kartu faktor lalu hitung KPK</h2></div><span class="task-badge">3/4</span></div>
-          <div class="prime-task-grid">
-            <div class="mini-question"><h3>KPK dari 8 dan 12</h3><label>8 = <input id="a1f8" placeholder="2³"></label><label>12 = <input id="a1f12" placeholder="2² × 3"></label><label>KPK<input id="a1kpk812" type="number"></label></div>
-            <div class="mini-question"><h3>KPK dari 10 dan 15</h3><label>10 = <input id="a1f10" placeholder="2 × 5"></label><label>15 = <input id="a1f15" placeholder="3 × 5"></label><label>KPK<input id="a1kpk1015" type="number"></label></div>
+          <div class="section-heading"><div><span class="eyebrow">C. Gunakan Faktorisasi Prima</span><h2>Susun faktor prima dengan kartu</h2><p class="section-help">Seret kartu bilangan berpangkat ke kotak jawaban, atau gunakan <strong>Pohon Faktor</strong> untuk menemukannya langkah demi langkah. Di HP, ketuk kotak jawaban lalu ketuk kartunya.</p></div><span class="task-badge">3/4</span></div>
+          <div class="factor-palette" data-factor-palette aria-label="Kartu faktor prima untuk Aktivitas 1">
+            <span class="palette-label">Kartu faktor:</span>
+            <button class="factor-drag-card" draggable="true" data-factor="2" type="button">2</button>
+            <button class="factor-drag-card" draggable="true" data-factor="2^2" type="button">2²</button>
+            <button class="factor-drag-card" draggable="true" data-factor="2^3" type="button">2³</button>
+            <button class="factor-drag-card" draggable="true" data-factor="3" type="button">3</button>
+            <button class="factor-drag-card" draggable="true" data-factor="3^2" type="button">3²</button>
+            <button class="factor-drag-card" draggable="true" data-factor="5" type="button">5</button>
           </div>
-          <div class="prime-chip-row" aria-label="Kartu faktor prima"><button class="prime-chip" type="button">2</button><button class="prime-chip" type="button">2²</button><button class="prime-chip" type="button">2³</button><button class="prime-chip" type="button">3</button><button class="prime-chip" type="button">5</button></div>
+          <div class="prime-task-grid">
+            <div class="mini-question"><h3>KPK dari 8 dan 12</h3>
+              <div class="factor-builder" data-number="8" data-target="a1f8"><div class="factor-builder-head"><strong>8 =</strong><button class="factor-tree-btn" data-factor-tree-number="8" data-factor-tree-target="a1f8" type="button">🌳 Pohon Faktor</button></div><input id="a1f8" type="hidden"><div class="factor-dropzone" data-factor-drop="a1f8" tabindex="0" role="button" aria-label="Susun faktorisasi prima 8"><span class="drop-placeholder">Tarik / ketuk kartu ke sini</span></div><div class="factor-builder-foot"><span class="factor-product" data-factor-product="a1f8">Belum disusun</span><button class="factor-clear" data-factor-clear="a1f8" type="button">Hapus</button></div></div>
+              <div class="factor-builder" data-number="12" data-target="a1f12"><div class="factor-builder-head"><strong>12 =</strong><button class="factor-tree-btn" data-factor-tree-number="12" data-factor-tree-target="a1f12" type="button">🌳 Pohon Faktor</button></div><input id="a1f12" type="hidden"><div class="factor-dropzone" data-factor-drop="a1f12" tabindex="0" role="button" aria-label="Susun faktorisasi prima 12"><span class="drop-placeholder">Tarik / ketuk kartu ke sini</span></div><div class="factor-builder-foot"><span class="factor-product" data-factor-product="a1f12">Belum disusun</span><button class="factor-clear" data-factor-clear="a1f12" type="button">Hapus</button></div></div>
+              <label>KPK<input id="a1kpk812" type="number" inputmode="numeric"></label>
+            </div>
+            <div class="mini-question"><h3>KPK dari 10 dan 15</h3>
+              <div class="factor-builder" data-number="10" data-target="a1f10"><div class="factor-builder-head"><strong>10 =</strong><button class="factor-tree-btn" data-factor-tree-number="10" data-factor-tree-target="a1f10" type="button">🌳 Pohon Faktor</button></div><input id="a1f10" type="hidden"><div class="factor-dropzone" data-factor-drop="a1f10" tabindex="0" role="button" aria-label="Susun faktorisasi prima 10"><span class="drop-placeholder">Tarik / ketuk kartu ke sini</span></div><div class="factor-builder-foot"><span class="factor-product" data-factor-product="a1f10">Belum disusun</span><button class="factor-clear" data-factor-clear="a1f10" type="button">Hapus</button></div></div>
+              <div class="factor-builder" data-number="15" data-target="a1f15"><div class="factor-builder-head"><strong>15 =</strong><button class="factor-tree-btn" data-factor-tree-number="15" data-factor-tree-target="a1f15" type="button">🌳 Pohon Faktor</button></div><input id="a1f15" type="hidden"><div class="factor-dropzone" data-factor-drop="a1f15" tabindex="0" role="button" aria-label="Susun faktorisasi prima 15"><span class="drop-placeholder">Tarik / ketuk kartu ke sini</span></div><div class="factor-builder-foot"><span class="factor-product" data-factor-product="a1f15">Belum disusun</span><button class="factor-clear" data-factor-clear="a1f15" type="button">Hapus</button></div></div>
+              <label>KPK<input id="a1kpk1015" type="number" inputmode="numeric"></label>
+            </div>
+          </div>
           <button class="btn secondary" id="checkA1Prime" type="button">Periksa Faktorisasi</button><div class="feedback" id="a1PrimeFeedback"></div>
         </article>
 
@@ -253,10 +269,27 @@
         </article>
 
         <article class="learning-card reveal task-card">
-          <div class="section-heading"><div><span class="eyebrow">B. Daftar Faktor dan Faktorisasi Prima</span><h2>Tentukan FPB</h2></div><span class="task-badge">2/4</span></div>
+          <div class="section-heading"><div><span class="eyebrow">B. Daftar Faktor dan Faktorisasi Prima</span><h2>Tentukan FPB</h2><p class="section-help">Faktorisasi prima kini disusun dengan kartu. Gunakan pohon faktor jika ingin melihat bagaimana bilangan dipecah sampai menjadi faktor prima.</p></div><span class="task-badge">2/4</span></div>
+          <div class="factor-palette" data-factor-palette aria-label="Kartu faktor prima untuk Aktivitas 2">
+            <span class="palette-label">Kartu faktor:</span>
+            <button class="factor-drag-card" draggable="true" data-factor="2" type="button">2</button>
+            <button class="factor-drag-card" draggable="true" data-factor="2^2" type="button">2²</button>
+            <button class="factor-drag-card" draggable="true" data-factor="2^3" type="button">2³</button>
+            <button class="factor-drag-card" draggable="true" data-factor="3" type="button">3</button>
+            <button class="factor-drag-card" draggable="true" data-factor="3^2" type="button">3²</button>
+            <button class="factor-drag-card" draggable="true" data-factor="5" type="button">5</button>
+          </div>
           <div class="question-grid">
-            <div class="mini-question"><h3>FPB dari 24 dan 36</h3><label>24 = <input id="a2f24" placeholder="2³ × 3"></label><label>36 = <input id="a2f36" placeholder="2² × 3²"></label><label>Faktor 24<input id="a2list24" placeholder="1, 2, 3, ..."></label><label>Faktor 36<input id="a2list36" placeholder="1, 2, 3, ..."></label><label>FPB<input id="a2fpb2436" type="number"></label></div>
-            <div class="mini-question"><h3>FPB dari 18 dan 30</h3><label>18 = <input id="a2f18" placeholder="2 × 3²"></label><label>30 = <input id="a2f30" placeholder="2 × 3 × 5"></label><label>Faktor 18<input id="a2list18" placeholder="1, 2, 3, ..."></label><label>Faktor 30<input id="a2list30" placeholder="1, 2, 3, ..."></label><label>FPB<input id="a2fpb1830" type="number"></label></div>
+            <div class="mini-question"><h3>FPB dari 24 dan 36</h3>
+              <div class="factor-builder" data-number="24" data-target="a2f24"><div class="factor-builder-head"><strong>24 =</strong><button class="factor-tree-btn" data-factor-tree-number="24" data-factor-tree-target="a2f24" type="button">🌳 Pohon Faktor</button></div><input id="a2f24" type="hidden"><div class="factor-dropzone" data-factor-drop="a2f24" tabindex="0" role="button" aria-label="Susun faktorisasi prima 24"><span class="drop-placeholder">Tarik / ketuk kartu ke sini</span></div><div class="factor-builder-foot"><span class="factor-product" data-factor-product="a2f24">Belum disusun</span><button class="factor-clear" data-factor-clear="a2f24" type="button">Hapus</button></div></div>
+              <div class="factor-builder" data-number="36" data-target="a2f36"><div class="factor-builder-head"><strong>36 =</strong><button class="factor-tree-btn" data-factor-tree-number="36" data-factor-tree-target="a2f36" type="button">🌳 Pohon Faktor</button></div><input id="a2f36" type="hidden"><div class="factor-dropzone" data-factor-drop="a2f36" tabindex="0" role="button" aria-label="Susun faktorisasi prima 36"><span class="drop-placeholder">Tarik / ketuk kartu ke sini</span></div><div class="factor-builder-foot"><span class="factor-product" data-factor-product="a2f36">Belum disusun</span><button class="factor-clear" data-factor-clear="a2f36" type="button">Hapus</button></div></div>
+              <label>Faktor 24<input id="a2list24" placeholder="1, 2, 3, ..."></label><label>Faktor 36<input id="a2list36" placeholder="1, 2, 3, ..."></label><label>FPB<input id="a2fpb2436" type="number" inputmode="numeric"></label>
+            </div>
+            <div class="mini-question"><h3>FPB dari 18 dan 30</h3>
+              <div class="factor-builder" data-number="18" data-target="a2f18"><div class="factor-builder-head"><strong>18 =</strong><button class="factor-tree-btn" data-factor-tree-number="18" data-factor-tree-target="a2f18" type="button">🌳 Pohon Faktor</button></div><input id="a2f18" type="hidden"><div class="factor-dropzone" data-factor-drop="a2f18" tabindex="0" role="button" aria-label="Susun faktorisasi prima 18"><span class="drop-placeholder">Tarik / ketuk kartu ke sini</span></div><div class="factor-builder-foot"><span class="factor-product" data-factor-product="a2f18">Belum disusun</span><button class="factor-clear" data-factor-clear="a2f18" type="button">Hapus</button></div></div>
+              <div class="factor-builder" data-number="30" data-target="a2f30"><div class="factor-builder-head"><strong>30 =</strong><button class="factor-tree-btn" data-factor-tree-number="30" data-factor-tree-target="a2f30" type="button">🌳 Pohon Faktor</button></div><input id="a2f30" type="hidden"><div class="factor-dropzone" data-factor-drop="a2f30" tabindex="0" role="button" aria-label="Susun faktorisasi prima 30"><span class="drop-placeholder">Tarik / ketuk kartu ke sini</span></div><div class="factor-builder-foot"><span class="factor-product" data-factor-product="a2f30">Belum disusun</span><button class="factor-clear" data-factor-clear="a2f30" type="button">Hapus</button></div></div>
+              <label>Faktor 18<input id="a2list18" placeholder="1, 2, 3, ..."></label><label>Faktor 30<input id="a2list30" placeholder="1, 2, 3, ..."></label><label>FPB<input id="a2fpb1830" type="number" inputmode="numeric"></label>
+            </div>
           </div>
           <button class="btn secondary" id="checkA2Factors" type="button">Periksa Jawaban</button><div class="feedback" id="a2FactorsFeedback"></div>
         </article>
@@ -315,11 +348,24 @@
     <button type="button" id="mobileProgressBtn"><span>◔</span>Progress</button>
   </nav>
 
+  <div class="factor-tree-modal hidden" id="factorTreeModal" role="dialog" aria-modal="true" aria-labelledby="factorTreeTitle">
+    <div class="factor-tree-dialog">
+      <div class="factor-tree-toolbar">
+        <div><span class="eyebrow">POHON FAKTOR INTERAKTIF</span><h2 id="factorTreeTitle">Cari faktor prima</h2><p id="factorTreeInstruction">Pecah bilangan komposit menjadi dua faktor sampai semua ujungnya prima.</p></div>
+        <button class="icon-btn" id="closeFactorTree" type="button" aria-label="Tutup pohon faktor">✕</button>
+      </div>
+      <div class="factor-tree-workspace" id="factorTreeWorkspace"></div>
+      <div class="factor-tree-summary" id="factorTreeSummary" aria-live="polite"></div>
+      <div class="factor-tree-actions"><button class="btn ghost" id="resetFactorTree" type="button">↻ Ulangi Pohon</button><button class="btn primary" id="useFactorTreeResult" type="button" disabled>Masukkan ke Jawaban →</button></div>
+    </div>
+  </div>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
   <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
 
   <script src="js/progress.js" defer></script>
   <script src="js/navigation.js" defer></script>
+  <script src="js/factor-tools.js" defer></script>
   <script src="js/kpk.js" defer></script>
   <script src="js/fpb.js" defer></script>
   <script src="js/quiz.js" defer></script>

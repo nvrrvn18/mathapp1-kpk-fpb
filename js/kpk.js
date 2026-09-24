@@ -50,7 +50,7 @@
   }
   function checkPrime(){
     const ok=parseProduct($('a1f8').value)===8&&parseProduct($('a1f12').value)===12&&Number($('a1kpk812').value)===24&&parseProduct($('a1f10').value)===10&&parseProduct($('a1f15').value)===15&&Number($('a1kpk1015').value)===30;
-    feedback('a1PrimeFeedback',ok,ok?'✓ Faktorisasi dan KPK benar.':'Belum tepat. Pecah bilangan menjadi faktor prima, lalu ambil setiap faktor dengan pangkat terbesar.');
+    feedback('a1PrimeFeedback',ok,ok?'✓ Faktorisasi dan KPK benar.':'Belum tepat. Gunakan Pohon Faktor untuk menemukan faktor prima, susun kartunya, lalu ambil faktor dengan pangkat terbesar untuk KPK.');
     if(ok){LearnProgress.setFlag('activity1','prime');updateA1Flow();}
   }
   function checkBus(){
