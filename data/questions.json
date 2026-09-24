@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "category": "KPK",
+    "type": "multiple_choice",
+    "question": "Manakah di antara bilangan berikut yang merupakan kelipatan persekutuan dari 3 dan 4?",
+    "options": ["6", "8", "12", "15"],
+    "answer": 2,
+    "hint": "Kelipatan 3: 3, 6, 9, 12... dan Kelipatan 4: 4, 8, 12..."
+  },
+  {
+    "id": 2,
+    "category": "KPK",
+    "type": "number",
+    "question": "Berapakah Kelipatan Persekutuan Terkecil (KPK) dari 6 dan 8?",
+    "answer": 24,
+    "hint": "Gunakan kelipatan terbesar dari 6 dan 8."
+  },
+  {
+    "id": 3,
+    "category": "FPB",
+    "type": "multiple_choice",
+    "question": "Faktor persekutuan terbesar (FPB) dari 12 dan 18 adalah...",
+    "options": ["2", "3", "6", "12"],
+    "answer": 2,
+    "hint": "Faktor 12: 1, 2, 3, 4, 6, 12. Faktor 18: 1, 2, 3, 6, 9, 18."
+  },
+  {
+    "id": 4,
+    "category": "FPB",
+    "type": "number",
+    "question": "Tentukan FPB dari 20 dan 30!",
+    "answer": 10,
+    "hint": "Cari pembagi terbesar yang bisa membagi habis 20 dan 30."
+  },
+  {
+    "id": 5,
+    "category": "Concept",
+    "type": "multiple_choice",
+    "question": "Masalah jadwal ronda dua pos kamling setiap 4 hari dan 6 hari membutuhkan konsep...",
+    "options": ["KPK", "FPB", "Penjumlahan", "Pengurangan"],
+    "answer": 0,
+    "hint": "Masalah jadwal atau kejadian berulang membutuhkan KPK."
+  },
+  {
+    "id": 6,
+    "category": "Concept",
+    "type": "multiple_choice",
+    "question": "Membagi 15 roti dan 20 permen ke beberapa kantong dengan jumlah sama banyak menggunakan konsep...",
+    "options": ["KPK", "FPB", "Faktorial", "Perkalian"],
+    "answer": 1,
+    "hint": "Membagi barang sama banyak membutuhkan FPB."
+  },
+  {
+    "id": 7,
+    "category": "Story",
+    "type": "number",
+    "question": "Bus X berangkat setiap 10 menit dan Bus Y setiap 15 menit. Berapa menit sekali mereka berangkat bersamaan?",
+    "answer": 30,
+    "hint": "Cari KPK dari 10 dan 15."
+  },
+  {
+    "id": 8,
+    "category": "Story",
+    "type": "number",
+    "question": "Ibu memiliki 24 apel dan 36 jeruk. Berapa paket terbanyak yang dapat dibuat dengan isi sama banyak?",
+    "answer": 12,
+    "hint": "Cari FPB dari 24 dan 36."
+  },
+  {
+    "id": 9,
+    "category": "KPK",
+    "type": "number",
+    "question": "Faktorisasi prima suatu bilangan adalah 2² × 3 dan 2 × 3². KPK dari kedua bilangan tersebut adalah...",
+    "answer": 36,
+    "hint": "KPK = 2² × 3² = 4 × 9."
+  },
+  {
+    "id": 10,
+    "category": "FPB",
+    "type": "number",
+    "question": "Faktorisasi prima dari dua bilangan adalah 2³ × 5 dan 2² × 5². Berapakah FPB kedua bilangan tersebut?",
+    "answer": 20,
+    "hint": "Gunakan pangkat terkecil: 2² × 5 = 20."
+  }
+]
