@@ -1,628 +1,328 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Matematika Kelas VII - KPK dan FPB</title>
-    
-    <!-- Google Fonts & Font Awesome -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- CSS Modules -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    <link rel="stylesheet" href="css/animation.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#16365f" />
+  <meta name="description" content="Aplikasi pembelajaran interaktif Matematika Kelas VII tentang KPK dan FPB." />
+  <title>Matematika Kelas VII | KPK dan FPB</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animation.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
 </head>
 <body>
+  <a class="skip-link" href="#mainContent">Lewati ke materi</a>
 
-    <!-- Sticky Top Navigation -->
-    <header class="top-nav">
-        <div class="nav-container">
-            <div class="brand-logo">
-                <div class="icon-box"><i class="fas fa-book-open"></i></div>
-                <div class="brand-text">
-                    <h1>MATEMATIKA KELAS VII</h1>
-                    <p>Materi: KPK dan FPB</p>
-                </div>
-            </div>
+  <header class="topbar" id="topbar">
+    <a href="#landing" class="brand" data-nav="landing" aria-label="Kembali ke beranda">
+      <span class="brand-icon" aria-hidden="true">📘</span>
+      <span><strong>MATEMATIKA KELAS VII</strong><small>KPK dan FPB</small></span>
+    </a>
 
-            <div class="progress-bar-container">
-                <div class="progress-info">
-                    <span id="progress-step-name">Pertemuan 1</span>
-                    <span id="progress-percentage">0%</span>
-                </div>
-                <div class="track">
-                    <div id="progress-fill" style="width: 0%;"></div>
-                </div>
-            </div>
+    <div class="top-progress" aria-label="Progress pembelajaran">
+      <div class="stepper" id="topStepper"></div>
+      <div class="progress-track" aria-hidden="true"><span id="topProgressFill"></span></div>
+    </div>
 
-            <div class="nav-actions">
-                <button id="btn-sound" class="btn-icon" title="Efek Suara"><i class="fas fa-volume-up"></i></button>
-                <button id="btn-reset" class="btn-icon danger" title="Reset Progress"><i class="fas fa-rotate-right"></i></button>
-            </div>
+    <div class="top-actions">
+      <strong id="progressPercent">0%</strong>
+      <button class="icon-btn" id="soundToggle" type="button" title="Aktif/nonaktifkan suara" aria-label="Aktif/nonaktifkan suara">🔊</button>
+      <button class="icon-btn" id="fullscreenBtn" type="button" title="Layar penuh" aria-label="Layar penuh">⛶</button>
+    </div>
+  </header>
+
+  <main id="mainContent" tabindex="-1">
+    <section class="screen landing active" id="landing" data-screen="landing">
+      <div class="floating-symbol s1">×</div><div class="floating-symbol s2">÷</div><div class="floating-symbol s3">12</div>
+      <div class="hero container">
+        <div class="hero-copy fade-up">
+          <span class="eyebrow">Buku Belajar Digital Interaktif</span>
+          <h1>Belajar KPK dan FPB<br><span>Melalui Pola, Gambar, dan Masalah di Sekitar Kita</span></h1>
+          <p>Temukan bagaimana KPK dan FPB digunakan dalam kehidupan sehari-hari.</p>
+          <div class="hero-actions">
+            <button class="btn primary large" id="startBtn" type="button">Mulai Belajar <span>→</span></button>
+            <button class="btn ghost" id="resumeBtn" type="button">Lanjutkan Progress</button>
+          </div>
+          <div class="mini-stat"><span>💾</span><div><strong>Progress tersimpan otomatis</strong><small>Kamu bisa melanjutkan kapan saja di perangkat ini.</small></div></div>
         </div>
-    </header>
 
-    <!-- Main Content Container -->
-    <main class="main-wrapper" id="main-content">
-
-        <!-- ================= HALAMAN 0: LANDING PAGE ================= -->
-        <section id="modul-0" class="learning-module active">
-            <div class="hero-card">
-                <div class="floating-math-icon icon-1"><i class="fas fa-plus"></i></div>
-                <div class="floating-math-icon icon-2"><i class="fas fa-times"></i></div>
-                <div class="floating-math-icon icon-3"><i class="fas fa-divide"></i></div>
-
-                <div class="hero-badge"><i class="fas fa-graduation-cap"></i> Media Pembelajaran Interaktif</div>
-                <h1 class="hero-title">Belajar KPK dan FPB</h1>
-                <h2 class="hero-subtitle">Melalui Pola, Gambar, dan Masalah di Sekitar Kita</h2>
-                <p class="hero-desc">Temukan bagaimana Kelipatan Persekutuan Terkecil dan Faktor Persekutuan Terbesar digunakan dalam kehidupan sehari-hari.</p>
-
-                <div class="progression-roadmap">
-                    <div class="step-card active">
-                        <div class="step-num">1</div>
-                        <h3>Kenali KPK</h3>
-                        <p>Pertemuan 1</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-num">2</div>
-                        <h3>Latihan KPK</h3>
-                        <p>Aktivitas 1</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-num">3</div>
-                        <h3>Kenali FPB</h3>
-                        <p>Pertemuan 2</p>
-                    </div>
-                    <div class="step-card">
-                        <div class="step-num">4</div>
-                        <h3>Terapkan keduanya</h3>
-                        <p>Aktivitas 2 & Evaluasi</p>
-                    </div>
-                </div>
-
-                <button class="btn btn-primary btn-large" onclick="Navigation.startCourse()">
-                    Mulai Belajar <i class="fas fa-arrow-right"></i>
-                </button>
-            </div>
-        </section>
-
-        <!-- ================= HALAMAN 1: PERTEMUAN 1 (KPK) ================= -->
-        <section id="modul-1" class="learning-module">
-            <div class="module-header">
-                <span class="badge badge-blue">PERTEMUAN 1</span>
-                <h2>Kelipatan Persekutuan Terkecil (KPK)</h2>
-            </div>
-
-            <!-- SECTION A: TUJUAN -->
-            <div class="card card-accent-blue">
-                <h3><i class="fas fa-bullseye"></i> Tujuan Pembelajaran</h3>
-                <ul class="checklist">
-                    <li><i class="fas fa-check-circle"></i> Memahami konsep kelipatan suatu bilangan</li>
-                    <li><i class="fas fa-check-circle"></i> Menemukan kelipatan persekutuan</li>
-                    <li><i class="fas fa-check-circle"></i> Menentukan KPK menggunakan representasi visual</li>
-                    <li><i class="fas fa-check-circle"></i> Menghubungkan KPK dengan faktorisasi prima</li>
-                </ul>
-            </div>
-
-            <!-- SECTION B: MASALAH PEMANTIK (SIMULASI LAMPU) -->
-            <div class="card">
-                <h3><i class="fas fa-lightbulb icon-bulb"></i> Masalah Pemantik</h3>
-                <p class="problem-text">Lampu A berkedip setiap <strong>4 detik</strong>. Lampu B berkedip setiap <strong>6 detik</strong>. Keduanya berkedip bersama pada detik ke-0.<br><strong>Setelah berapa detik keduanya akan berkedip bersama lagi?</strong></p>
-
-                <div class="simulation-stage">
-                    <div class="timer-display">Waktu: <span id="lamp-timer">0</span> Detik</div>
-                    <div class="lamps-container">
-                        <div class="lamp-box">
-                            <div id="lamp-a" class="lamp lamp-blue"></div>
-                            <span>Lampu A (4s)</span>
-                        </div>
-                        <div class="lamp-box">
-                            <div id="lamp-b" class="lamp lamp-yellow"></div>
-                            <span>Lampu B (6s)</span>
-                        </div>
-                    </div>
-                    <button id="btn-start-lamp" class="btn btn-primary" onclick="KpkModule.runLampSimulation()">
-                        <i class="fas fa-play"></i> Mulai Simulasi
-                    </button>
-                    <div id="lamp-result" class="result-banner hidden">
-                        <p><i class="fas fa-star"></i> Pertemuan pertama terjadi pada detik ke-<strong>12</strong>!</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECTION C: GARIS BILANGAN -->
-            <div class="card">
-                <h3><i class="fas fa-chart-line"></i> Dari Pola ke KPK</h3>
-                <p>Amati lompatan kelipatan pada garis bilangan berikut:</p>
-
-                <div class="numberline-wrapper">
-                    <p class="line-label">Lampu A (+4):</p>
-                    <div id="numberline-a" class="numberline"></div>
-                    <p class="line-label">Lampu B (+6):</p>
-                    <div id="numberline-b" class="numberline"></div>
-                </div>
-
-                <div class="math-summary-box">
-                    <p><strong>Kelipatan 4:</strong> 4, 8, <mark class="hl-common">12</mark>, 16, 20, <mark class="hl-common">24</mark>, ...</p>
-                    <p><strong>Kelipatan 6:</strong> 6, <mark class="hl-common">12</mark>, 18, <mark class="hl-common">24</mark>, ...</p>
-                    <p><strong>Kelipatan Persekutuan:</strong> 12, 24, ...</p>
-                    <p class="summary-highlight">Kelipatan Persekutuan Terkecil = 12</p>
-                    <div class="kpk-badge">KPK (4, 6) = 12</div>
-                </div>
-            </div>
-
-            <!-- SECTION D: DEFINISI -->
-            <div class="card card-definition">
-                <div class="def-icon"><i class="fas fa-bookmark"></i></div>
-                <div class="def-content">
-                    <h4>Definisi KPK</h4>
-                    <p><strong>KPK</strong> adalah kelipatan persekutuan yang nilainya paling kecil di antara dua bilangan atau lebih.</p>
-                </div>
-            </div>
-
-            <!-- SECTION E: FAKTORISASI PRIMA -->
-            <div class="card">
-                <h3><i class="fas fa-sitemap"></i> KPK dengan Faktorisasi Prima</h3>
-                <p>Contoh: Tentukan KPK dari <strong>12</strong> dan <strong>18</strong>.</p>
-                
-                <div class="factor-grid">
-                    <div class="factor-box">
-                        <strong>12</strong> = 2² × 3
-                    </div>
-                    <div class="factor-box">
-                        <strong>18</strong> = 2 × 3²
-                    </div>
-                </div>
-
-                <div class="table-responsive">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Faktor Prima</th>
-                                <th>12</th>
-                                <th>18</th>
-                                <th>Pangkat Terbesar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2</td>
-                                <td>2²</td>
-                                <td>2¹</td>
-                                <td><span class="badge-tag">2²</span></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>3¹</td>
-                                <td>3²</td>
-                                <td><span class="badge-tag">3²</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="calculation-result">
-                    KPK = 2² × 3² = 4 × 9 = <strong>36</strong>
-                </div>
-            </div>
-
-            <!-- SECTION F: CONTOH TERBIMBING -->
-            <div class="card">
-                <h3><i class="fas fa-hands-helping"></i> Contoh Terbimbing: KPK dari 6 dan 8</h3>
-                
-                <div class="tab-container">
-                    <div class="tab-buttons">
-                        <button class="tab-btn active" onclick="KpkModule.switchTab(event, 'tab-kelipatan')">Metode Kelipatan</button>
-                        <button class="tab-btn" onclick="KpkModule.switchTab(event, 'tab-faktorisasi')">Metode Faktorisasi Prima</button>
-                    </div>
-
-                    <div id="tab-kelipatan" class="tab-content active">
-                        <p>Kelipatan 6: 6, 12, 18, <mark class="hl-common">24</mark>, 30, ...</p>
-                        <p>Kelipatan 8: 8, 16, <mark class="hl-common">24</mark>, 32, ...</p>
-                        <div class="math-res">KPK (6, 8) = <strong>24</strong></div>
-                    </div>
-
-                    <div id="tab-faktorisasi" class="tab-content">
-                        <p>6 = 2 × 3</p>
-                        <p>8 = 2³</p>
-                        <p>Ambil faktor dengan pangkat terbesar: 2³ dan 3</p>
-                        <div class="math-res">KPK = 2³ × 3 = 8 × 3 = <strong>24</strong></div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SECTION G: COBA PIKIRKAN -->
-            <div class="card card-quiz-prompt">
-                <h3><i class="fas fa-brain"></i> Coba Pikirkan!</h3>
-                <p>Dua alarm berbunyi setiap <strong>5 menit</strong> dan <strong>8 menit</strong>. Jika keduanya berbunyi bersama sekarang, setelah berapa menit keduanya akan berbunyi bersama lagi?</p>
-
-                <div class="interactive-input-group">
-                    <input type="number" id="quiz-p1-input" placeholder="Masukkan angka..." min="1">
-                    <span class="unit-text">menit</span>
-                    <button class="btn btn-secondary" onclick="KpkModule.checkP1Quiz()">Periksa Jawaban</button>
-                    <button class="btn btn-outline" onclick="KpkModule.toggleP1Hint()">Lihat Petunjuk</button>
-                </div>
-                
-                <p id="p1-hint" class="hint-text hidden"><i class="fas fa-info-circle"></i> Petunjuk: Carilah kelipatan persekutuan terkecil dari 5 dan 8.</p>
-                <div id="p1-feedback" class="feedback-box hidden"></div>
-            </div>
-        </section>
-
-        <!-- ================= HALAMAN 2: AKTIVITAS 1 (LKPD KPK) ================= -->
-        <section id="modul-2" class="learning-module">
-            <div class="module-header">
-                <span class="badge badge-green">AKTIVITAS 1</span>
-                <h2>Worksheet / LKPD: Menemukan KPK</h2>
-            </div>
-
-            <div class="flow-stepper">
-                <div class="flow-step done">AMATI</div>
-                <div class="flow-step active">LANJUTKAN POLA</div>
-                <div class="flow-step">TEMUKAN</div>
-                <div class="flow-step">HITUNG</div>
-                <div class="flow-step">TERAPKAN</div>
-            </div>
-
-            <!-- AKTIVITAS A: LOMPATAN -->
-            <div class="card">
-                <h3>A. Lanjutkan Lompatan Pola</h3>
-                <p>Isi titik-titik kosong pada pola garis kelipatan berikut:</p>
-
-                <div class="fill-pattern-group">
-                    <label>Pola (+4): 0 → 4 → </label>
-                    <input type="number" id="act1-pattern-1" class="inline-input"> → 
-                    <input type="number" id="act1-pattern-2" class="inline-input"> → 
-                    <span>20</span> → 
-                    <input type="number" id="act1-pattern-3" class="inline-input">
-                </div>
-
-                <div class="fill-pattern-group">
-                    <label>Pola (+6): 0 → 6 → </label>
-                    <input type="number" id="act1-pattern-4" class="inline-input"> → 
-                    <input type="number" id="act1-pattern-5" class="inline-input"> → 
-                    <span>24</span> → 
-                    <span>30</span>
-                </div>
-
-                <button class="btn btn-primary" onclick="KpkModule.checkActivity1A()">Periksa Pola</button>
-                <div id="act1a-feedback" class="feedback-box hidden"></div>
-            </div>
-
-            <!-- AKTIVITAS B: DAFTAR KELIPATAN -->
-            <div class="card">
-                <h3>B. Temukan KPK dengan Daftar Kelipatan</h3>
-                <div class="quiz-sub-item">
-                    <p><strong>Soal 1: KPK dari 3 dan 5</strong></p>
-                    <label>Kelipatan 3 (pisahkan dengan koma):</label>
-                    <input type="text" id="act1-b1-k3" placeholder="contoh: 3, 6, 9, 12, 15">
-                    <label>Kelipatan 5:</label>
-                    <input type="text" id="act1-b1-k5" placeholder="contoh: 5, 10, 15">
-                    <label>KPK (3, 5):</label>
-                    <input type="number" id="act1-b1-ans" class="inline-input">
-                </div>
-
-                <button class="btn btn-primary" onclick="KpkModule.checkActivity1B()">Periksa Jawaban</button>
-                <div id="act1b-feedback" class="feedback-box hidden"></div>
-            </div>
-
-            <!-- AKTIVITAS D: TERAPKAN -->
-            <div class="card">
-                <h3>C. Penerapan dalam Kehidupan Sehari-hari</h3>
-                <div class="story-problem">
-                    <div class="story-icon"><i class="fas fa-bus-alt"></i></div>
-                    <div>
-                        <p>Bus A datang setiap <strong>6 menit</strong> dan Bus B datang setiap <strong>8 menit</strong>. Jika keduanya datang bersama sekarang, setelah berapa menit keduanya akan datang bersama lagi?</p>
-                    </div>
-                </div>
-
-                <label>Tuliskan Strategi / Langkah Penyelesaianmu:</label>
-                <textarea id="act1-strategy" rows="3" placeholder="Contoh: Saya mencari kelipatan 6 dan 8..."></textarea>
-
-                <div class="interactive-input-group mt-2">
-                    <label>Jawaban Akhir:</label>
-                    <input type="number" id="act1-bus-ans" class="inline-input">
-                    <span class="unit-text">menit</span>
-                    <button class="btn btn-secondary" onclick="KpkModule.checkActivity1D()">Kirim Jawaban</button>
-                </div>
-                <div id="act1d-feedback" class="feedback-box hidden"></div>
-            </div>
-
-            <!-- REFLEKSI MINI -->
-            <div class="card card-accent-green">
-                <h3><i class="fas fa-pen-fancy"></i> Refleksi Mini</h3>
-                <p>Cara paling mudah yang saya gunakan untuk menemukan KPK adalah...</p>
-                <textarea id="act1-reflection" rows="2" placeholder="Tuliskan pendapatmu di sini..."></textarea>
-                <button class="btn btn-primary mt-2" onclick="KpkModule.completeActivity1()">Selesaikan Aktivitas 1</button>
-            </div>
-        </section>
-
-        <!-- ================= HALAMAN 3: PERTEMUAN 2 (FPB & HUBUNGAN) ================= -->
-        <section id="modul-3" class="learning-module">
-            <div class="module-header">
-                <span class="badge badge-orange">PERTEMUAN 2</span>
-                <h2>FPB dan Hubungan KPK-FPB</h2>
-            </div>
-
-            <!-- TUJUAN -->
-            <div class="card card-accent-orange">
-                <h3><i class="fas fa-bullseye"></i> Tujuan Pembelajaran</h3>
-                <ul class="checklist">
-                    <li><i class="fas fa-check-circle"></i> Memahami faktor dan faktor persekutuan</li>
-                    <li><i class="fas fa-check-circle"></i> Menentukan FPB secara visual</li>
-                    <li><i class="fas fa-check-circle"></i> Menentukan FPB dengan faktorisasi prima</li>
-                    <li><i class="fas fa-check-circle"></i> Membedakan penggunaan KPK dan FPB dalam soal cerita</li>
-                </ul>
-            </div>
-
-            <!-- MASALAH PEMANTIK -->
-            <div class="card">
-                <h3><i class="fas fa-apple-alt icon-fruit"></i> Masalah Pemantik</h3>
-                <p>Bu Rani memiliki <strong>12 jeruk</strong> dan <strong>18 apel</strong>. Semua buah akan dibagikan ke dalam beberapa paket yang isinya sama banyak untuk setiap jenis buah.<br><strong>Berapa paket terbanyak yang dapat dibuat?</strong></p>
-
-                <div class="fruit-group-visual">
-                    <div id="fruit-stage" class="fruit-stage">
-                        <!-- Rendered via JS -->
-                    </div>
-                    <button class="btn btn-primary" onclick="FpbModule.runFruitSimulation()">
-                        <i class="fas fa-boxes"></i> Coba Kelompokkan (6 Paket)
-                    </button>
-                    <div id="fruit-sim-result" class="result-banner hidden">
-                        <p>Setiap paket berisi: <strong>2 Jeruk</strong> dan <strong>3 Apel</strong>. Paket terbanyak adalah <strong>6</strong>.</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- DARI FAKTOR KE FPB -->
-            <div class="card">
-                <h3><i class="fas fa-list-ol"></i> Dari Faktor ke FPB</h3>
-                <p>Faktor 12: 1, 2, 3, 4, 6, 12</p>
-                <p>Faktor 18: 1, 2, 3, 6, 9, 18</p>
-                <div class="math-summary-box">
-                    <p>Faktor Persekutuan: <mark class="hl-common">1</mark>, <mark class="hl-common">2</mark>, <mark class="hl-common">3</mark>, <mark class="hl-common">6</mark></p>
-                    <p class="summary-highlight">Faktor Persekutuan Terbesar = 6</p>
-                    <div class="fpb-badge">FPB (12, 18) = 6</div>
-                </div>
-            </div>
-
-            <!-- FPB FAKTORISASI PRIMA -->
-            <div class="card">
-                <h3><i class="fas fa-sitemap"></i> FPB dengan Faktorisasi Prima</h3>
-                <p>12 = 2² × 3¹</p>
-                <p>18 = 2¹ × 3²</p>
-
-                <div class="table-responsive">
-                    <table class="data-table">
-                        <thead>
-                            <tr>
-                                <th>Faktor Prima</th>
-                                <th>12</th>
-                                <th>18</th>
-                                <th>Pangkat Terkecil</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>2</td>
-                                <td>2²</td>
-                                <td>2¹</td>
-                                <td><span class="badge-tag tag-purple">2¹</span></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>3¹</td>
-                                <td>3²</td>
-                                <td><span class="badge-tag tag-purple">3¹</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="calculation-result bg-purple">
-                    FPB = 2¹ × 3¹ = <strong>6</strong>
-                </div>
-                <div class="note-box"><i class="fas fa-sticky-note"></i> Catatan: Pada FPB, gunakan faktor prima yang sama dengan <strong>pangkat terkecil</strong>.</div>
-            </div>
-
-            <!-- HUBUNGAN KPK & FPB -->
-            <div class="card">
-                <h3><i class="fas fa-balance-scale"></i> Perbandingan KPK vs FPB</h3>
-                <div class="comparison-grid">
-                    <div class="concept-card card-kpk">
-                        <h4>KPK</h4>
-                        <p>Mencari waktu atau kejadian yang terjadi <strong>bersamaan atau berulang</strong>.</p>
-                        <small>Kata Kunci: Setiap sekali, bersama-sama lagi, jadwal.</small>
-                    </div>
-                    <div class="concept-card card-fpb">
-                        <h4>FPB</h4>
-                        <p>Membagi benda menjadi <strong>kelompok yang sama banyak</strong> dan sebanyak mungkin.</p>
-                        <small>Kata Kunci: Dibagi rata, paket terbanyak, sama banyak.</small>
-                    </div>
-                </div>
-            </div>
-
-            <!-- COBA PIKIRKAN -->
-            <div class="card card-quiz-prompt">
-                <h3><i class="fas fa-question-circle"></i> Coba Pikirkan!</h3>
-                <p>Apakah masalah membagikan 20 roti dan 30 kotak susu ke paket yang sama membutuhkan KPK atau FPB?</p>
-                <div class="toggle-options">
-                    <button id="p2-btn-kpk" class="btn btn-outline" onclick="FpbModule.selectP2Choice('KPK')">KPK</button>
-                    <button id="p2-btn-fpb" class="btn btn-outline" onclick="FpbModule.selectP2Choice('FPB')">FPB</button>
-                </div>
-                <div id="p2-explanation-box" class="hidden mt-2">
-                    <label>Jelaskan alasanmu:</label>
-                    <textarea id="p2-reason" rows="2" placeholder="Alasan memilih..."></textarea>
-                    <button class="btn btn-secondary mt-2" onclick="FpbModule.checkP2Quiz()">Kirim Alasan</button>
-                </div>
-                <div id="p2-feedback" class="feedback-box hidden"></div>
-            </div>
-        </section>
-
-        <!-- ================= HALAMAN 4: AKTIVITAS 2 (LKPD FPB & PENERAPAN) ================= -->
-        <section id="modul-4" class="learning-module">
-            <div class="module-header">
-                <span class="badge badge-purple">AKTIVITAS 2</span>
-                <h2>Worksheet: FPB dan Penerapan KPK-FPB</h2>
-            </div>
-
-            <!-- AKTIVITAS A: KELOMPOKKAN -->
-            <div class="card">
-                <h3>A. Kelompokkan Benda</h3>
-                <p>Tersedia <strong>12 pensil</strong> dan <strong>18 penghapus</strong>. Benda akan dibagikan ke beberapa paket dengan jumlah yang sama banyak.</p>
-
-                <div class="interactive-input-group">
-                    <label>Banyak paket terbanyak yang dapat dibuat:</label>
-                    <input type="number" id="act2-paket-ans" class="inline-input">
-                </div>
-                <div class="interactive-input-group mt-1">
-                    <label>Setiap paket berisi:</label>
-                    <input type="number" id="act2-pensil-ans" class="inline-input"> pensil dan 
-                    <input type="number" id="act2-penghapus-ans" class="inline-input"> penghapus
-                </div>
-                <button class="btn btn-primary mt-2" onclick="FpbModule.checkActivity2A()">Periksa Pembagian</button>
-                <div id="act2a-feedback" class="feedback-box hidden"></div>
-            </div>
-
-            <!-- AKTIVITAS C: KPK ATAU FPB TABLE -->
-            <div class="card">
-                <h3>B. Pilih Strategi: KPK atau FPB?</h3>
-                <div class="quiz-table">
-                    <div class="quiz-row">
-                        <p>1. Dua alarm berbunyi setiap 4 menit dan 10 menit. Kapan berbunyi bersama lagi?</p>
-                        <div class="btn-group">
-                            <button class="btn btn-sm btn-choice" onclick="FpbModule.answerStrategy(1, 'KPK', this)">KPK</button>
-                            <button class="btn btn-sm btn-choice" onclick="FpbModule.answerStrategy(1, 'FPB', this)">FPB</button>
-                        </div>
-                    </div>
-                    <div class="quiz-row">
-                        <p>2. 20 kue dan 30 permen akan dibagi ke paket yang sama banyak.</p>
-                        <div class="btn-group">
-                            <button class="btn btn-sm btn-choice" onclick="FpbModule.answerStrategy(2, 'KPK', this)">KPK</button>
-                            <button class="btn btn-sm btn-choice" onclick="FpbModule.answerStrategy(2, 'FPB', this)">FPB</button>
-                        </div>
-                    </div>
-                    <div class="quiz-row">
-                        <p>3. Dua petugas membersihkan papan pengumuman setiap 6 hari dan 9 hari. Kapan bekerja bersama lagi?</p>
-                        <div class="btn-group">
-                            <button class="btn btn-sm btn-choice" onclick="FpbModule.answerStrategy(3, 'KPK', this)">KPK</button>
-                            <button class="btn btn-sm btn-choice" onclick="FpbModule.answerStrategy(3, 'FPB', this)">FPB</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- AKTIVITAS D: TERAPKAN -->
-            <div class="card">
-                <h3>C. Selesaikan Masalah</h3>
-                <div class="problem-card">
-                    <h4><i class="fas fa-boxes"></i> Masalah FPB</h4>
-                    <p>Tersedia 24 botol minum dan 36 kotak makanan. Semua akan dibagikan ke paket yang sama. Berapa paket terbanyak yang dapat dibuat?</p>
-                    <div class="interactive-input-group">
-                        <input type="number" id="act2-problem-ans" class="inline-input">
-                        <span class="unit-text">paket</span>
-                        <button class="btn btn-secondary" onclick="FpbModule.checkActivity2D()">Periksa</button>
-                    </div>
-                    <div id="act2d-feedback" class="feedback-box hidden"></div>
-                </div>
-            </div>
-
-            <!-- REFLEKSI -->
-            <div class="card card-accent-green">
-                <h3><i class="fas fa-comment-dots"></i> Refleksi Akhir</h3>
-                <p>Bagaimana saya membedakan kapan menggunakan KPK dan kapan menggunakan FPB?</p>
-                <textarea id="act2-reflection" rows="2" placeholder="Tuliskan rangkumanmu..."></textarea>
-                <button class="btn btn-primary mt-2" onclick="FpbModule.completeActivity2()">Selesaikan Aktivitas 2 & Buka Evaluasi</button>
-            </div>
-        </section>
-
-        <!-- ================= HALAMAN 5: EVALUASI AKHIR ================= -->
-        <section id="modul-5" class="learning-module">
-            <div class="module-header">
-                <span class="badge badge-navy">EVALUASI AKHIR</span>
-                <h2>Uji Pemahaman KPK dan FPB</h2>
-            </div>
-
-            <div class="eval-progress">
-                <p>Soal <span id="quiz-current-num">1</span> dari <span id="quiz-total-num">10</span></p>
-                <div class="track">
-                    <div id="quiz-progress-fill" style="width: 10%;"></div>
-                </div>
-            </div>
-
-            <div id="quiz-card-container" class="card">
-                <!-- Question content dynamically rendered by quiz.js -->
-            </div>
-        </section>
-
-        <!-- ================= HALAMAN 6: HASIL BELAJAR ================= -->
-        <section id="modul-6" class="learning-module">
-            <div class="card result-card text-center">
-                <h2>HASIL BELAJAR</h2>
-                <div class="score-circle">
-                    <span id="final-score-val">0</span>
-                    <small>/ 100</small>
-                </div>
-                <h3 id="grade-label">Memuat...</h3>
-
-                <div class="mastery-breakdown">
-                    <div class="mastery-item">
-                        <span>Konsep KPK:</span>
-                        <strong id="m-kpk">Dikuasai</strong>
-                    </div>
-                    <div class="mastery-item">
-                        <span>Konsep FPB:</span>
-                        <strong id="m-fpb">Dikuasai</strong>
-                    </div>
-                    <div class="mastery-item">
-                        <span>Soal Cerita:</span>
-                        <strong id="m-story">Perlu Latihan</strong>
-                    </div>
-                </div>
-
-                <div class="result-actions">
-                    <button class="btn btn-secondary" onclick="QuizModule.restartQuiz()"><i class="fas fa-redo"></i> Ulangi Evaluasi</button>
-                    <button class="btn btn-primary" onclick="Navigation.goToModule(1)"><i class="fas fa-book-reader"></i> Pelajari Kembali Materi</button>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Bottom Fixed Navigation Controls -->
-    <footer class="bottom-nav">
-        <div class="nav-container">
-            <button id="btn-prev" class="btn btn-outline" onclick="Navigation.prevModule()">
-                <i class="fas fa-chevron-left"></i> Sebelumnya
-            </button>
-
-            <div class="module-indicators" id="module-dots">
-                <span class="dot active"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-                <span class="dot"></span>
-            </div>
-
-            <button id="btn-next" class="btn btn-primary" onclick="Navigation.nextModule()">
-                Lanjut <i class="fas fa-chevron-right"></i>
-            </button>
+        <div class="hero-visual fade-up delay-1" aria-label="Ilustrasi siswa belajar matematika">
+          <div class="student-scene">
+            <div class="math-card mc1">KPK = 12</div><div class="math-card mc2">FPB = 6</div>
+            <div class="student student-a"><span class="head">🙂</span><span class="body">👕</span></div>
+            <div class="student student-b"><span class="head">😊</span><span class="body">🧥</span></div>
+            <div class="desk">📚 ✏️</div>
+            <div class="board"><strong>4, 8, 12...</strong><span>6, 12, 18...</span></div>
+          </div>
         </div>
-    </footer>
+      </div>
 
-    <!-- Audio Effects -->
-    <audio id="sfx-success" src="https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3" preload="auto"></audio>
-    <audio id="sfx-error" src="https://assets.mixkit.co/active_storage/sfx/2003/2003-preview.mp3" preload="auto"></audio>
+      <div class="container stage-grid" id="landingStages">
+        <article class="stage-card fade-up delay-1"><span>1</span><div><strong>Kenali KPK</strong><small>Pola dan pertemuan</small></div></article>
+        <article class="stage-card fade-up delay-2"><span>2</span><div><strong>Latihan KPK</strong><small>Worksheet interaktif</small></div></article>
+        <article class="stage-card fade-up delay-3"><span>3</span><div><strong>Kenali FPB</strong><small>Faktor dan pembagian</small></div></article>
+        <article class="stage-card fade-up delay-4"><span>4</span><div><strong>Terapkan KPK & FPB</strong><small>Masalah sehari-hari</small></div></article>
+      </div>
 
-    <!-- JS Modules -->
-    <script src="js/progress.js"></script>
-    <script src="js/navigation.js"></script>
-    <script src="js/kpk.js"></script>
-    <script src="js/fpb.js"></script>
-    <script src="js/quiz.js"></script>
-    <script src="js/app.js"></script>
+      <div class="container dashboard-card">
+        <div class="section-heading compact"><div><span class="eyebrow">Progress Belajar</span><h2>Perjalananmu</h2></div><button class="text-btn danger" id="resetProgressBtn" type="button">Reset progress</button></div>
+        <div class="dashboard-progress" id="dashboardProgress"></div>
+      </div>
+    </section>
+
+    <section class="screen" id="meeting1" data-screen="meeting1">
+      <div class="container lesson-wrap">
+        <div class="module-banner blue">
+          <div><span class="eyebrow light">PERTEMUAN 1</span><h1>Kelipatan Persekutuan Terkecil (KPK)</h1><p>Mulai dari pola kejadian berulang, lalu temukan konsep KPK.</p></div>
+          <div class="banner-icon">🔁</div>
+        </div>
+
+        <article class="learning-card goal-card reveal">
+          <div class="card-icon">🎯</div><div><h2>Tujuan Pembelajaran</h2><p>Setelah belajar, kamu diharapkan dapat:</p>
+          <ul class="check-list"><li>Memahami konsep kelipatan</li><li>Menemukan kelipatan persekutuan</li><li>Menentukan KPK menggunakan representasi visual</li><li>Menghubungkan KPK dengan faktorisasi prima</li></ul></div>
+        </article>
+
+        <article class="learning-card reveal focus-card" id="lampSimulationCard">
+          <div class="section-heading"><div><span class="eyebrow">A. Masalah Pemantik</span><h2>Dua lampu, kapan menyala bersama?</h2></div><span class="pill">Simulasi</span></div>
+          <p class="lead">Lampu A berkedip setiap <strong>4 detik</strong>. Lampu B berkedip setiap <strong>6 detik</strong>. Keduanya berkedip bersama pada detik ke-0.</p>
+          <div class="lamp-sim">
+            <div class="lamp-unit"><div class="lamp blue-lamp" id="lampA"></div><strong>Lampu A</strong><small>setiap 4 detik</small></div>
+            <div class="timer-box"><small>Detik</small><strong id="lampTimer">0</strong><span id="lampStatus">Tekan mulai untuk mengamati pola.</span></div>
+            <div class="lamp-unit"><div class="lamp yellow-lamp" id="lampB"></div><strong>Lampu B</strong><small>setiap 6 detik</small></div>
+          </div>
+          <div class="center"><button class="btn primary" id="startLampSimulation" type="button">▶ Mulai Simulasi</button></div>
+          <div class="result-callout hidden" id="lampResult">💡 Pertemuan pertama terjadi pada detik ke-<strong>12</strong>.</div>
+        </article>
+
+        <article class="learning-card reveal" id="numberLineCard">
+          <div class="section-heading"><div><span class="eyebrow">B. Dari Pola ke KPK</span><h2>Lihat lompatan pada garis bilangan</h2></div></div>
+          <div class="numberline-block"><div class="numberline-title"><span class="dot blue"></span>Lampu A <small>lompatan +4</small></div><div class="numberline" id="lineFour"></div></div>
+          <div class="numberline-block"><div class="numberline-title"><span class="dot orange"></span>Lampu B <small>lompatan +6</small></div><div class="numberline" id="lineSix"></div></div>
+          <button class="btn secondary" id="animateNumberLines" type="button">Tampilkan Pola</button>
+          <div class="pattern-summary" id="patternSummary">
+            <p><strong>Kelipatan 4:</strong> 4, 8, <mark>12</mark>, 16, 20, 24, ...</p>
+            <p><strong>Kelipatan 6:</strong> 6, <mark>12</mark>, 18, 24, ...</p>
+            <p><strong>Kelipatan persekutuan:</strong> 12, 24, ...</p>
+            <div class="formula-box">KPK (4, 6) = <strong>12</strong></div>
+          </div>
+        </article>
+
+        <article class="definition-card reveal"><span>📖</span><div><small>Definisi KPK</small><h3>KPK adalah kelipatan persekutuan yang nilainya paling kecil dari dua bilangan atau lebih.</h3></div></article>
+
+        <article class="learning-card reveal">
+          <div class="section-heading"><div><span class="eyebrow">C. KPK dengan Faktorisasi Prima</span><h2>Contoh: KPK dari 12 dan 18</h2></div></div>
+          <div class="factor-cards"><div class="factor-eq">12 = <span>2²</span> × <span>3</span></div><div class="factor-eq">18 = <span>2</span> × <span>3²</span></div></div>
+          <div class="table-wrap"><table><thead><tr><th>Faktor Prima</th><th>12</th><th>18</th><th>Pangkat Terbesar</th></tr></thead><tbody><tr><td>2</td><td>2²</td><td>2¹</td><td class="highlight-cell">2²</td></tr><tr><td>3</td><td>3¹</td><td>3²</td><td class="highlight-cell">3²</td></tr></tbody></table></div>
+          <div class="formula-box success">KPK = 2² × 3² = <strong>36</strong></div>
+          <div class="multiples-check"><span>Kelipatan 12: 12, 24, <strong>36</strong>, ...</span><span>Kelipatan 18: 18, <strong>36</strong>, ...</span></div>
+        </article>
+
+        <article class="learning-card reveal">
+          <div class="section-heading"><div><span class="eyebrow">D. Contoh Terbimbing</span><h2>Tentukan KPK dari 6 dan 8</h2></div></div>
+          <div class="tabs" role="tablist"><button class="tab active" data-tab-target="guided-multiples" type="button">Menggunakan kelipatan</button><button class="tab" data-tab-target="guided-prime" type="button">Faktorisasi prima</button></div>
+          <div class="tab-panel active" id="guided-multiples"><p>Kelipatan 6: 6, 12, 18, <mark>24</mark>, ...</p><p>Kelipatan 8: 8, 16, <mark>24</mark>, ...</p><div class="formula-box">KPK = <strong>24</strong></div></div>
+          <div class="tab-panel" id="guided-prime"><p>6 = 2 × 3</p><p>8 = 2³</p><div class="formula-box">KPK = 2³ × 3 = <strong>24</strong></div></div>
+        </article>
+
+        <article class="learning-card reveal challenge-card">
+          <div class="section-heading"><div><span class="eyebrow">E. Coba Pikirkan</span><h2>Dua alarm berbunyi setiap 5 menit dan 8 menit</h2></div><span class="pill orange">Latihan</span></div>
+          <p>Jika keduanya berbunyi bersama sekarang, setelah berapa menit keduanya berbunyi bersama lagi?</p>
+          <div class="answer-row"><input id="alarmAnswer" type="number" inputmode="numeric" min="0" placeholder="Jawaban" aria-label="Jawaban dalam menit"><span>menit</span><button class="btn primary" id="checkAlarmAnswer" type="button">Periksa Jawaban</button></div>
+          <div class="button-row"><button class="text-btn" id="alarmHintBtn" type="button">💡 Lihat Petunjuk</button></div>
+          <div class="feedback" id="alarmFeedback" aria-live="polite"></div>
+        </article>
+
+        <div class="module-nav"><button class="btn ghost" data-go="landing" type="button">← Sebelumnya</button><button class="btn primary" id="meeting1Next" data-go="activity1" type="button" disabled>Lanjut ke Aktivitas 1 →</button></div>
+      </div>
+    </section>
+
+    <section class="screen" id="activity1" data-screen="activity1">
+      <div class="container lesson-wrap">
+        <div class="module-banner green"><div><span class="eyebrow light">AKTIVITAS 1</span><h1>Worksheet / LKPD: Menemukan KPK</h1><p>Amati pola, lengkapi lompatan, hitung, lalu terapkan.</p></div><div class="banner-icon">🧩</div></div>
+        <div class="activity-flow" id="activity1Flow"><span class="done">AMATI</span><b>→</b><span>LANJUTKAN POLA</span><b>→</b><span>TEMUKAN</span><b>→</b><span>HITUNG</span><b>→</b><span>TERAPKAN</span></div>
+
+        <article class="learning-card reveal task-card" data-a1-step="1">
+          <div class="section-heading"><div><span class="eyebrow">A. Lanjutkan Lompatan</span><h2>Isi angka yang hilang</h2></div><span class="task-badge">1/4</span></div>
+          <div class="jump-line"><strong>+4</strong><div class="jump-sequence" id="jumpFour"><span>0</span><span>4</span><input data-answer="8" aria-label="Angka setelah 4"><input data-answer="12" aria-label="Angka setelah 8"><span>16</span><span>20</span><input data-answer="24" aria-label="Angka setelah 20"><input data-answer="28" aria-label="Angka setelah 24"><span>32</span></div></div>
+          <div class="jump-line"><strong>+6</strong><div class="jump-sequence" id="jumpSix"><span>0</span><span>6</span><input data-answer="12" aria-label="Angka setelah 6"><input data-answer="18" aria-label="Angka setelah 12"><span>24</span><input data-answer="30" aria-label="Angka setelah 24"><span>36</span></div></div>
+          <button class="btn secondary check-group-btn" data-check-group="jump" type="button">Periksa Lompatan</button><div class="feedback" id="jumpFeedback"></div>
+        </article>
+
+        <article class="learning-card reveal task-card" data-a1-step="2">
+          <div class="section-heading"><div><span class="eyebrow">B. Temukan KPK dengan Daftar Kelipatan</span><h2>Lengkapi dua soal</h2></div><span class="task-badge">2/4</span></div>
+          <div class="question-grid">
+            <div class="mini-question"><h3>KPK dari 3 dan 5</h3><label>Kelipatan 3<input id="a1m3" placeholder="contoh: 3, 6, 9, ..."></label><label>Kelipatan 5<input id="a1m5" placeholder="contoh: 5, 10, 15, ..."></label><label>KPK (3,5)<input id="a1kpk35" type="number"></label></div>
+            <div class="mini-question"><h3>KPK dari 6 dan 9</h3><label>Kelipatan 6<input id="a1m6" placeholder="6, 12, ..."></label><label>Kelipatan 9<input id="a1m9" placeholder="9, 18, ..."></label><label>KPK (6,9)<input id="a1kpk69" type="number"></label></div>
+          </div>
+          <button class="btn secondary" id="checkA1Multiples" type="button">Periksa Jawaban</button><div class="feedback" id="a1MultiplesFeedback"></div>
+        </article>
+
+        <article class="learning-card reveal task-card" data-a1-step="3">
+          <div class="section-heading"><div><span class="eyebrow">C. Gunakan Faktorisasi Prima</span><h2>Pilih kartu faktor lalu hitung KPK</h2></div><span class="task-badge">3/4</span></div>
+          <div class="prime-task-grid">
+            <div class="mini-question"><h3>KPK dari 8 dan 12</h3><label>8 = <input id="a1f8" placeholder="2³"></label><label>12 = <input id="a1f12" placeholder="2² × 3"></label><label>KPK<input id="a1kpk812" type="number"></label></div>
+            <div class="mini-question"><h3>KPK dari 10 dan 15</h3><label>10 = <input id="a1f10" placeholder="2 × 5"></label><label>15 = <input id="a1f15" placeholder="3 × 5"></label><label>KPK<input id="a1kpk1015" type="number"></label></div>
+          </div>
+          <div class="prime-chip-row" aria-label="Kartu faktor prima"><button class="prime-chip" type="button">2</button><button class="prime-chip" type="button">2²</button><button class="prime-chip" type="button">2³</button><button class="prime-chip" type="button">3</button><button class="prime-chip" type="button">5</button></div>
+          <button class="btn secondary" id="checkA1Prime" type="button">Periksa Faktorisasi</button><div class="feedback" id="a1PrimeFeedback"></div>
+        </article>
+
+        <article class="learning-card reveal task-card" data-a1-step="4">
+          <div class="section-heading"><div><span class="eyebrow">D. Terapkan</span><h2>Jadwal dua bus</h2></div><span class="task-badge">4/4</span></div>
+          <div class="story-visual bus-visual"><span class="bus bus-a">🚌</span><div class="road"></div><span class="bus bus-b">🚌</span></div>
+          <p>Bus A datang setiap <strong>6 menit</strong> dan Bus B setiap <strong>8 menit</strong>. Jika keduanya datang bersama sekarang, setelah berapa menit keduanya akan datang bersama lagi?</p>
+          <label>Strategi / langkah penyelesaian<textarea id="a1Strategy" rows="3" placeholder="Tuliskan cara berpikirmu..."></textarea></label>
+          <div class="answer-row"><input id="a1BusAnswer" type="number" placeholder="Jawaban"><span>menit</span><button class="btn secondary" id="checkA1Bus" type="button">Periksa</button></div>
+          <div class="feedback" id="a1BusFeedback"></div>
+        </article>
+
+        <article class="learning-card reveal reflection-card"><div class="section-heading"><div><span class="eyebrow">Refleksi Mini</span><h2>Cara yang saya gunakan untuk menemukan KPK adalah ...</h2></div></div><textarea id="a1Reflection" rows="4" placeholder="Tuliskan refleksimu minimal satu kalimat..."></textarea><button class="btn primary" id="saveA1Reflection" type="button">Simpan Refleksi</button><div class="feedback" id="a1ReflectionFeedback"></div></article>
+
+        <div class="completion-card hidden" id="activity1Complete"><span class="completion-icon">🎉</span><h2>Aktivitas 1 Selesai!</h2><p>Pertemuan 2 sudah terbuka. Kamu siap belajar FPB.</p></div>
+        <div class="module-nav"><button class="btn ghost" data-go="meeting1" type="button">← Sebelumnya</button><button class="btn primary" id="activity1Next" data-go="meeting2" type="button" disabled>Lanjut ke Pertemuan 2 →</button></div>
+      </div>
+    </section>
+
+    <section class="screen" id="meeting2" data-screen="meeting2">
+      <div class="container lesson-wrap">
+        <div class="module-banner orange"><div><span class="eyebrow light">PERTEMUAN 2</span><h1>FPB dan Hubungan KPK-FPB</h1><p>Dari pembagian benda ke faktor persekutuan terbesar.</p></div><div class="banner-icon">🍊</div></div>
+
+        <article class="learning-card goal-card reveal"><div class="card-icon">🎯</div><div><h2>Tujuan Pembelajaran</h2><ul class="check-list"><li>Memahami faktor dan faktor persekutuan</li><li>Menentukan FPB secara visual</li><li>Menentukan FPB dengan faktorisasi prima</li><li>Membedakan penggunaan KPK dan FPB</li></ul></div></article>
+
+        <article class="learning-card reveal focus-card">
+          <div class="section-heading"><div><span class="eyebrow">A. Masalah Pemantik</span><h2>12 jeruk dan 18 apel</h2></div><span class="pill orange">Pictorial</span></div>
+          <p class="lead">Bu Rani memiliki <strong>12 jeruk</strong> dan <strong>18 apel</strong>. Semua buah akan dibagikan ke beberapa paket yang isinya sama banyak untuk setiap jenis buah. Berapa paket terbanyak?</p>
+          <div class="fruit-tray" id="fruitTray"><div><strong>12 jeruk</strong><div class="fruit-row" id="oranges"></div></div><div><strong>18 apel</strong><div class="fruit-row" id="apples"></div></div></div>
+          <div class="center"><button class="btn primary" id="groupFruitBtn" type="button">Coba Kelompokkan</button></div>
+          <div class="package-grid hidden" id="fruitPackages"></div>
+        </article>
+
+        <article class="learning-card reveal">
+          <div class="section-heading"><div><span class="eyebrow">B. Dari Faktor ke FPB</span><h2>Temukan faktor yang sama</h2></div></div>
+          <div class="factor-list-grid"><div><h3>Faktor 12</h3><div class="factor-number-row"><span>1</span><span>2</span><span>3</span><span>4</span><span>6</span><span>12</span></div></div><div><h3>Faktor 18</h3><div class="factor-number-row"><span>1</span><span>2</span><span>3</span><span>6</span><span>9</span><span>18</span></div></div></div>
+          <button class="btn secondary" id="highlightFactorsBtn" type="button">Sorot Faktor Persekutuan</button>
+          <div class="factor-common hidden" id="factorCommon">Faktor persekutuan: <strong>1, 2, 3, 6</strong><div class="formula-box success">FPB (12,18) = <strong>6</strong></div></div>
+        </article>
+
+        <article class="learning-card reveal">
+          <div class="section-heading"><div><span class="eyebrow">C. Pictorial Utama</span><h2>6 paket sama banyak</h2></div></div>
+          <div class="package-demo" id="packageDemo"></div><p class="center-note">Setiap paket berisi <strong>2 jeruk</strong> dan <strong>3 apel</strong>.</p>
+        </article>
+
+        <article class="learning-card reveal">
+          <div class="section-heading"><div><span class="eyebrow">D. FPB dengan Faktorisasi Prima</span><h2>Pilih pangkat terkecil yang sama</h2></div></div>
+          <div class="factor-cards"><div class="factor-eq">12 = <span>2²</span> × <span>3</span></div><div class="factor-eq">18 = <span>2</span> × <span>3²</span></div></div>
+          <div class="table-wrap"><table><thead><tr><th>Faktor Prima</th><th>12</th><th>18</th><th>Pangkat Terkecil</th></tr></thead><tbody><tr><td>2</td><td>2²</td><td>2¹</td><td class="highlight-cell">2¹</td></tr><tr><td>3</td><td>3¹</td><td>3²</td><td class="highlight-cell">3¹</td></tr></tbody></table></div>
+          <div class="formula-box success">FPB = 2 × 3 = <strong>6</strong></div><div class="note-box">💡 Pada FPB, gunakan faktor prima yang sama dengan pangkat terkecil.</div>
+        </article>
+
+        <article class="learning-card reveal">
+          <div class="section-heading"><div><span class="eyebrow">E. Hubungan KPK dan FPB</span><h2>Kapan menggunakan KPK atau FPB?</h2></div></div>
+          <div class="concept-compare"><div class="concept-card kpk"><span>🔁</span><h3>KPK</h3><p>Mencari waktu atau kejadian yang terjadi <strong>bersamaan atau berulang</strong>.</p><small>Alarm • jadwal bus • jadwal kegiatan</small></div><div class="concept-card fpb"><span>📦</span><h3>FPB</h3><p>Membagi sesuatu menjadi kelompok yang <strong>sama banyak dan sebanyak mungkin</strong>.</p><small>Buah • makanan • kelompok</small></div></div>
+          <div class="choice-challenge"><p><strong>KPK atau FPB?</strong> Pilih konsep yang tepat untuk tiap situasi.</p><div id="conceptCards"></div></div>
+        </article>
+
+        <article class="learning-card reveal challenge-card">
+          <div class="section-heading"><div><span class="eyebrow">F. Coba Pikirkan</span><h2>20 roti dan 30 kotak susu</h2></div></div>
+          <p>Keduanya akan dibagikan ke paket yang sama. Konsep apa yang dibutuhkan?</p>
+          <div class="choice-row" id="breadChoice"><button class="choice-btn" data-value="kpk" type="button">KPK</button><button class="choice-btn" data-value="fpb" type="button">FPB</button></div>
+          <label>Jelaskan alasanmu<textarea id="breadReason" rows="3" placeholder="Tuliskan alasan setelah memilih..."></textarea></label>
+          <button class="btn primary" id="checkBreadChoice" type="button">Periksa Pilihan</button><div class="feedback" id="breadFeedback"></div>
+        </article>
+
+        <div class="module-nav"><button class="btn ghost" data-go="activity1" type="button">← Sebelumnya</button><button class="btn primary" id="meeting2Next" data-go="activity2" type="button" disabled>Lanjut ke Aktivitas 2 →</button></div>
+      </div>
+    </section>
+
+    <section class="screen" id="activity2" data-screen="activity2">
+      <div class="container lesson-wrap">
+        <div class="module-banner purple"><div><span class="eyebrow light">AKTIVITAS 2</span><h1>Worksheet FPB dan Penerapan KPK-FPB</h1><p>Kelompokkan benda, pilih strategi, lalu terapkan pada masalah nyata.</p></div><div class="banner-icon">🧠</div></div>
+        <div class="activity-flow" id="activity2Flow"><span class="done">AMATI</span><b>→</b><span>KELOMPOKKAN</span><b>→</b><span>TENTUKAN</span><b>→</b><span>PILIH STRATEGI</span><b>→</b><span>TERAPKAN</span></div>
+
+        <article class="learning-card reveal task-card">
+          <div class="section-heading"><div><span class="eyebrow">A. Kelompokkan Benda</span><h2>12 pensil dan 18 penghapus</h2></div><span class="task-badge">1/4</span></div>
+          <p>Benda akan dibagikan ke beberapa paket dengan jumlah yang sama banyak. Coba beberapa pilihan paket.</p>
+          <div class="object-source"><span>✏️ ×12</span><span>🧽 ×18</span></div>
+          <div class="package-options" id="packageOptions"><button type="button" data-pack="2">2 paket</button><button type="button" data-pack="3">3 paket</button><button type="button" data-pack="4">4 paket</button><button type="button" data-pack="6">6 paket</button></div>
+          <div id="objectGrouping" class="object-grouping"></div>
+          <div class="three-inputs"><label>Paket terbanyak<input id="a2PackCount" type="number"></label><label>Pensil / paket<input id="a2PencilEach" type="number"></label><label>Penghapus / paket<input id="a2EraserEach" type="number"></label></div>
+          <button class="btn secondary" id="checkA2Grouping" type="button">Periksa Kelompok</button><div class="feedback" id="a2GroupingFeedback"></div>
+        </article>
+
+        <article class="learning-card reveal task-card">
+          <div class="section-heading"><div><span class="eyebrow">B. Daftar Faktor dan Faktorisasi Prima</span><h2>Tentukan FPB</h2></div><span class="task-badge">2/4</span></div>
+          <div class="question-grid">
+            <div class="mini-question"><h3>FPB dari 24 dan 36</h3><label>24 = <input id="a2f24" placeholder="2³ × 3"></label><label>36 = <input id="a2f36" placeholder="2² × 3²"></label><label>Faktor 24<input id="a2list24" placeholder="1, 2, 3, ..."></label><label>Faktor 36<input id="a2list36" placeholder="1, 2, 3, ..."></label><label>FPB<input id="a2fpb2436" type="number"></label></div>
+            <div class="mini-question"><h3>FPB dari 18 dan 30</h3><label>18 = <input id="a2f18" placeholder="2 × 3²"></label><label>30 = <input id="a2f30" placeholder="2 × 3 × 5"></label><label>Faktor 18<input id="a2list18" placeholder="1, 2, 3, ..."></label><label>Faktor 30<input id="a2list30" placeholder="1, 2, 3, ..."></label><label>FPB<input id="a2fpb1830" type="number"></label></div>
+          </div>
+          <button class="btn secondary" id="checkA2Factors" type="button">Periksa Jawaban</button><div class="feedback" id="a2FactorsFeedback"></div>
+        </article>
+
+        <article class="learning-card reveal task-card">
+          <div class="section-heading"><div><span class="eyebrow">C. KPK atau FPB?</span><h2>Pilih konsep yang tepat</h2></div><span class="task-badge">3/4</span></div>
+          <div id="strategyQuiz" class="strategy-quiz"></div><div class="feedback" id="strategyFeedback"></div>
+        </article>
+
+        <article class="learning-card reveal task-card">
+          <div class="section-heading"><div><span class="eyebrow">D. Terapkan</span><h2>Dua masalah, dua strategi</h2></div><span class="task-badge">4/4</span></div>
+          <div class="question-grid">
+            <div class="mini-question story-card"><span class="story-icon">🚌</span><h3>Masalah KPK</h3><p>Bus sekolah A datang setiap 8 menit dan bus sekolah B setiap 12 menit. Jika sekarang datang bersama, kapan mereka datang bersama lagi?</p><textarea id="a2BusStrategy" rows="3" placeholder="Strategi..."></textarea><label>Jawaban (menit)<input id="a2BusAnswer" type="number"></label></div>
+            <div class="mini-question story-card"><span class="story-icon">🥤</span><h3>Masalah FPB</h3><p>Tersedia 24 botol minum dan 36 kotak makanan. Semua dibagikan ke paket yang sama. Berapa paket terbanyak?</p><textarea id="a2PackStrategy" rows="3" placeholder="Strategi..."></textarea><label>Jawaban (paket)<input id="a2PackAnswer" type="number"></label></div>
+          </div>
+          <button class="btn secondary" id="checkA2Stories" type="button">Periksa Penerapan</button><div class="feedback" id="a2StoriesFeedback"></div>
+        </article>
+
+        <article class="learning-card reveal reflection-card"><div class="section-heading"><div><span class="eyebrow">E. Refleksi</span><h2>Bagaimana membedakan KPK dan FPB?</h2></div></div><textarea id="a2Reflection" rows="4" placeholder="Tuliskan dengan bahasamu sendiri..."></textarea><button class="btn primary" id="saveA2Reflection" type="button">Simpan Refleksi</button><div class="feedback" id="a2ReflectionFeedback"></div><div class="reflection-summary hidden" id="reflectionSummary"><div><strong>KPK</strong><p>Cari kapan sesuatu bertemu atau terjadi bersama kembali.</p></div><div><strong>FPB</strong><p>Cari jumlah kelompok terbanyak yang dapat dibuat sama banyak.</p></div></div></article>
+
+        <div class="completion-card hidden" id="activity2Complete"><span class="completion-icon">🏁</span><h2>Semua modul selesai!</h2><p>Evaluasi akhir sudah terbuka.</p></div>
+        <div class="module-nav"><button class="btn ghost" data-go="meeting2" type="button">← Sebelumnya</button><button class="btn primary" id="activity2Next" data-go="quiz" type="button" disabled>Mulai Evaluasi →</button></div>
+      </div>
+    </section>
+
+    <section class="screen" id="quiz" data-screen="quiz">
+      <div class="container quiz-container">
+        <div class="module-banner navy"><div><span class="eyebrow light">EVALUASI AKHIR</span><h1>Uji Pemahaman</h1><p>10 soal tampil satu per satu. Jawab berdasarkan pemahamanmu.</p></div><div class="banner-icon">📝</div></div>
+        <div class="quiz-shell" id="quizShell">
+          <div class="quiz-top"><div><span id="quizCounter">Soal 1 dari 10</span><small id="quizCategory">Konsep</small></div><strong id="quizLiveScore">0 benar</strong></div>
+          <div class="quiz-progress"><span id="quizProgressFill"></span></div>
+          <div id="quizQuestionArea"></div>
+          <div class="feedback" id="quizFeedback" aria-live="polite"></div>
+          <div class="quiz-actions"><button class="text-btn" id="quizHint" type="button">💡 Petunjuk</button><button class="btn primary" id="quizSubmit" type="button">Periksa Jawaban</button><button class="btn primary hidden" id="quizNext" type="button">Soal Berikutnya →</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen" id="result" data-screen="result">
+      <div class="container result-container">
+        <div class="result-card">
+          <span class="eyebrow">HASIL BELAJAR</span><h1 id="resultTitle">Hasil Evaluasi</h1>
+          <div class="score-circle"><strong id="finalScore">0</strong><span>/ 100</span></div>
+          <h2 id="scoreMessage">Terus berlatih</h2><p id="scoreDescription"></p>
+          <div class="mastery-grid" id="masteryGrid"></div>
+          <div class="result-actions"><button class="btn secondary" id="reviewMaterialBtn" type="button">Pelajari Kembali</button><button class="btn primary" id="retryQuizBtn" type="button">Ulangi Evaluasi</button><button class="btn ghost" data-go="landing" type="button">Kembali ke Beranda</button></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <nav class="bottom-nav" aria-label="Navigasi mobile">
+    <button type="button" data-go="landing"><span>⌂</span>Beranda</button>
+    <button type="button" data-go="meeting1"><span>📖</span>Materi</button>
+    <button type="button" data-go="activity1"><span>✍️</span>Aktivitas</button>
+    <button type="button" id="mobileProgressBtn"><span>◔</span>Progress</button>
+  </nav>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+
+  <script src="js/progress.js" defer></script>
+  <script src="js/navigation.js" defer></script>
+  <script src="js/kpk.js" defer></script>
+  <script src="js/fpb.js" defer></script>
+  <script src="js/quiz.js" defer></script>
+  <script src="js/app.js" defer></script>
 </body>
 </html>

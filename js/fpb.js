@@ -1,91 +1,37 @@
-const FpbModule = {
-    selectedP2Choice: null,
-
-    runFruitSimulation() {
-        const result = document.getElementById('fruit-sim-result');
-        result.classList.remove('hidden');
-        App.playAudio('success');
-        Navigation.unlockNext();
-    },
-
-    selectP2Choice(choice) {
-        this.selectedP2Choice = choice;
-        document.getElementById('p2-btn-kpk').className = choice === 'KPK' ? 'btn btn-primary' : 'btn btn-outline';
-        document.getElementById('p2-btn-fpb').className = choice === 'FPB' ? 'btn btn-primary' : 'btn btn-outline';
-        document.getElementById('p2-explanation-box').classList.remove('hidden');
-    },
-
-    checkP2Quiz() {
-        const feedback = document.getElementById('p2-feedback');
-        feedback.classList.remove('hidden');
-
-        if (this.selectedP2Choice === 'FPB') {
-            feedback.className = 'feedback-box correct';
-            feedback.innerHTML = 'Tepat sekali! Membagi barang menjadi paket sama rata menggunakan FPB.';
-            App.playAudio('success');
-            Navigation.unlockNext();
-        } else {
-            feedback.className = 'feedback-box incorrect';
-            feedback.innerHTML = 'Kurang tepat. Mengelompokkan barang sama rata membutuhkan FPB.';
-            App.playAudio('error');
-        }
-    },
-
-    checkActivity2A() {
-        const pkt = parseInt(document.getElementById('act2-paket-ans').value);
-        const pen = parseInt(document.getElementById('act2-pensil-ans').value);
-        const pgh = parseInt(document.getElementById('act2-penghapus-ans').value);
-
-        const feedback = document.getElementById('act2a-feedback');
-        feedback.classList.remove('hidden');
-
-        if (pkt === 6 && pen === 2 && pgh === 3) {
-            feedback.className = 'feedback-box correct';
-            feedback.innerHTML = 'Sangat baik! 6 paket berisi masing-masing 2 pensil dan 3 penghapus.';
-            App.playAudio('success');
-        } else {
-            feedback.className = 'feedback-box incorrect';
-            feedback.innerHTML = 'Hitungan paket atau isinya belum pas.';
-            App.playAudio('error');
-        }
-    },
-
-    answerStrategy(num, choice, btnEl) {
-        const parent = btnEl.parentElement;
-        parent.querySelectorAll('button').forEach(b => b.className = 'btn btn-sm btn-outline');
-        
-        const correctAnswers = { 1: 'KPK', 2: 'FPB', 3: 'KPK' };
-
-        if (choice === correctAnswers[num]) {
-            btnEl.className = 'btn btn-sm btn-primary';
-            App.playAudio('success');
-        } else {
-            btnEl.className = 'btn btn-sm btn-outline danger';
-            App.playAudio('error');
-        }
-    },
-
-    checkActivity2D() {
-        const ans = parseInt(document.getElementById('act2-problem-ans').value);
-        const feedback = document.getElementById('act2d-feedback');
-        feedback.classList.remove('hidden');
-
-        if (ans === 12) {
-            feedback.className = 'feedback-box correct';
-            feedback.innerHTML = 'Tepat! FPB(24, 36) = 12 paket.';
-            App.playAudio('success');
-        } else {
-            feedback.className = 'feedback-box incorrect';
-            feedback.innerHTML = 'Belum tepat. Cari faktor persekutuan terbesar dari 24 dan 36.';
-            App.playAudio('error');
-        }
-    },
-
-    completeActivity2() {
-        ProgressState.data.activity2Completed = true;
-        Navigation.unlockNext();
-        Navigation.goToModule(5);
-    }
-};
-
-window.FpbModule = FpbModule;
+(() => {
+  let initialized=false; const $=id=>document.getElementById(id);
+  const feedback=(id,ok,msg)=>{const el=$(id);if(!el)return;el.className='feedback '+(ok?'correct':'wrong');el.textContent=msg;};
+  const parseList=text=>[...new Set((text.match(/\d+/g)||[]).map(Number))].sort((a,b)=>a-b);
+  const sameList=(text,expected)=>{const a=parseList(text);return a.length===expected.length&&a.every((v,i)=>v===expected[i])};
+  function renderFruit(){if($('oranges'))$('oranges').innerHTML='🍊'.repeat(12);if($('apples'))$('apples').innerHTML='🍎'.repeat(18);renderPackageDemo();}
+  function renderPackageDemo(){const root=$('packageDemo');if(!root)return;root.innerHTML=Array.from({length:6},(_,i)=>`<div class="demo-package" style="animation-delay:${i*.07}s">📦<span>🍊🍊</span><span>🍎🍎🍎</span></div>`).join('');}
+  function groupFruit(){const root=$('fruitPackages');root.classList.remove('hidden');root.innerHTML=Array.from({length:6},(_,i)=>`<div class="fruit-package" style="animation-delay:${i*.08}s"><strong>Paket ${i+1}</strong><span>🍊🍊</span><span>🍎🍎🍎</span></div>`).join('');LearnProgress.setFlag('meeting2','grouped');}
+  function highlightFactors(){document.querySelectorAll('.factor-number-row span').forEach(el=>{if([1,2,3,6].includes(Number(el.textContent)))el.classList.add('common-factor')});$('factorCommon').classList.remove('hidden');LearnProgress.setFlag('meeting2','factors');}
+  const conceptItems=[
+    {q:'Dua alarm berbunyi setiap 4 dan 10 menit. Kapan bersama lagi?',a:'kpk'},
+    {q:'24 buku dibagi ke kelompok sama besar sebanyak mungkin.',a:'fpb'},
+    {q:'Dua jadwal kegiatan berulang setiap 6 dan 9 hari. Kapan bertemu lagi?',a:'kpk'}
+  ];
+  const conceptAnswers={};
+  function renderConceptQuiz(){const root=$('conceptCards');if(!root)return;root.innerHTML=conceptItems.map((it,i)=>`<div class="concept-question"><span>${it.q}</span><div class="choice-row"><button class="choice-btn" data-concept-index="${i}" data-value="kpk" type="button">KPK</button><button class="choice-btn" data-concept-index="${i}" data-value="fpb" type="button">FPB</button></div></div>`).join('');}
+  function handleConceptChoice(btn){const i=Number(btn.dataset.conceptIndex),value=btn.dataset.value;conceptAnswers[i]=value;document.querySelectorAll(`[data-concept-index="${i}"]`).forEach(b=>{b.classList.remove('selected','correct','wrong');if(b===btn)b.classList.add(value===conceptItems[i].a?'correct':'wrong')});if(Object.keys(conceptAnswers).length===conceptItems.length&&conceptItems.every((it,j)=>conceptAnswers[j]===it.a))LearnProgress.setFlag('meeting2','concepts');}
+  function breadChoice(){let selected=null;document.querySelectorAll('#breadChoice .choice-btn').forEach(btn=>btn.addEventListener('click',()=>{selected=btn.dataset.value;document.querySelectorAll('#breadChoice .choice-btn').forEach(b=>b.classList.toggle('selected',b===btn));$('breadChoice').dataset.selected=selected;}));$('checkBreadChoice')?.addEventListener('click',()=>{const value=$('breadChoice').dataset.selected,reason=$('breadReason').value.trim();if(!value){feedback('breadFeedback',false,'Pilih KPK atau FPB terlebih dahulu.');return;}const ok=value==='fpb'&&reason.length>=5;feedback('breadFeedback',ok,ok?'✓ Tepat. FPB digunakan karena kita mencari jumlah paket sama banyak yang paling banyak.':value!=='fpb'?'Coba pikirkan: masalah ini tentang membagi menjadi paket yang sama, bukan mencari waktu pertemuan.':'Pilihanmu tepat, tetapi tambahkan alasan singkat.');if(ok)LearnProgress.setFlag('meeting2','challenge');});}
+  function updateA2Flow(){const s=LearnProgress.get().activity2,keys=['grouping','factors','strategy','stories'];document.querySelectorAll('#activity2Flow span').forEach((el,i)=>{if(i===0||s[keys[i-1]])el.classList.add('done');else el.classList.remove('done')});if(s.completed){$('activity2Complete')?.classList.remove('hidden');$('activity2Next').disabled=false;}}
+  function renderObjectGrouping(pack){const root=$('objectGrouping');root.innerHTML='';for(let i=0;i<pack;i++){const pencil=12%pack===0?'✏️'.repeat(12/pack):'Tidak rata';const eraser=18%pack===0?'🧽'.repeat(18/pack):'Tidak rata';root.insertAdjacentHTML('beforeend',`<div class="object-pack"><strong>Paket ${i+1}</strong><div>${pencil}</div><div>${eraser}</div></div>`);}document.querySelectorAll('#packageOptions button').forEach(b=>b.classList.toggle('selected',Number(b.dataset.pack)===pack));}
+  function checkGrouping(){const ok=Number($('a2PackCount').value)===6&&Number($('a2PencilEach').value)===2&&Number($('a2EraserEach').value)===3;feedback('a2GroupingFeedback',ok,ok?'✓ Benar. 6 paket adalah jumlah terbanyak, masing-masing berisi 2 pensil dan 3 penghapus.':'Belum tepat. Cari jumlah paket terbesar yang membagi 12 dan 18 tanpa sisa.');if(ok){LearnProgress.setFlag('activity2','grouping');updateA2Flow();}}
+  function checkFactors(){const p=KPKModule.parseProduct;const ok=p($('a2f24').value)===24&&p($('a2f36').value)===36&&sameList($('a2list24').value,[1,2,3,4,6,8,12,24])&&sameList($('a2list36').value,[1,2,3,4,6,9,12,18,36])&&Number($('a2fpb2436').value)===12&&p($('a2f18').value)===18&&p($('a2f30').value)===30&&sameList($('a2list18').value,[1,2,3,6,9,18])&&sameList($('a2list30').value,[1,2,3,5,6,10,15,30])&&Number($('a2fpb1830').value)===6;feedback('a2FactorsFeedback',ok,ok?'✓ Faktor, faktorisasi prima, dan FPB sudah benar.':'Periksa lagi daftar seluruh faktor dan hasil FPB. Urutan faktor boleh ditulis dengan koma atau spasi.');if(ok){LearnProgress.setFlag('activity2','factors');updateA2Flow();}}
+  const strategies=[{q:'Dua alarm berbunyi setiap 4 menit dan 10 menit. Kapan berbunyi bersama lagi?',a:'KPK'},{q:'20 kue dan 30 permen dibagi ke paket yang sama banyak.',a:'FPB'},{q:'Dua petugas bekerja setiap 6 hari dan 9 hari. Kapan bekerja bersama lagi?',a:'KPK'}];
+  const strategyAnswers={};
+  function renderStrategyQuiz(){const root=$('strategyQuiz');root.innerHTML=strategies.map((s,i)=>`<div class="strategy-row"><span>${s.q}</span><div class="choice-row"><button class="choice-btn" data-strategy="${i}" data-value="KPK" type="button">KPK</button><button class="choice-btn" data-strategy="${i}" data-value="FPB" type="button">FPB</button></div></div>`).join('');}
+  function strategyClick(btn){const i=Number(btn.dataset.strategy),v=btn.dataset.value;strategyAnswers[i]=v;document.querySelectorAll(`[data-strategy="${i}"]`).forEach(b=>{b.classList.remove('correct','wrong','selected');if(b===btn)b.classList.add(v===strategies[i].a?'correct':'wrong')});const all=strategies.every((s,j)=>strategyAnswers[j]===s.a);feedback('strategyFeedback',all,all?'✓ Ketiga strategi sudah tepat.':'Gunakan KPK untuk kejadian berulang yang bertemu lagi, FPB untuk membagi sama banyak sebanyak mungkin.');if(all){LearnProgress.setFlag('activity2','strategy');updateA2Flow();}}
+  function checkStories(){const bus=Number($('a2BusAnswer').value),pack=Number($('a2PackAnswer').value),s1=$('a2BusStrategy').value.trim(),s2=$('a2PackStrategy').value.trim();const ok=bus===24&&pack===12&&s1.length>=5&&s2.length>=5;feedback('a2StoriesFeedback',ok,ok?'✓ Kedua masalah sudah diselesaikan dengan tepat.':bus!==24||pack!==12?'Periksa hasil: satu masalah mencari kejadian berulang, satu lagi mencari paket terbanyak.':'Jawaban angkanya tepat. Tambahkan strategi untuk kedua masalah.');if(ok){LearnProgress.setFlag('activity2','stories');updateA2Flow();}}
+  function saveReflection(){const ok=$('a2Reflection').value.trim().length>=10;feedback('a2ReflectionFeedback',ok,ok?'✓ Refleksi tersimpan. Ringkasan konsep ditampilkan di bawah.':'Tuliskan minimal satu kalimat yang menjelaskan perbedaan penggunaan KPK dan FPB.');if(ok){$('reflectionSummary').classList.remove('hidden');LearnProgress.setFlag('activity2','reflection');updateA2Flow();if(LearnProgress.get().activity2.completed)AppUtilities?.confetti?.();}}
+  function bind(){
+    renderFruit();renderConceptQuiz();renderStrategyQuiz();breadChoice();
+    $('groupFruitBtn')?.addEventListener('click',groupFruit);$('highlightFactorsBtn')?.addEventListener('click',highlightFactors);
+    document.addEventListener('click',e=>{const c=e.target.closest('[data-concept-index]');if(c)handleConceptChoice(c);const s=e.target.closest('[data-strategy]');if(s)strategyClick(s);const p=e.target.closest('#packageOptions [data-pack]');if(p)renderObjectGrouping(Number(p.dataset.pack));});
+    $('checkA2Grouping')?.addEventListener('click',checkGrouping);$('checkA2Factors')?.addEventListener('click',checkFactors);$('checkA2Stories')?.addEventListener('click',checkStories);$('saveA2Reflection')?.addEventListener('click',saveReflection);updateA2Flow();
+  }
+  function init(){if(initialized)return;initialized=true;bind();}
+  window.FPBModule={init,updateA2Flow};
+})();

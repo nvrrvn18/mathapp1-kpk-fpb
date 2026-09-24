@@ -1,86 +1,21 @@
 [
-  {
-    "id": 1,
-    "category": "KPK",
-    "type": "multiple_choice",
-    "question": "Manakah di antara bilangan berikut yang merupakan kelipatan persekutuan dari 3 dan 4?",
-    "options": ["6", "8", "12", "15"],
-    "answer": 2,
-    "hint": "Kelipatan 3: 3, 6, 9, 12... dan Kelipatan 4: 4, 8, 12..."
-  },
-  {
-    "id": 2,
-    "category": "KPK",
-    "type": "number",
-    "question": "Berapakah Kelipatan Persekutuan Terkecil (KPK) dari 6 dan 8?",
-    "answer": 24,
-    "hint": "Gunakan kelipatan terbesar dari 6 dan 8."
-  },
-  {
-    "id": 3,
-    "category": "FPB",
-    "type": "multiple_choice",
-    "question": "Faktor persekutuan terbesar (FPB) dari 12 dan 18 adalah...",
-    "options": ["2", "3", "6", "12"],
-    "answer": 2,
-    "hint": "Faktor 12: 1, 2, 3, 4, 6, 12. Faktor 18: 1, 2, 3, 6, 9, 18."
-  },
-  {
-    "id": 4,
-    "category": "FPB",
-    "type": "number",
-    "question": "Tentukan FPB dari 20 dan 30!",
-    "answer": 10,
-    "hint": "Cari pembagi terbesar yang bisa membagi habis 20 dan 30."
-  },
-  {
-    "id": 5,
-    "category": "Concept",
-    "type": "multiple_choice",
-    "question": "Masalah jadwal ronda dua pos kamling setiap 4 hari dan 6 hari membutuhkan konsep...",
-    "options": ["KPK", "FPB", "Penjumlahan", "Pengurangan"],
-    "answer": 0,
-    "hint": "Masalah jadwal atau kejadian berulang membutuhkan KPK."
-  },
-  {
-    "id": 6,
-    "category": "Concept",
-    "type": "multiple_choice",
-    "question": "Membagi 15 roti dan 20 permen ke beberapa kantong dengan jumlah sama banyak menggunakan konsep...",
-    "options": ["KPK", "FPB", "Faktorial", "Perkalian"],
-    "answer": 1,
-    "hint": "Membagi barang sama banyak membutuhkan FPB."
-  },
-  {
-    "id": 7,
-    "category": "Story",
-    "type": "number",
-    "question": "Bus X berangkat setiap 10 menit dan Bus Y setiap 15 menit. Berapa menit sekali mereka berangkat bersamaan?",
-    "answer": 30,
-    "hint": "Cari KPK dari 10 dan 15."
-  },
-  {
-    "id": 8,
-    "category": "Story",
-    "type": "number",
-    "question": "Ibu memiliki 24 apel dan 36 jeruk. Berapa paket terbanyak yang dapat dibuat dengan isi sama banyak?",
-    "answer": 12,
-    "hint": "Cari FPB dari 24 dan 36."
-  },
-  {
-    "id": 9,
-    "category": "KPK",
-    "type": "number",
-    "question": "Faktorisasi prima suatu bilangan adalah 2² × 3 dan 2 × 3². KPK dari kedua bilangan tersebut adalah...",
-    "answer": 36,
-    "hint": "KPK = 2² × 3² = 4 × 9."
-  },
-  {
-    "id": 10,
-    "category": "FPB",
-    "type": "number",
-    "question": "Faktorisasi prima dari dua bilangan adalah 2³ × 5 dan 2² × 5². Berapakah FPB kedua bilangan tersebut?",
-    "answer": 20,
-    "hint": "Gunakan pangkat terkecil: 2² × 5 = 20."
-  }
+  {"id":"konsep-1","category":"Konsep Kelipatan","type":"mcq","question":"Manakah yang merupakan kelipatan 6?","options":["14","18","25","32"],"answer":"18","hint":"Kelipatan 6 diperoleh dari 6 × 1, 6 × 2, 6 × 3, dan seterusnya.","explanation":"18 = 6 × 3, sehingga 18 merupakan kelipatan 6."},
+  {"id":"konsep-2","category":"Konsep Kelipatan","type":"truefalse","question":"Bilangan 24 merupakan kelipatan dari 8.","answer":true,"hint":"Coba cari hasil perkalian 8 dengan bilangan bulat positif.","explanation":"24 = 8 × 3."},
+  {"id":"konsep-3","category":"Konsep Kelipatan","type":"drag","question":"Susun tiga kelipatan positif pertama dari 4 dari yang terkecil.","options":[12,4,8],"answer":[4,8,12],"hint":"Mulai dari 4 × 1, lalu 4 × 2, lalu 4 × 3.","explanation":"Tiga kelipatan positif pertama 4 adalah 4, 8, dan 12."},
+
+  {"id":"kpk-1","category":"KPK","type":"number","question":"KPK dari 6 dan 8 adalah ...","answer":24,"hint":"Tuliskan kelipatan 6 dan 8 sampai menemukan angka pertama yang sama.","explanation":"Kelipatan persekutuan terkecil 6 dan 8 adalah 24."},
+  {"id":"kpk-2","category":"KPK","type":"mcq","question":"Jika 12 = 2² × 3 dan 18 = 2 × 3², bentuk faktorisasi prima KPK(12,18) adalah ...","options":["2 × 3","2² × 3","2 × 3²","2² × 3²"],"answer":"2² × 3²","hint":"Untuk KPK, ambil setiap faktor prima dengan pangkat terbesar.","explanation":"Pangkat terbesar untuk 2 adalah 2 dan untuk 3 adalah 2."},
+  {"id":"kpk-3","category":"KPK","type":"number","question":"KPK dari 9 dan 12 adalah ...","answer":36,"hint":"Kelipatan 9: 9, 18, 27, 36, ... Bandingkan dengan kelipatan 12.","explanation":"36 adalah kelipatan pertama yang sama dari 9 dan 12."},
+
+  {"id":"fpb-1","category":"FPB","type":"number","question":"FPB dari 24 dan 36 adalah ...","answer":12,"hint":"Cari faktor terbesar yang dapat membagi 24 dan 36 tanpa sisa.","explanation":"12 membagi 24 dan 36, dan tidak ada faktor persekutuan yang lebih besar."},
+  {"id":"fpb-2","category":"FPB","type":"mcq","question":"Untuk mencari FPB dengan faktorisasi prima, pangkat yang dipilih adalah ...","options":["Pangkat terbesar dari semua faktor","Pangkat terkecil dari faktor prima yang sama","Semua pangkat dijumlahkan","Hanya faktor prima terbesar"],"answer":"Pangkat terkecil dari faktor prima yang sama","hint":"Bandingkan kembali dengan contoh 12 dan 18.","explanation":"FPB memakai faktor prima yang sama dengan pangkat terkecil."},
+  {"id":"fpb-3","category":"FPB","type":"truefalse","question":"FPB dari 18 dan 30 adalah 6.","answer":true,"hint":"Faktor persekutuan 18 dan 30 antara lain 1, 2, 3, dan 6.","explanation":"Faktor persekutuan terbesar dari 18 dan 30 adalah 6."},
+
+  {"id":"pilih-1","category":"Pilih Strategi","type":"mcq","question":"Dua alarm berbunyi setiap 5 menit dan 8 menit. Untuk mencari kapan keduanya berbunyi bersama lagi, gunakan ...","options":["KPK","FPB"],"answer":"KPK","hint":"Masalah menanyakan dua kejadian berulang yang bertemu kembali.","explanation":"KPK digunakan untuk mencari waktu pertemuan kejadian berulang."},
+  {"id":"pilih-2","category":"Pilih Strategi","type":"mcq","question":"20 kue dan 30 permen akan dibagi ke paket sama banyak sebanyak mungkin. Gunakan ...","options":["KPK","FPB"],"answer":"FPB","hint":"Masalah menanyakan pembagian ke kelompok sama banyak sebanyak mungkin.","explanation":"FPB digunakan untuk menentukan jumlah kelompok sama banyak yang paling banyak."},
+  {"id":"pilih-3","category":"Pilih Strategi","type":"truefalse","question":"Masalah jadwal dua bus yang ingin diketahui kapan datang bersama lagi biasanya diselesaikan dengan FPB.","answer":false,"hint":"Pikirkan apakah masalah ini tentang membagi benda atau kejadian berulang.","explanation":"Jadwal berulang yang bertemu lagi menggunakan KPK, bukan FPB."},
+
+  {"id":"cerita-1","category":"Soal Cerita","type":"number","question":"Bus A datang setiap 8 menit dan Bus B setiap 12 menit. Jika sekarang datang bersama, berapa menit lagi keduanya datang bersama?","answer":24,"hint":"Cari KPK dari 8 dan 12.","explanation":"KPK(8,12) = 24 menit."},
+  {"id":"cerita-2","category":"Soal Cerita","type":"number","question":"Tersedia 24 botol minum dan 36 kotak makanan. Semuanya dibuat menjadi paket sama banyak. Berapa paket terbanyak yang dapat dibuat?","answer":12,"hint":"Cari FPB dari 24 dan 36.","explanation":"FPB(24,36) = 12 paket."},
+  {"id":"cerita-3","category":"Soal Cerita","type":"mcq","question":"Dua kegiatan berlangsung setiap 6 hari dan 9 hari. Jika hari ini bersamaan, setelah berapa hari keduanya bersamaan lagi?","options":["3 hari","9 hari","18 hari","54 hari"],"answer":"18 hari","hint":"Cari KPK dari 6 dan 9.","explanation":"KPK(6,9) = 18 hari."}
 ]
