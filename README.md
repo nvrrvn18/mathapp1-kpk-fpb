@@ -8,6 +8,8 @@ Aplikasi web pembelajaran interaktif berbasis **HTML5, CSS3, dan Vanilla JavaScr
 - Progress belajar tersimpan otomatis di `localStorage`.
 - Simulasi lampu untuk memahami KPK.
 - Garis bilangan dan pola kelipatan interaktif.
+- Interaksi touch-first: matching kartu angka, pilihan kartu, dan multi-select faktor/kelipatan menggantikan input teks.
+- Tidak ada textarea atau input angka yang harus diketik siswa; evaluasi numerik juga memakai kartu pilihan.
 - Faktorisasi prima tanpa mengetik pangkat: kartu faktor prima dapat di-drag-and-drop atau diketuk pada HP.
 - Pohon faktor interaktif: siswa memilih pasangan faktor sampai semua daun menjadi prima, lalu hasil dapat dimasukkan otomatis ke jawaban.
 - Visual pembagian buah/paket untuk memahami FPB.
@@ -28,6 +30,7 @@ css/
 js/
   app.js
   navigation.js
+  interactions.js
   factor-tools.js
   kpk.js
   fpb.js
@@ -72,7 +75,7 @@ Edit `data/questions.json`. Setiap soal memakai properti seperti:
   "type": "number",
   "question": "KPK dari 6 dan 8 adalah ...",
   "answer": 24,
-  "hint": "Tuliskan beberapa kelipatan dari 6 dan 8.",
+  "hint": "Bandingkan beberapa kelipatan dari 6 dan 8.",
   "explanation": "Kelipatan persekutuan terkecilnya adalah 24."
 }
 ```
@@ -82,6 +85,6 @@ Tipe yang tersedia: `mcq`, `number`, `truefalse`, dan `drag`.
 
 ## Interaksi faktorisasi prima
 
-Pada Aktivitas 1 dan Aktivitas 2, siswa tidak perlu mengetik simbol pangkat. Pilih kotak faktorisasi, lalu seret atau ketuk kartu seperti `2²`, `2³`, atau `3²`. Tombol **Pohon Faktor** memandu pemecahan bilangan komposit menjadi pasangan faktor sampai seluruh ujungnya merupakan bilangan prima. Setelah selesai, tombol **Masukkan ke Jawaban** mengubah daun pohon menjadi bentuk berpangkat secara otomatis.
+Pada Aktivitas 1 dan Aktivitas 2, siswa tidak perlu mengetik simbol pangkat. Di HP, ketuk kotak faktorisasi lalu ketuk kartu seperti `2²`, `2³`, atau `3²`. Di desktop, kartu juga dapat diseret. Tombol **Pohon Faktor** memandu pemecahan bilangan komposit menjadi pasangan faktor sampai seluruh ujungnya merupakan bilangan prima. Setelah selesai, tombol **Masukkan ke Jawaban** mengubah daun pohon menjadi bentuk berpangkat secara otomatis.
 
-Drag-and-drop menggunakan HTML5 Drag and Drop pada desktop. Untuk layar sentuh, tersedia fallback tap: ketuk kotak jawaban terlebih dahulu, lalu ketuk kartu faktor.
+Untuk layar sentuh, tap adalah interaksi utama. Drag-and-drop HTML5 tetap tersedia pada desktop. Target sentuh dibuat besar dan layout utama berubah menjadi satu kolom pada layar HP.

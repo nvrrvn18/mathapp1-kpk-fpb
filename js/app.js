@@ -11,9 +11,8 @@
     document.getElementById('fullscreenBtn')?.addEventListener('click',async()=>{try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen();else await document.exitFullscreen();}catch{Navigation.toast('Mode layar penuh tidak didukung browser ini.')}});
     document.getElementById('resetProgressBtn')?.addEventListener('click',()=>{if(confirm('Reset seluruh progress, jawaban tersimpan, dan hasil evaluasi?')){LearnProgress.reset();updateLocks();Navigation.navigateTo('landing',true);Navigation.toast('Progress sudah direset.')}});
   }
-  function setupKeyboard(){document.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('#alarmAnswer'))document.getElementById('checkAlarmAnswer')?.click();});}
   async function init(){
-    Navigation.bindNavigation();Navigation.setupRevealObserver();FactorTools.init();KPKModule.init();FPBModule.init();await QuizModule.init();setupTabs();setupUtilities();setupKeyboard();updateLocks();
+    Navigation.bindNavigation();Navigation.setupRevealObserver();ChoiceUI.init();FactorTools.init();KPKModule.init();FPBModule.init();await QuizModule.init();setupTabs();setupUtilities();updateLocks();
     window.addEventListener('learning-progress-changed',updateLocks);
     document.querySelectorAll('.screen.active .reveal').forEach(x=>x.classList.add('visible'));
   }

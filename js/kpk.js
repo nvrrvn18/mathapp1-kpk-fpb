@@ -2,8 +2,6 @@
   let initialized=false;
   const $=id=>document.getElementById(id);
   const feedback=(id,ok,msg)=>{const el=$(id); if(!el)return; el.className='feedback '+(ok?'correct':'wrong'); el.textContent=msg;};
-  const numbers=text=>(text.match(/\d+/g)||[]).map(Number);
-  const hasMultiples=(text,base,count=3)=>{const vals=numbers(text);return vals.length>=count&&vals.slice(0,count).every(v=>v>0&&v%base===0)};
   function parseProduct(text){
     if(!text) return NaN;
     let s=String(text).toLowerCase().replace(/\s/g,'').replace(/×|x/g,'*').replace(/²/g,'^2').replace(/³/g,'^3');
@@ -38,35 +36,35 @@
     setTimeout(()=>LearnProgress.setFlag('meeting1','pattern'),Math.min(1600,pts.length*120));
   }
   function checkJump(){
-    const inputs=[...document.querySelectorAll('#jumpFour input,#jumpSix input')];let ok=true;
-    inputs.forEach(inp=>{const pass=Number(inp.value)===Number(inp.dataset.answer);inp.classList.toggle('valid',pass);inp.classList.toggle('invalid',!pass);ok&&=pass;});
-    feedback('jumpFeedback',ok,ok?'✓ Pola lompatanmu benar. Titik pertemuan pertama ada di 12.':'Belum tepat. Perhatikan besar lompatan +4 dan +6 dari angka sebelumnya.');
+    const slots=[...document.querySelectorAll('#jumpFour .number-slot,#jumpSix .number-slot')];let ok=true;
+    slots.forEach(slot=>{const pass=Number(slot.dataset.value)===Number(slot.dataset.answer);slot.classList.toggle('valid',pass);slot.classList.toggle('invalid',!pass);ok&&=pass;});
+    feedback('jumpFeedback',ok,ok?'✓ Semua kartu angka berada di tempat yang tepat. Titik pertemuan pertama ada di 12.':'Belum tepat. Ketuk kotak yang ingin diisi, lalu pilih kartu sesuai lompatan +4 atau +6.');
     if(ok){LearnProgress.setFlag('activity1','jump');updateA1Flow();}
   }
   function checkMultiples(){
-    const ok=hasMultiples($('a1m3').value,3)&&hasMultiples($('a1m5').value,5)&&Number($('a1kpk35').value)===15&&hasMultiples($('a1m6').value,6)&&hasMultiples($('a1m9').value,9)&&Number($('a1kpk69').value)===18;
-    feedback('a1MultiplesFeedback',ok,ok?'✓ Daftar kelipatan dan KPK sudah tepat.':'Periksa lagi: tulis sedikitnya tiga kelipatan yang benar, lalu pilih kelipatan persekutuan terkecil.');
+    const ok=ChoiceUI.sameValues('a1m3',[3,6,9,12,15])&&ChoiceUI.sameValues('a1m5',[5,10,15])&&Number(ChoiceUI.selectedValue('a1kpk35'))===15&&ChoiceUI.sameValues('a1m6',[6,12,18,24,30,36])&&ChoiceUI.sameValues('a1m9',[9,18,27,36])&&Number(ChoiceUI.selectedValue('a1kpk69'))===18;
+    feedback('a1MultiplesFeedback',ok,ok?'✓ Pilihan kelipatan dan KPK sudah tepat.':'Periksa lagi kartu yang dipilih. Sebuah kelipatan harus habis dibagi bilangan asal, lalu pilih kelipatan persekutuan yang paling kecil.');
     if(ok){LearnProgress.setFlag('activity1','multiples');updateA1Flow();}
   }
   function checkPrime(){
-    const ok=parseProduct($('a1f8').value)===8&&parseProduct($('a1f12').value)===12&&Number($('a1kpk812').value)===24&&parseProduct($('a1f10').value)===10&&parseProduct($('a1f15').value)===15&&Number($('a1kpk1015').value)===30;
-    feedback('a1PrimeFeedback',ok,ok?'✓ Faktorisasi dan KPK benar.':'Belum tepat. Gunakan Pohon Faktor untuk menemukan faktor prima, susun kartunya, lalu ambil faktor dengan pangkat terbesar untuk KPK.');
+    const ok=parseProduct($('a1f8').value)===8&&parseProduct($('a1f12').value)===12&&Number(ChoiceUI.selectedValue('a1kpk812'))===24&&parseProduct($('a1f10').value)===10&&parseProduct($('a1f15').value)===15&&Number(ChoiceUI.selectedValue('a1kpk1015'))===30;
+    feedback('a1PrimeFeedback',ok,ok?'✓ Faktorisasi dan pilihan KPK benar.':'Belum tepat. Gunakan Pohon Faktor, susun kartu faktor prima, lalu pilih KPK yang memakai pangkat terbesar.');
     if(ok){LearnProgress.setFlag('activity1','prime');updateA1Flow();}
   }
   function checkBus(){
-    const strategy=$('a1Strategy').value.trim(),answer=Number($('a1BusAnswer').value); const ok=strategy.length>=5&&answer===24;
-    feedback('a1BusFeedback',ok,ok?'✓ Benar. KPK dari 6 dan 8 adalah 24 menit.':answer!==24?'Belum tepat. Cari kelipatan pertama yang sama dari 6 dan 8.':'Tuliskan juga strategi atau langkah penyelesaianmu.');
+    const strategy=ChoiceUI.selectedValue('a1Strategy'),answer=Number(ChoiceUI.selectedValue('a1BusAnswer')); const ok=strategy==='multiples'&&answer===24;
+    feedback('a1BusFeedback',ok,ok?'✓ Benar. Ini kejadian berulang, jadi cari KPK. KPK dari 6 dan 8 adalah 24 menit.':strategy!=='multiples'?'Pilih strategi untuk kejadian berulang yang bertemu kembali.':'Strateginya sudah tepat. Periksa lagi pilihan waktunya.');
     if(ok){LearnProgress.setFlag('activity1','application');updateA1Flow();}
   }
   function saveReflection(){
-    const ok=$('a1Reflection').value.trim().length>=8;feedback('a1ReflectionFeedback',ok,ok?'✓ Refleksi tersimpan.':'Tuliskan setidaknya satu kalimat singkat tentang caramu menemukan KPK.');
+    const ok=!!ChoiceUI.selectedValue('a1Reflection');feedback('a1ReflectionFeedback',ok,ok?'✓ Pilihan refleksimu tersimpan.':'Pilih satu cara yang paling membantumu memahami KPK.');
     if(ok){LearnProgress.setFlag('activity1','reflection');updateA1Flow(); if(LearnProgress.get().activity1.completed) AppUtilities?.confetti?.();}
   }
   function bindMeeting1(){
     renderNumberLine('lineFour',4);renderNumberLine('lineSix',6);
     $('startLampSimulation')?.addEventListener('click',startLampSimulation);$('animateNumberLines')?.addEventListener('click',animateLines);
-    $('checkAlarmAnswer')?.addEventListener('click',()=>{const ok=Number($('alarmAnswer').value)===40;feedback('alarmFeedback',ok,ok?'✓ Benar! Kelipatan pertama yang sama dari 5 dan 8 adalah 40.':'Belum tepat. Coba tuliskan beberapa kelipatan dari 5 dan 8.');if(ok)LearnProgress.setFlag('meeting1','challenge');});
-    $('alarmHintBtn')?.addEventListener('click',()=>feedback('alarmFeedback',false,'Petunjuk: tulis 5, 10, 15, ... dan 8, 16, 24, ... sampai menemukan angka yang sama.'));
+    $('checkAlarmAnswer')?.addEventListener('click',()=>{const ok=Number(ChoiceUI.selectedValue('alarmChoices'))===40;feedback('alarmFeedback',ok,ok?'✓ Benar! Kelipatan pertama yang sama dari 5 dan 8 adalah 40.':'Belum tepat. Gunakan petunjuk untuk membandingkan kelipatan 5 dan 8.');if(ok)LearnProgress.setFlag('meeting1','challenge');});
+    $('alarmHintBtn')?.addEventListener('click',()=>feedback('alarmFeedback',false,'Petunjuk: bayangkan urutan 5, 10, 15, ... dan 8, 16, 24, ... lalu cari pertemuan pertamanya.'));
   }
   function bindActivity1(){
     document.querySelector('[data-check-group="jump"]')?.addEventListener('click',checkJump);$('checkA1Multiples')?.addEventListener('click',checkMultiples);$('checkA1Prime')?.addEventListener('click',checkPrime);$('checkA1Bus')?.addEventListener('click',checkBus);$('saveA1Reflection')?.addEventListener('click',saveReflection);

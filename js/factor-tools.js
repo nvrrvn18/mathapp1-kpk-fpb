@@ -56,7 +56,7 @@
     const tokens = getTokens(target);
     zone.innerHTML = '';
     if (!tokens.length) {
-      zone.innerHTML = '<span class="drop-placeholder">Tarik / ketuk kartu ke sini</span>';
+      zone.innerHTML = '<span class="drop-placeholder">Ketuk kartu untuk mengisi</span>';
     } else {
       tokens.forEach((token, index) => {
         const chip = document.createElement('button');

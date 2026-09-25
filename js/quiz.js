@@ -5,7 +5,7 @@
     {id:'konsep-1',category:'Konsep Kelipatan',type:'mcq',question:'Manakah yang merupakan kelipatan 6?',options:['14','18','25','32'],answer:'18',hint:'Kelipatan 6 diperoleh dari 6 × 1, 6 × 2, 6 × 3, dan seterusnya.',explanation:'18 = 6 × 3, sehingga 18 merupakan kelipatan 6.'},
     {id:'konsep-2',category:'Konsep Kelipatan',type:'truefalse',question:'Bilangan 24 merupakan kelipatan dari 8.',answer:true,hint:'Coba cari hasil perkalian 8 dengan bilangan bulat positif.',explanation:'24 = 8 × 3.'},
     {id:'konsep-3',category:'Konsep Kelipatan',type:'drag',question:'Susun tiga kelipatan positif pertama dari 4 dari yang terkecil.',options:[12,4,8],answer:[4,8,12],hint:'Mulai dari 4 × 1, lalu 4 × 2, lalu 4 × 3.',explanation:'Tiga kelipatan positif pertama 4 adalah 4, 8, dan 12.'},
-    {id:'kpk-1',category:'KPK',type:'number',question:'KPK dari 6 dan 8 adalah ...',answer:24,hint:'Tuliskan kelipatan 6 dan 8 sampai menemukan angka pertama yang sama.',explanation:'Kelipatan persekutuan terkecil 6 dan 8 adalah 24.'},
+    {id:'kpk-1',category:'KPK',type:'number',question:'KPK dari 6 dan 8 adalah ...',answer:24,hint:'Bandingkan kelipatan 6 dan 8 sampai menemukan angka pertama yang sama.',explanation:'Kelipatan persekutuan terkecil 6 dan 8 adalah 24.'},
     {id:'kpk-2',category:'KPK',type:'mcq',question:'Jika 12 = 2² × 3 dan 18 = 2 × 3², bentuk faktorisasi prima KPK(12,18) adalah ...',options:['2 × 3','2² × 3','2 × 3²','2² × 3²'],answer:'2² × 3²',hint:'Untuk KPK, ambil setiap faktor prima dengan pangkat terbesar.',explanation:'Pangkat terbesar untuk 2 adalah 2 dan untuk 3 adalah 2.'},
     {id:'kpk-3',category:'KPK',type:'number',question:'KPK dari 9 dan 12 adalah ...',answer:36,hint:'Kelipatan 9: 9, 18, 27, 36, ... Bandingkan dengan kelipatan 12.',explanation:'36 adalah kelipatan pertama yang sama dari 9 dan 12.'},
     {id:'fpb-1',category:'FPB',type:'number',question:'FPB dari 24 dan 36 adalah ...',answer:12,hint:'Cari faktor terbesar yang dapat membagi 24 dan 36 tanpa sisa.',explanation:'12 membagi 24 dan 36, dan tidak ada faktor persekutuan yang lebih besar.'},
@@ -19,6 +19,7 @@
     {id:'cerita-3',category:'Soal Cerita',type:'mcq',question:'Dua kegiatan berlangsung setiap 6 hari dan 9 hari. Jika hari ini bersamaan, setelah berapa hari keduanya bersamaan lagi?',options:['3 hari','9 hari','18 hari','54 hari'],answer:'18 hari',hint:'Cari KPK dari 6 dan 9.',explanation:'KPK(6,9) = 18 hari.'}
   ];
   const shuffle=a=>{const out=[...a];for(let i=out.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[out[i],out[j]]=[out[j],out[i]];}return out};
+  function numberChoices(answer){const a=Number(answer);const candidates=[a,Math.max(1,Math.round(a/2)),Math.max(1,a-6),a+6,a*2,a+12];const unique=[...new Set(candidates)].filter(n=>n>0);return shuffle(unique).slice(0,4).includes(a)?shuffle(unique.slice(0,4)):shuffle([a,...unique.filter(n=>n!==a).slice(0,3)]);}
   function chooseQuestions(){const categories=['Konsep Kelipatan','KPK','FPB','Pilih Strategi','Soal Cerita'];return shuffle(categories.flatMap(c=>shuffle(bank.filter(q=>q.category===c)).slice(0,2)));}
   async function loadBank(){try{const r=await fetch('data/questions.json',{cache:'no-store'});if(!r.ok)throw new Error();bank=await r.json();}catch{bank=fallback;}}
   function start(){if(!bank.length)bank=fallback;session={questions:chooseQuestions(),index:0,correct:0,answered:false,selected:null,dragOrder:[],category:{}};render();}
@@ -29,7 +30,7 @@
     const area=$('quizQuestionArea');let input='';
     if(q.type==='mcq') input=`<div class="quiz-option-list">${q.options.map(o=>`<button type="button" class="quiz-option" data-quiz-value="${String(o).replace(/"/g,'&quot;')}">${o}</button>`).join('')}</div>`;
     if(q.type==='truefalse') input=`<div class="true-false"><button type="button" class="quiz-option" data-quiz-value="true">Benar</button><button type="button" class="quiz-option" data-quiz-value="false">Salah</button></div>`;
-    if(q.type==='number') input=`<input class="quiz-input" id="quizNumberInput" type="number" inputmode="numeric" placeholder="Ketik jawaban angka">`;
+    if(q.type==='number') input=`<p class="tap-instruction">Ketuk jawaban angka yang tepat.</p><div class="quiz-number-grid">${numberChoices(q.answer).map(o=>`<button type="button" class="quiz-option number-option" data-quiz-value="${o}">${o}</button>`).join('')}</div>`;
     if(q.type==='drag') input=`<p>Seret atau ketuk angka sesuai urutan:</p><div class="sort-bank" id="sortBank">${q.options.map((o,i)=>`<button type="button" class="sort-chip" draggable="true" data-sort-value="${o}" data-sort-id="${i}">${o}</button>`).join('')}</div><p><strong>Urutanmu:</strong></p><div class="sort-target" id="sortTarget"></div><button type="button" class="text-btn" id="resetSort">Reset urutan</button>`;
     area.innerHTML=`<div class="quiz-question"><span class="eyebrow">${q.category}</span><h2>${q.question}</h2>${input}</div>`;
     $('quizFeedback').className='feedback';$('quizFeedback').textContent='';$('quizSubmit').classList.remove('hidden');$('quizNext').classList.add('hidden');bindQuestionControls();
@@ -41,7 +42,7 @@
     $('resetSort')?.addEventListener('click',()=>{session.dragOrder=[];render();});
   }
   function moveSort(btn){if(session.answered||btn.disabled)return;session.dragOrder.push(Number(btn.dataset.sortValue));btn.disabled=true;const clone=btn.cloneNode(true);clone.disabled=true;clone.classList.add('active');$('sortTarget').appendChild(clone);}
-  function readAnswer(q){if(q.type==='number')return Number($('quizNumberInput')?.value);if(q.type==='truefalse')return session.selected==='true'?true:session.selected==='false'?false:null;if(q.type==='drag')return session.dragOrder;return session.selected;}
+  function readAnswer(q){if(q.type==='number')return session.selected===null?null:Number(session.selected);if(q.type==='truefalse')return session.selected==='true'?true:session.selected==='false'?false:null;if(q.type==='drag')return session.dragOrder;return session.selected;}
   function isCorrect(q,answer){if(q.type==='drag')return Array.isArray(answer)&&answer.length===q.answer.length&&answer.every((v,i)=>v===q.answer[i]);return answer===q.answer;}
   function submit(){if(session.answered)return;const q=current(),answer=readAnswer(q);if(answer===null||answer===''||(Array.isArray(answer)&&answer.length!==q.answer.length)||Number.isNaN(answer)){Navigation.toast('Isi atau pilih jawaban terlebih dahulu.');return;}session.answered=true;const ok=isCorrect(q,answer);if(ok)session.correct++;session.category[q.category]??={correct:0,total:0};session.category[q.category].total++;if(ok)session.category[q.category].correct++;
     const fb=$('quizFeedback');fb.className='feedback '+(ok?'correct':'wrong');fb.textContent=(ok?'✓ Benar. ':'Belum tepat. ')+q.explanation;
