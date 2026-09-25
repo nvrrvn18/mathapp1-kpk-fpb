@@ -94,7 +94,7 @@
             <div class="lamp-unit"><div class="lamp yellow-lamp" id="lampB"></div><strong>Lampu B</strong><small>setiap 6 detik</small></div>
           </div>
           <div class="center"><button class="btn primary" id="startLampSimulation" type="button">▶ Mulai Simulasi</button></div>
-          <div class="result-callout hidden" id="lampResult">💡 Pertemuan pertama terjadi pada detik ke-<strong>12</strong>.</div>
+          <div class="result-callout hidden" id="lampResult">💡 Ternyata kedua lampu menyala bersama pada detik ke-<strong>12</strong> dan detik ke-<strong>24</strong>. Pertemuan pertama setelah detik ke-0 adalah detik ke-12.</div>
         </article>
 
         <article class="learning-card reveal" id="numberLineCard">
@@ -106,25 +106,45 @@
             <p><strong>Kelipatan 4:</strong> 4, 8, <mark>12</mark>, 16, 20, 24, ...</p>
             <p><strong>Kelipatan 6:</strong> 6, <mark>12</mark>, 18, 24, ...</p>
             <p><strong>Kelipatan persekutuan:</strong> 12, 24, ...</p>
+            <p class="kpk-smallest"><strong>Kelipatan Persekutuan Terkecil:</strong> <mark>12</mark></p>
             <div class="formula-box">KPK (4, 6) = <strong>12</strong></div>
           </div>
         </article>
 
         <article class="definition-card reveal"><span>📖</span><div><small>Definisi KPK</small><h3>KPK adalah kelipatan persekutuan yang nilainya paling kecil dari dua bilangan atau lebih.</h3></div></article>
 
-        <article class="learning-card reveal">
-          <div class="section-heading"><div><span class="eyebrow">C. KPK dengan Faktorisasi Prima</span><h2>Contoh: KPK dari 12 dan 18</h2></div></div>
-          <div class="factor-cards"><div class="factor-eq">12 = <span>2²</span> × <span>3</span></div><div class="factor-eq">18 = <span>2</span> × <span>3²</span></div></div>
-          <div class="table-wrap"><table><thead><tr><th>Faktor Prima</th><th>12</th><th>18</th><th>Pangkat Terbesar</th></tr></thead><tbody><tr><td>2</td><td>2²</td><td>2¹</td><td class="highlight-cell">2²</td></tr><tr><td>3</td><td>3¹</td><td>3²</td><td class="highlight-cell">3²</td></tr></tbody></table></div>
-          <div class="formula-box success">KPK = 2² × 3² = <strong>36</strong></div>
+        <article class="learning-card reveal" id="meeting1PrimeConcept">
+          <div class="section-heading"><div><span class="eyebrow">C. KPK dengan Faktorisasi Prima</span><h2>Pilih faktor prima dengan pangkat terbesar</h2></div></div>
+          <p class="section-help">Untuk KPK, lihat faktorisasi kedua bilangan. Untuk setiap faktor prima yang muncul, pilih <strong>pangkat terbesar</strong>.</p>
+          <div class="factor-cards prime-source-cards">
+            <div class="factor-eq">12 = <span>2²</span> × <span>3¹</span></div>
+            <div class="factor-eq">18 = <span>2¹</span> × <span>3²</span></div>
+          </div>
+          <div class="prime-compare-board">
+            <div class="prime-compare-row" data-prime-row="2"><strong>Faktor 2</strong><div class="tap-choice-group" id="m1Prime2"><button class="tap-choice" data-value="2^2" type="button">2² dari 12</button><button class="tap-choice" data-value="2" type="button">2¹ dari 18</button></div></div>
+            <div class="prime-compare-row" data-prime-row="3"><strong>Faktor 3</strong><div class="tap-choice-group" id="m1Prime3"><button class="tap-choice" data-value="3" type="button">3¹ dari 12</button><button class="tap-choice" data-value="3^2" type="button">3² dari 18</button></div></div>
+          </div>
+          <button class="btn secondary mobile-full" id="checkMeeting1PrimeConcept" type="button">Periksa Pilihan</button>
+          <div class="feedback" id="meeting1PrimeFeedback"></div>
+          <div class="auto-product hidden" id="meeting1PrimeResult"><span>Faktor terpilih</span><strong>2² × 3² = 36</strong><small>Jadi, KPK (12,18) = 36.</small></div>
           <div class="multiples-check"><span>Kelipatan 12: 12, 24, <strong>36</strong>, ...</span><span>Kelipatan 18: 18, <strong>36</strong>, ...</span></div>
         </article>
 
         <article class="learning-card reveal">
-          <div class="section-heading"><div><span class="eyebrow">D. Contoh Terbimbing</span><h2>Tentukan KPK dari 6 dan 8</h2></div></div>
-          <div class="tabs" role="tablist"><button class="tab active" data-tab-target="guided-multiples" type="button">Menggunakan kelipatan</button><button class="tab" data-tab-target="guided-prime" type="button">Faktorisasi prima</button></div>
-          <div class="tab-panel active" id="guided-multiples"><p>Kelipatan 6: 6, 12, 18, <mark>24</mark>, ...</p><p>Kelipatan 8: 8, 16, <mark>24</mark>, ...</p><div class="formula-box">KPK = <strong>24</strong></div></div>
-          <div class="tab-panel" id="guided-prime"><p>6 = 2 × 3</p><p>8 = 2³</p><div class="formula-box">KPK = 2³ × 3 = <strong>24</strong></div></div>
+          <div class="section-heading"><div><span class="eyebrow">D. Contoh Terbimbing</span><h2>Bandingkan pangkat dan faktor prima lain</h2></div></div>
+          <div class="guided-example-card">
+            <span class="example-label">Contoh 1</span><h3>KPK dari 6 dan 8</h3>
+            <p>6 = 2¹ × 3 &nbsp; dan &nbsp; 8 = 2³</p>
+            <div class="prime-choice-explain"><span class="prime-kept">2³</span><span class="prime-kept">3</span></div>
+            <div class="formula-box">KPK = 2³ × 3 = <strong>24</strong></div>
+          </div>
+          <div class="guided-example-card extra-prime-example">
+            <span class="example-label">Contoh 2</span><h3>KPK dari 40 dan 28</h3>
+            <p>40 = <strong>2³</strong> × <strong>5</strong></p><p>28 = 2² × <strong>7</strong></p>
+            <p class="section-help">Faktor 2 muncul dengan pangkat berbeda. Pilih 2³ karena pangkatnya lebih besar. Faktor 5 dan 7 hanya muncul pada salah satu bilangan, jadi keduanya tetap digunakan.</p>
+            <div class="prime-choice-explain"><span class="prime-kept">2³</span><span class="prime-kept">5</span><span class="prime-kept">7</span></div>
+            <div class="formula-box success">KPK = 2³ × 5 × 7 = <strong>280</strong></div>
+          </div>
         </article>
 
         <article class="learning-card reveal challenge-card">
@@ -147,58 +167,46 @@
 
     <section class="screen" id="activity1" data-screen="activity1">
       <div class="container lesson-wrap">
-        <div class="module-banner green"><div><span class="eyebrow light">AKTIVITAS 1</span><h1>Worksheet / LKPD: Menemukan KPK</h1><p>Amati pola, lengkapi lompatan, hitung, lalu terapkan.</p></div><div class="banner-icon">🧩</div></div>
-        <div class="activity-flow" id="activity1Flow"><span class="done">AMATI</span><b>→</b><span>LANJUTKAN POLA</span><b>→</b><span>TEMUKAN</span><b>→</b><span>HITUNG</span><b>→</b><span>TERAPKAN</span></div>
+        <div class="module-banner green"><div><span class="eyebrow light">AKTIVITAS 1</span><h1>Worksheet / LKPD: Menemukan KPK</h1><p>Lanjutkan kelipatan, gunakan pohon faktor, pilih pangkat terbesar, lalu terapkan.</p></div><div class="banner-icon">🧩</div></div>
+        <div class="activity-flow" id="activity1Flow"><span class="done">AMATI</span><b>→</b><span>LANJUTKAN KELIPATAN</span><b>→</b><span>TEMUKAN</span><b>→</b><span>POHON FAKTOR</span><b>→</b><span>TERAPKAN</span></div>
 
         <article class="learning-card reveal task-card" data-a1-step="1">
-          <div class="section-heading"><div><span class="eyebrow">A. Lanjutkan Lompatan</span><h2>Isi angka yang hilang</h2></div><span class="task-badge">1/4</span></div>
-          <div class="jump-line match-board" data-match-board="jump4"><strong>+4</strong><div class="jump-sequence" id="jumpFour"><span>0</span><span>4</span><button class="number-slot" data-answer="8" type="button" aria-label="Tempat angka setelah 4">?</button><button class="number-slot" data-answer="12" type="button" aria-label="Tempat angka setelah 8">?</button><span>16</span><span>20</span><button class="number-slot" data-answer="24" type="button" aria-label="Tempat angka setelah 20">?</button><button class="number-slot" data-answer="28" type="button" aria-label="Tempat angka setelah 24">?</button><span>32</span></div><div class="number-bank" aria-label="Kartu angka untuk lompatan empat"><button class="number-card" draggable="true" data-value="28" type="button">28</button><button class="number-card" draggable="true" data-value="8" type="button">8</button><button class="number-card" draggable="true" data-value="24" type="button">24</button><button class="number-card" draggable="true" data-value="12" type="button">12</button></div></div>
-          <div class="jump-line match-board" data-match-board="jump6"><strong>+6</strong><div class="jump-sequence" id="jumpSix"><span>0</span><span>6</span><button class="number-slot" data-answer="12" type="button" aria-label="Tempat angka setelah 6">?</button><button class="number-slot" data-answer="18" type="button" aria-label="Tempat angka setelah 12">?</button><span>24</span><button class="number-slot" data-answer="30" type="button" aria-label="Tempat angka setelah 24">?</button><span>36</span></div><div class="number-bank" aria-label="Kartu angka untuk lompatan enam"><button class="number-card" draggable="true" data-value="30" type="button">30</button><button class="number-card" draggable="true" data-value="12" type="button">12</button><button class="number-card" draggable="true" data-value="18" type="button">18</button></div></div>
-          <button class="btn secondary check-group-btn" data-check-group="jump" type="button">Periksa Lompatan</button><div class="feedback" id="jumpFeedback"></div>
+          <div class="section-heading"><div><span class="eyebrow">A. Lanjutkan Kelipatan</span><h2>Pilih angka yang melanjutkan pola kelipatan</h2></div><span class="task-badge">1/4</span></div>
+          <p class="tap-instruction">Ketuk semua angka yang benar. Tidak perlu mengetik.</p>
+          <div class="question-grid">
+            <div class="mini-question"><h3>4, 8, ...</h3><div class="multi-select-grid sequence-pick-grid" id="a1Continue4" data-multi-select><button class="select-chip" data-value="10" type="button">10</button><button class="select-chip" data-value="12" type="button">12</button><button class="select-chip" data-value="16" type="button">16</button><button class="select-chip" data-value="18" type="button">18</button><button class="select-chip" data-value="20" type="button">20</button><button class="select-chip" data-value="24" type="button">24</button></div><small class="sequence-hint">Lanjutkan dengan menambah 4.</small></div>
+            <div class="mini-question"><h3>6, 12, ...</h3><div class="multi-select-grid sequence-pick-grid" id="a1Continue6" data-multi-select><button class="select-chip" data-value="14" type="button">14</button><button class="select-chip" data-value="18" type="button">18</button><button class="select-chip" data-value="20" type="button">20</button><button class="select-chip" data-value="24" type="button">24</button><button class="select-chip" data-value="30" type="button">30</button><button class="select-chip" data-value="32" type="button">32</button></div><small class="sequence-hint">Lanjutkan dengan menambah 6.</small></div>
+          </div>
+          <button class="btn secondary mobile-full" data-check-group="jump" type="button">Periksa Kelipatan</button><div class="feedback" id="jumpFeedback"></div>
         </article>
 
         <article class="learning-card reveal task-card" data-a1-step="2">
-          <div class="section-heading"><div><span class="eyebrow">B. Temukan KPK dengan Daftar Kelipatan</span><h2>Lengkapi dua soal</h2></div><span class="task-badge">2/4</span></div>
-          <div class="question-grid">
-            <div class="mini-question"><h3>KPK dari 3 dan 5</h3><p class="tap-instruction">Ketuk semua angka yang merupakan kelipatan.</p><div class="pick-block"><strong>Kelipatan 3</strong><div class="multi-select-grid" id="a1m3" data-multi-select><button class="select-chip" data-value="3" type="button">3</button><button class="select-chip" data-value="5" type="button">5</button><button class="select-chip" data-value="6" type="button">6</button><button class="select-chip" data-value="9" type="button">9</button><button class="select-chip" data-value="10" type="button">10</button><button class="select-chip" data-value="12" type="button">12</button><button class="select-chip" data-value="15" type="button">15</button></div></div><div class="pick-block"><strong>Kelipatan 5</strong><div class="multi-select-grid" id="a1m5" data-multi-select><button class="select-chip" data-value="3" type="button">3</button><button class="select-chip" data-value="5" type="button">5</button><button class="select-chip" data-value="6" type="button">6</button><button class="select-chip" data-value="10" type="button">10</button><button class="select-chip" data-value="12" type="button">12</button><button class="select-chip" data-value="15" type="button">15</button></div></div><div class="pick-block"><strong>KPK (3,5)</strong><div class="tap-choice-group" id="a1kpk35"><button class="tap-choice" data-value="10" type="button">10</button><button class="tap-choice" data-value="15" type="button">15</button><button class="tap-choice" data-value="30" type="button">30</button></div></div></div>
-            <div class="mini-question"><h3>KPK dari 6 dan 9</h3><p class="tap-instruction">Ketuk semua angka yang merupakan kelipatan.</p><div class="pick-block"><strong>Kelipatan 6</strong><div class="multi-select-grid" id="a1m6" data-multi-select><button class="select-chip" data-value="6" type="button">6</button><button class="select-chip" data-value="9" type="button">9</button><button class="select-chip" data-value="12" type="button">12</button><button class="select-chip" data-value="18" type="button">18</button><button class="select-chip" data-value="24" type="button">24</button><button class="select-chip" data-value="27" type="button">27</button><button class="select-chip" data-value="30" type="button">30</button><button class="select-chip" data-value="36" type="button">36</button></div></div><div class="pick-block"><strong>Kelipatan 9</strong><div class="multi-select-grid" id="a1m9" data-multi-select><button class="select-chip" data-value="6" type="button">6</button><button class="select-chip" data-value="9" type="button">9</button><button class="select-chip" data-value="12" type="button">12</button><button class="select-chip" data-value="18" type="button">18</button><button class="select-chip" data-value="24" type="button">24</button><button class="select-chip" data-value="27" type="button">27</button><button class="select-chip" data-value="36" type="button">36</button></div></div><div class="pick-block"><strong>KPK (6,9)</strong><div class="tap-choice-group" id="a1kpk69"><button class="tap-choice" data-value="9" type="button">9</button><button class="tap-choice" data-value="18" type="button">18</button><button class="tap-choice" data-value="36" type="button">36</button></div></div></div>
-          </div>
-          <button class="btn secondary" id="checkA1Multiples" type="button">Periksa Jawaban</button><div class="feedback" id="a1MultiplesFeedback"></div>
+          <div class="section-heading"><div><span class="eyebrow">B. Temukan KPK dengan Daftar Kelipatan</span><h2>Satu soal fokus</h2></div><span class="task-badge">2/4</span></div>
+          <div class="mini-question"><h3>KPK dari 3 dan 5</h3><p class="tap-instruction">Pilih kelipatan 3 dan kelipatan 5, lalu pilih kelipatan persekutuan terkecilnya.</p><div class="pick-block"><strong>Kelipatan 3</strong><div class="multi-select-grid" id="a1m3" data-multi-select><button class="select-chip" data-value="3" type="button">3</button><button class="select-chip" data-value="5" type="button">5</button><button class="select-chip" data-value="6" type="button">6</button><button class="select-chip" data-value="9" type="button">9</button><button class="select-chip" data-value="10" type="button">10</button><button class="select-chip" data-value="12" type="button">12</button><button class="select-chip" data-value="15" type="button">15</button></div></div><div class="pick-block"><strong>Kelipatan 5</strong><div class="multi-select-grid" id="a1m5" data-multi-select><button class="select-chip" data-value="3" type="button">3</button><button class="select-chip" data-value="5" type="button">5</button><button class="select-chip" data-value="6" type="button">6</button><button class="select-chip" data-value="10" type="button">10</button><button class="select-chip" data-value="12" type="button">12</button><button class="select-chip" data-value="15" type="button">15</button></div></div><div class="pick-block"><strong>Kelipatan Persekutuan Terkecil</strong><div class="tap-choice-group" id="a1kpk35"><button class="tap-choice" data-value="10" type="button">10</button><button class="tap-choice" data-value="15" type="button">15</button><button class="tap-choice" data-value="30" type="button">30</button></div></div></div>
+          <button class="btn secondary mobile-full" id="checkA1Multiples" type="button">Periksa Jawaban</button><div class="feedback" id="a1MultiplesFeedback"></div>
         </article>
 
-        <article class="learning-card reveal task-card" data-a1-step="3">
-          <div class="section-heading"><div><span class="eyebrow">C. Gunakan Faktorisasi Prima</span><h2>Susun faktor prima dengan kartu</h2><p class="section-help">Ketuk kotak jawaban lalu ketuk kartu faktor. Gunakan <strong>Pohon Faktor</strong> untuk menemukannya langkah demi langkah. Di laptop, kartu juga bisa diseret.</p></div><span class="task-badge">3/4</span></div>
-          <div class="factor-palette" data-factor-palette aria-label="Kartu faktor prima untuk Aktivitas 1">
-            <span class="palette-label">Kartu faktor:</span>
-            <button class="factor-drag-card" draggable="true" data-factor="2" type="button">2</button>
-            <button class="factor-drag-card" draggable="true" data-factor="2^2" type="button">2²</button>
-            <button class="factor-drag-card" draggable="true" data-factor="2^3" type="button">2³</button>
-            <button class="factor-drag-card" draggable="true" data-factor="3" type="button">3</button>
-            <button class="factor-drag-card" draggable="true" data-factor="3^2" type="button">3²</button>
-            <button class="factor-drag-card" draggable="true" data-factor="5" type="button">5</button>
+        <article class="learning-card reveal task-card" data-a1-step="3" id="a1PrimeTreeTask">
+          <div class="section-heading"><div><span class="eyebrow">C. Susun Faktor Prima</span><h2>Gunakan pohon faktor saja</h2><p class="section-help">Selesaikan pohon faktor untuk 8 dan 12. Setelah itu pilih faktor prima dengan <strong>pangkat terbesar</strong>.</p></div><span class="task-badge">3/4</span></div>
+          <div class="prime-tree-pair">
+            <div class="tree-only-builder factor-builder" data-number="8" data-target="a1f8"><div class="factor-builder-head"><strong>8</strong><button class="factor-tree-btn" data-factor-tree-number="8" data-factor-tree-target="a1f8" type="button">🌳 Buka Pohon Faktor</button></div><input id="a1f8" type="hidden"><div class="factor-dropzone tree-only-result" data-factor-drop="a1f8"><span class="drop-placeholder">Belum diselesaikan</span></div><span class="factor-product" data-factor-product="a1f8">Belum disusun</span></div>
+            <div class="tree-only-builder factor-builder" data-number="12" data-target="a1f12"><div class="factor-builder-head"><strong>12</strong><button class="factor-tree-btn" data-factor-tree-number="12" data-factor-tree-target="a1f12" type="button">🌳 Buka Pohon Faktor</button></div><input id="a1f12" type="hidden"><div class="factor-dropzone tree-only-result" data-factor-drop="a1f12"><span class="drop-placeholder">Belum diselesaikan</span></div><span class="factor-product" data-factor-product="a1f12">Belum disusun</span></div>
           </div>
-          <div class="prime-task-grid">
-            <div class="mini-question"><h3>KPK dari 8 dan 12</h3>
-              <div class="factor-builder" data-number="8" data-target="a1f8"><div class="factor-builder-head"><strong>8 =</strong><button class="factor-tree-btn" data-factor-tree-number="8" data-factor-tree-target="a1f8" type="button">🌳 Pohon Faktor</button></div><input id="a1f8" type="hidden"><div class="factor-dropzone" data-factor-drop="a1f8" tabindex="0" role="button" aria-label="Susun faktorisasi prima 8"><span class="drop-placeholder">Ketuk kartu untuk mengisi</span></div><div class="factor-builder-foot"><span class="factor-product" data-factor-product="a1f8">Belum disusun</span><button class="factor-clear" data-factor-clear="a1f8" type="button">Hapus</button></div></div>
-              <div class="factor-builder" data-number="12" data-target="a1f12"><div class="factor-builder-head"><strong>12 =</strong><button class="factor-tree-btn" data-factor-tree-number="12" data-factor-tree-target="a1f12" type="button">🌳 Pohon Faktor</button></div><input id="a1f12" type="hidden"><div class="factor-dropzone" data-factor-drop="a1f12" tabindex="0" role="button" aria-label="Susun faktorisasi prima 12"><span class="drop-placeholder">Ketuk kartu untuk mengisi</span></div><div class="factor-builder-foot"><span class="factor-product" data-factor-product="a1f12">Belum disusun</span><button class="factor-clear" data-factor-clear="a1f12" type="button">Hapus</button></div></div>
-              <div class="pick-block"><strong>Pilih KPK</strong><div class="tap-choice-group" id="a1kpk812"><button class="tap-choice" data-value="12" type="button">12</button><button class="tap-choice" data-value="24" type="button">24</button><button class="tap-choice" data-value="48" type="button">48</button></div></div>
-            </div>
-            <div class="mini-question"><h3>KPK dari 10 dan 15</h3>
-              <div class="factor-builder" data-number="10" data-target="a1f10"><div class="factor-builder-head"><strong>10 =</strong><button class="factor-tree-btn" data-factor-tree-number="10" data-factor-tree-target="a1f10" type="button">🌳 Pohon Faktor</button></div><input id="a1f10" type="hidden"><div class="factor-dropzone" data-factor-drop="a1f10" tabindex="0" role="button" aria-label="Susun faktorisasi prima 10"><span class="drop-placeholder">Ketuk kartu untuk mengisi</span></div><div class="factor-builder-foot"><span class="factor-product" data-factor-product="a1f10">Belum disusun</span><button class="factor-clear" data-factor-clear="a1f10" type="button">Hapus</button></div></div>
-              <div class="factor-builder" data-number="15" data-target="a1f15"><div class="factor-builder-head"><strong>15 =</strong><button class="factor-tree-btn" data-factor-tree-number="15" data-factor-tree-target="a1f15" type="button">🌳 Pohon Faktor</button></div><input id="a1f15" type="hidden"><div class="factor-dropzone" data-factor-drop="a1f15" tabindex="0" role="button" aria-label="Susun faktorisasi prima 15"><span class="drop-placeholder">Ketuk kartu untuk mengisi</span></div><div class="factor-builder-foot"><span class="factor-product" data-factor-product="a1f15">Belum disusun</span><button class="factor-clear" data-factor-clear="a1f15" type="button">Hapus</button></div></div>
-              <div class="pick-block"><strong>Pilih KPK</strong><div class="tap-choice-group" id="a1kpk1015"><button class="tap-choice" data-value="15" type="button">15</button><button class="tap-choice" data-value="30" type="button">30</button><button class="tap-choice" data-value="60" type="button">60</button></div></div>
-            </div>
-          </div>
-          <button class="btn secondary" id="checkA1Prime" type="button">Periksa Faktorisasi</button><div class="feedback" id="a1PrimeFeedback"></div>
+          <div class="prime-selection-stage muted-stage" id="a1PrimeSelectionStage"><strong>Pilih semua faktor dengan pangkat terbesar:</strong><div class="multi-select-grid prime-power-select" id="a1PrimeSelect" data-multi-select><button class="select-chip" data-value="8" type="button">2³</button><button class="select-chip" data-value="4" type="button">2²</button><button class="select-chip" data-value="3" type="button">3</button><button class="select-chip" data-value="6" type="button">2 × 3</button></div><small>Pilihan aktif setelah kedua pohon faktor selesai.</small></div>
+          <div class="auto-product hidden" id="a1PrimeAutoResult"><span>Hasil perkalian otomatis</span><strong>2³ × 3 = 24</strong><small>KPK (8,12) = 24</small></div>
+          <div class="feedback" id="a1PrimeFeedback"></div>
         </article>
 
-        <article class="learning-card reveal task-card" data-a1-step="4">
-          <div class="section-heading"><div><span class="eyebrow">D. Terapkan</span><h2>Jadwal dua bus</h2></div><span class="task-badge">4/4</span></div>
+        <article class="learning-card reveal task-card" data-a1-step="4" id="a1BusTreeTask">
+          <div class="section-heading"><div><span class="eyebrow">D. Terapkan</span><h2>Jadwal dua bus dengan pohon faktor</h2></div><span class="task-badge">4/4</span></div>
           <div class="story-visual bus-visual"><span class="bus bus-a">🚌</span><div class="road"></div><span class="bus bus-b">🚌</span></div>
-          <p>Bus A datang setiap <strong>6 menit</strong> dan Bus B setiap <strong>8 menit</strong>. Jika keduanya datang bersama sekarang, setelah berapa menit keduanya akan datang bersama lagi?</p>
-          <div class="pick-block"><strong>Pilih strategi</strong><div class="tap-choice-group wide-choice" id="a1Strategy"><button class="tap-choice" data-value="multiples" type="button">🔁 Cari kelipatan yang sama</button><button class="tap-choice" data-value="groups" type="button">📦 Bagi menjadi kelompok sama banyak</button></div></div>
-          <div class="pick-block"><strong>Pilih jawaban</strong><div class="tap-choice-group" id="a1BusAnswer"><button class="tap-choice" data-value="18" type="button">18 menit</button><button class="tap-choice" data-value="24" type="button">24 menit</button><button class="tap-choice" data-value="48" type="button">48 menit</button></div></div>
-          <button class="btn secondary mobile-full" id="checkA1Bus" type="button">Periksa</button>
+          <p>Bus A datang setiap <strong>6 menit</strong> dan Bus B setiap <strong>8 menit</strong>. Karena ini kejadian berulang, kita mencari KPK.</p>
+          <div class="prime-tree-pair">
+            <div class="tree-only-builder factor-builder" data-number="6" data-target="a1bus6"><div class="factor-builder-head"><strong>6</strong><button class="factor-tree-btn" data-factor-tree-number="6" data-factor-tree-target="a1bus6" type="button">🌳 Pohon Faktor 6</button></div><input id="a1bus6" type="hidden"><div class="factor-dropzone tree-only-result" data-factor-drop="a1bus6"><span class="drop-placeholder">Belum diselesaikan</span></div><span class="factor-product" data-factor-product="a1bus6">Belum disusun</span></div>
+            <div class="tree-only-builder factor-builder" data-number="8" data-target="a1bus8"><div class="factor-builder-head"><strong>8</strong><button class="factor-tree-btn" data-factor-tree-number="8" data-factor-tree-target="a1bus8" type="button">🌳 Pohon Faktor 8</button></div><input id="a1bus8" type="hidden"><div class="factor-dropzone tree-only-result" data-factor-drop="a1bus8"><span class="drop-placeholder">Belum diselesaikan</span></div><span class="factor-product" data-factor-product="a1bus8">Belum disusun</span></div>
+          </div>
+          <div class="prime-selection-stage muted-stage" id="a1BusPrimeStage"><strong>Pilih faktor dengan pangkat terbesar:</strong><div class="multi-select-grid prime-power-select" id="a1BusPrimeSelect" data-multi-select><button class="select-chip" data-value="8" type="button">2³</button><button class="select-chip" data-value="2" type="button">2¹</button><button class="select-chip" data-value="3" type="button">3</button><button class="select-chip" data-value="4" type="button">2²</button></div></div>
+          <div class="auto-product hidden" id="a1BusAutoResult"><span>Hasil perkalian otomatis</span><strong>2³ × 3 = 24</strong><small>Kedua bus datang bersama lagi setelah 24 menit.</small></div>
           <div class="feedback" id="a1BusFeedback"></div>
         </article>
 
@@ -221,25 +229,30 @@
           <div class="fruit-tray" id="fruitTray"><div><strong>12 jeruk</strong><div class="fruit-row" id="oranges"></div></div><div><strong>18 apel</strong><div class="fruit-row" id="apples"></div></div></div>
           <div class="center"><button class="btn primary" id="groupFruitBtn" type="button">Coba Kelompokkan</button></div>
           <div class="package-grid hidden" id="fruitPackages"></div>
+          <div class="result-callout hidden" id="fruitGroupResult">📦 Ternyata paket terbanyak yang bisa dibuat adalah <strong>6 paket</strong>, dengan jumlah jeruk setiap paket adalah <strong>2 jeruk</strong> dan jumlah apel setiap paket adalah <strong>3 apel</strong>.</div>
+        </article>
+
+        <article class="learning-card reveal" id="factorPairLesson">
+          <div class="section-heading"><div><span class="eyebrow">B. Dari Faktor ke FPB</span><h2>Temukan pasangan faktor</h2></div></div>
+          <p class="section-help">Ketuk atau tarik satu angka. Pasangan faktornya akan ikut muncul otomatis dengan arah panah.</p>
+          <div class="factor-pair-lesson-grid">
+            <div class="factor-pair-panel" data-pair-panel="12"><h3>Faktor 12</h3><div class="pair-source"><button class="factor-pair-source" draggable="true" data-pair-group="12" data-left="1" data-right="12" type="button">1</button><button class="factor-pair-source" draggable="true" data-pair-group="12" data-left="2" data-right="6" type="button">2</button><button class="factor-pair-source" draggable="true" data-pair-group="12" data-left="3" data-right="4" type="button">3</button></div><div class="factor-pair-drop" data-pair-drop="12"><span>Pasangan akan muncul di sini</span></div></div>
+            <div class="factor-pair-panel" data-pair-panel="18"><h3>Faktor 18</h3><div class="pair-source"><button class="factor-pair-source" draggable="true" data-pair-group="18" data-left="1" data-right="18" type="button">1</button><button class="factor-pair-source" draggable="true" data-pair-group="18" data-left="2" data-right="9" type="button">2</button><button class="factor-pair-source" draggable="true" data-pair-group="18" data-left="3" data-right="6" type="button">3</button></div><div class="factor-pair-drop" data-pair-drop="18"><span>Pasangan akan muncul di sini</span></div></div>
+          </div>
+          <div class="factor-common hidden" id="factorCommon"><p>Faktor persekutuan: <strong>1, 2, 3, 6</strong></p><div class="largest-common-label">Faktor Persekutuan Terbesar: <strong>6</strong></div><div class="formula-box success">FPB (12,18) = <strong>6</strong></div></div>
         </article>
 
         <article class="learning-card reveal">
-          <div class="section-heading"><div><span class="eyebrow">B. Dari Faktor ke FPB</span><h2>Temukan faktor yang sama</h2></div></div>
-          <div class="factor-list-grid"><div><h3>Faktor 12</h3><div class="factor-number-row"><span>1</span><span>2</span><span>3</span><span>4</span><span>6</span><span>12</span></div></div><div><h3>Faktor 18</h3><div class="factor-number-row"><span>1</span><span>2</span><span>3</span><span>6</span><span>9</span><span>18</span></div></div></div>
-          <button class="btn secondary" id="highlightFactorsBtn" type="button">Sorot Faktor Persekutuan</button>
-          <div class="factor-common hidden" id="factorCommon">Faktor persekutuan: <strong>1, 2, 3, 6</strong><div class="formula-box success">FPB (12,18) = <strong>6</strong></div></div>
+          <div class="section-heading"><div><span class="eyebrow">C. Pictorial Utama</span><h2>Pembagian ke paket sama banyak</h2></div></div>
+          <div class="package-demo" id="packageDemo"></div><p class="center-note">Setiap paket berisi <strong>2 jeruk</strong> dan <strong>3 apel</strong>.</p><div class="formula-box success package-max-note">Paket terbanyak yang bisa dibuat adalah <strong>6 paket</strong>.</div>
         </article>
 
         <article class="learning-card reveal">
-          <div class="section-heading"><div><span class="eyebrow">C. Pictorial Utama</span><h2>6 paket sama banyak</h2></div></div>
-          <div class="package-demo" id="packageDemo"></div><p class="center-note">Setiap paket berisi <strong>2 jeruk</strong> dan <strong>3 apel</strong>.</p>
-        </article>
-
-        <article class="learning-card reveal">
-          <div class="section-heading"><div><span class="eyebrow">D. FPB dengan Faktorisasi Prima</span><h2>Pilih pangkat terkecil yang sama</h2></div></div>
-          <div class="factor-cards"><div class="factor-eq">12 = <span>2²</span> × <span>3</span></div><div class="factor-eq">18 = <span>2</span> × <span>3²</span></div></div>
-          <div class="table-wrap"><table><thead><tr><th>Faktor Prima</th><th>12</th><th>18</th><th>Pangkat Terkecil</th></tr></thead><tbody><tr><td>2</td><td>2²</td><td>2¹</td><td class="highlight-cell">2¹</td></tr><tr><td>3</td><td>3¹</td><td>3²</td><td class="highlight-cell">3¹</td></tr></tbody></table></div>
-          <div class="formula-box success">FPB = 2 × 3 = <strong>6</strong></div><div class="note-box">💡 Pada FPB, gunakan faktor prima yang sama dengan pangkat terkecil.</div>
+          <div class="section-heading"><div><span class="eyebrow">D. FPB dengan Faktorisasi Prima</span><h2>Sorot pangkat terkecil yang sama</h2></div></div>
+          <p class="section-help">Pada FPB, hanya faktor prima yang sama pada kedua bilangan yang dipakai. Ambil pangkat yang paling kecil.</p>
+          <div class="factor-cards prime-source-cards"><div class="factor-eq">12 = <span>2²</span> × <span>3¹</span></div><div class="factor-eq">18 = <span>2¹</span> × <span>3²</span></div></div>
+          <div class="minimum-prime-highlight"><span class="minimum-label">Pangkat terkecil yang sama</span><div><span class="prime-min">2¹</span><span class="prime-min">3¹</span></div></div>
+          <div class="formula-box success">FPB = 2 × 3 = <strong>6</strong></div><div class="note-box">💡 Faktor 2 dan 3 sama-sama muncul. Yang dipilih adalah 2¹ dan 3¹ karena pangkatnya paling kecil.</div>
         </article>
 
         <article class="learning-card reveal">
@@ -263,42 +276,28 @@
     <section class="screen" id="activity2" data-screen="activity2">
       <div class="container lesson-wrap">
         <div class="module-banner purple"><div><span class="eyebrow light">AKTIVITAS 2</span><h1>Worksheet FPB dan Penerapan KPK-FPB</h1><p>Kelompokkan benda, pilih strategi, lalu terapkan pada masalah nyata.</p></div><div class="banner-icon">🧠</div></div>
-        <div class="activity-flow" id="activity2Flow"><span class="done">AMATI</span><b>→</b><span>KELOMPOKKAN</span><b>→</b><span>TENTUKAN</span><b>→</b><span>PILIH STRATEGI</span><b>→</b><span>TERAPKAN</span></div>
+        <div class="activity-flow" id="activity2Flow"><span class="done">AMATI</span><b>→</b><span>GESER BENDA</span><b>→</b><span>POHON FAKTOR</span><b>→</b><span>PILIH STRATEGI</span><b>→</b><span>TERAPKAN</span></div>
 
-        <article class="learning-card reveal task-card">
-          <div class="section-heading"><div><span class="eyebrow">A. Kelompokkan Benda</span><h2>12 pensil dan 18 penghapus</h2></div><span class="task-badge">1/4</span></div>
-          <p>Benda akan dibagikan ke beberapa paket dengan jumlah yang sama banyak. Coba beberapa pilihan paket.</p>
-          <div class="object-source"><span>✏️ ×12</span><span>🧽 ×18</span></div>
-          <div class="package-options" id="packageOptions"><button type="button" data-pack="2">2 paket</button><button type="button" data-pack="3">3 paket</button><button type="button" data-pack="4">4 paket</button><button type="button" data-pack="6">6 paket</button></div>
-          <div id="objectGrouping" class="object-grouping"></div>
-          <div class="mobile-answer-grid"><div class="pick-block"><strong>Paket terbanyak</strong><div class="tap-choice-group" id="a2PackCount"><button class="tap-choice" data-value="3" type="button">3</button><button class="tap-choice" data-value="6" type="button">6</button><button class="tap-choice" data-value="9" type="button">9</button></div></div><div class="pick-block"><strong>Pensil / paket</strong><div class="tap-choice-group" id="a2PencilEach"><button class="tap-choice" data-value="1" type="button">1</button><button class="tap-choice" data-value="2" type="button">2</button><button class="tap-choice" data-value="3" type="button">3</button></div></div><div class="pick-block"><strong>Penghapus / paket</strong><div class="tap-choice-group" id="a2EraserEach"><button class="tap-choice" data-value="2" type="button">2</button><button class="tap-choice" data-value="3" type="button">3</button><button class="tap-choice" data-value="6" type="button">6</button></div></div></div>
-          <button class="btn secondary" id="checkA2Grouping" type="button">Periksa Kelompok</button><div class="feedback" id="a2GroupingFeedback"></div>
+        <article class="learning-card reveal task-card" id="objectMoveTask">
+          <div class="section-heading"><div><span class="eyebrow">A. Kelompokkan Benda</span><h2>Geser bendanya langsung</h2></div><span class="task-badge">1/4</span></div>
+          <p>Gunakan jumlah yang lebih sedikit: <strong>4 pensil</strong> dan <strong>6 penghapus</strong>. Bagikan semuanya ke <strong>2 paket</strong> dengan isi setiap paket sama.</p>
+          <p class="tap-instruction">HP: ketuk benda lalu ketuk paket. Laptop: benda juga bisa diseret langsung.</p>
+          <div class="move-object-source" id="moveObjectSource" aria-label="Benda yang belum dibagikan"></div>
+          <div class="move-package-grid" id="movePackageGrid"><div class="move-package-bin" data-object-bin="0" role="button" tabindex="0"><strong>Paket 1</strong><div class="bin-objects"></div></div><div class="move-package-bin" data-object-bin="1" role="button" tabindex="0"><strong>Paket 2</strong><div class="bin-objects"></div></div></div>
+          <button class="btn secondary mobile-full" id="checkA2Grouping" type="button">Periksa Pembagian</button><div class="feedback" id="a2GroupingFeedback"></div>
+          <div class="auto-product hidden" id="a2GroupingResult"><span>Pembagian sama banyak</span><strong>2 paket</strong><small>Setiap paket berisi 2 pensil dan 3 penghapus.</small></div>
         </article>
 
-        <article class="learning-card reveal task-card">
-          <div class="section-heading"><div><span class="eyebrow">B. Daftar Faktor dan Faktorisasi Prima</span><h2>Tentukan FPB</h2><p class="section-help">Faktorisasi prima kini disusun dengan kartu. Gunakan pohon faktor jika ingin melihat bagaimana bilangan dipecah sampai menjadi faktor prima.</p></div><span class="task-badge">2/4</span></div>
-          <div class="factor-palette" data-factor-palette aria-label="Kartu faktor prima untuk Aktivitas 2">
-            <span class="palette-label">Kartu faktor:</span>
-            <button class="factor-drag-card" draggable="true" data-factor="2" type="button">2</button>
-            <button class="factor-drag-card" draggable="true" data-factor="2^2" type="button">2²</button>
-            <button class="factor-drag-card" draggable="true" data-factor="2^3" type="button">2³</button>
-            <button class="factor-drag-card" draggable="true" data-factor="3" type="button">3</button>
-            <button class="factor-drag-card" draggable="true" data-factor="3^2" type="button">3²</button>
-            <button class="factor-drag-card" draggable="true" data-factor="5" type="button">5</button>
+        <article class="learning-card reveal task-card" id="a2FactorTreeTask">
+          <div class="section-heading"><div><span class="eyebrow">B. Tentukan FPB</span><h2>Fokus pada pohon faktor dan pasangan faktor</h2><p class="section-help">Selesaikan pohon faktor 24 dan 36. Setelah itu amati pasangan faktor, lalu pilih faktor persekutuan yang paling besar.</p></div><span class="task-badge">2/4</span></div>
+          <div class="prime-tree-pair">
+            <div class="tree-only-builder factor-builder" data-number="24" data-target="a2f24"><div class="factor-builder-head"><strong>24</strong><button class="factor-tree-btn" data-factor-tree-number="24" data-factor-tree-target="a2f24" type="button">🌳 Pohon Faktor 24</button></div><input id="a2f24" type="hidden"><div class="factor-dropzone tree-only-result" data-factor-drop="a2f24"><span class="drop-placeholder">Belum diselesaikan</span></div><span class="factor-product" data-factor-product="a2f24">Belum disusun</span></div>
+            <div class="tree-only-builder factor-builder" data-number="36" data-target="a2f36"><div class="factor-builder-head"><strong>36</strong><button class="factor-tree-btn" data-factor-tree-number="36" data-factor-tree-target="a2f36" type="button">🌳 Pohon Faktor 36</button></div><input id="a2f36" type="hidden"><div class="factor-dropzone tree-only-result" data-factor-drop="a2f36"><span class="drop-placeholder">Belum diselesaikan</span></div><span class="factor-product" data-factor-product="a2f36">Belum disusun</span></div>
           </div>
-          <div class="question-grid">
-            <div class="mini-question"><h3>FPB dari 24 dan 36</h3>
-              <div class="factor-builder" data-number="24" data-target="a2f24"><div class="factor-builder-head"><strong>24 =</strong><button class="factor-tree-btn" data-factor-tree-number="24" data-factor-tree-target="a2f24" type="button">🌳 Pohon Faktor</button></div><input id="a2f24" type="hidden"><div class="factor-dropzone" data-factor-drop="a2f24" tabindex="0" role="button" aria-label="Susun faktorisasi prima 24"><span class="drop-placeholder">Ketuk kartu untuk mengisi</span></div><div class="factor-builder-foot"><span class="factor-product" data-factor-product="a2f24">Belum disusun</span><button class="factor-clear" data-factor-clear="a2f24" type="button">Hapus</button></div></div>
-              <div class="factor-builder" data-number="36" data-target="a2f36"><div class="factor-builder-head"><strong>36 =</strong><button class="factor-tree-btn" data-factor-tree-number="36" data-factor-tree-target="a2f36" type="button">🌳 Pohon Faktor</button></div><input id="a2f36" type="hidden"><div class="factor-dropzone" data-factor-drop="a2f36" tabindex="0" role="button" aria-label="Susun faktorisasi prima 36"><span class="drop-placeholder">Ketuk kartu untuk mengisi</span></div><div class="factor-builder-foot"><span class="factor-product" data-factor-product="a2f36">Belum disusun</span><button class="factor-clear" data-factor-clear="a2f36" type="button">Hapus</button></div></div>
-              <div class="pick-block"><strong>Ketuk semua faktor 24</strong><div class="multi-select-grid factor-pick-grid" id="a2list24" data-multi-select><button class="select-chip" data-value="1" type="button">1</button><button class="select-chip" data-value="2" type="button">2</button><button class="select-chip" data-value="3" type="button">3</button><button class="select-chip" data-value="4" type="button">4</button><button class="select-chip" data-value="5" type="button">5</button><button class="select-chip" data-value="6" type="button">6</button><button class="select-chip" data-value="8" type="button">8</button><button class="select-chip" data-value="9" type="button">9</button><button class="select-chip" data-value="12" type="button">12</button><button class="select-chip" data-value="18" type="button">18</button><button class="select-chip" data-value="24" type="button">24</button></div></div><div class="pick-block"><strong>Ketuk semua faktor 36</strong><div class="multi-select-grid factor-pick-grid" id="a2list36" data-multi-select><button class="select-chip" data-value="1" type="button">1</button><button class="select-chip" data-value="2" type="button">2</button><button class="select-chip" data-value="3" type="button">3</button><button class="select-chip" data-value="4" type="button">4</button><button class="select-chip" data-value="5" type="button">5</button><button class="select-chip" data-value="6" type="button">6</button><button class="select-chip" data-value="8" type="button">8</button><button class="select-chip" data-value="9" type="button">9</button><button class="select-chip" data-value="12" type="button">12</button><button class="select-chip" data-value="18" type="button">18</button><button class="select-chip" data-value="24" type="button">24</button><button class="select-chip" data-value="36" type="button">36</button></div></div><div class="pick-block"><strong>Pilih FPB</strong><div class="tap-choice-group" id="a2fpb2436"><button class="tap-choice" data-value="6" type="button">6</button><button class="tap-choice" data-value="12" type="button">12</button><button class="tap-choice" data-value="24" type="button">24</button></div></div>
-            </div>
-            <div class="mini-question"><h3>FPB dari 18 dan 30</h3>
-              <div class="factor-builder" data-number="18" data-target="a2f18"><div class="factor-builder-head"><strong>18 =</strong><button class="factor-tree-btn" data-factor-tree-number="18" data-factor-tree-target="a2f18" type="button">🌳 Pohon Faktor</button></div><input id="a2f18" type="hidden"><div class="factor-dropzone" data-factor-drop="a2f18" tabindex="0" role="button" aria-label="Susun faktorisasi prima 18"><span class="drop-placeholder">Ketuk kartu untuk mengisi</span></div><div class="factor-builder-foot"><span class="factor-product" data-factor-product="a2f18">Belum disusun</span><button class="factor-clear" data-factor-clear="a2f18" type="button">Hapus</button></div></div>
-              <div class="factor-builder" data-number="30" data-target="a2f30"><div class="factor-builder-head"><strong>30 =</strong><button class="factor-tree-btn" data-factor-tree-number="30" data-factor-tree-target="a2f30" type="button">🌳 Pohon Faktor</button></div><input id="a2f30" type="hidden"><div class="factor-dropzone" data-factor-drop="a2f30" tabindex="0" role="button" aria-label="Susun faktorisasi prima 30"><span class="drop-placeholder">Ketuk kartu untuk mengisi</span></div><div class="factor-builder-foot"><span class="factor-product" data-factor-product="a2f30">Belum disusun</span><button class="factor-clear" data-factor-clear="a2f30" type="button">Hapus</button></div></div>
-              <div class="pick-block"><strong>Ketuk semua faktor 18</strong><div class="multi-select-grid factor-pick-grid" id="a2list18" data-multi-select><button class="select-chip" data-value="1" type="button">1</button><button class="select-chip" data-value="2" type="button">2</button><button class="select-chip" data-value="3" type="button">3</button><button class="select-chip" data-value="4" type="button">4</button><button class="select-chip" data-value="5" type="button">5</button><button class="select-chip" data-value="6" type="button">6</button><button class="select-chip" data-value="9" type="button">9</button><button class="select-chip" data-value="12" type="button">12</button><button class="select-chip" data-value="18" type="button">18</button></div></div><div class="pick-block"><strong>Ketuk semua faktor 30</strong><div class="multi-select-grid factor-pick-grid" id="a2list30" data-multi-select><button class="select-chip" data-value="1" type="button">1</button><button class="select-chip" data-value="2" type="button">2</button><button class="select-chip" data-value="3" type="button">3</button><button class="select-chip" data-value="5" type="button">5</button><button class="select-chip" data-value="6" type="button">6</button><button class="select-chip" data-value="9" type="button">9</button><button class="select-chip" data-value="10" type="button">10</button><button class="select-chip" data-value="15" type="button">15</button><button class="select-chip" data-value="30" type="button">30</button></div></div><div class="pick-block"><strong>Pilih FPB</strong><div class="tap-choice-group" id="a2fpb1830"><button class="tap-choice" data-value="3" type="button">3</button><button class="tap-choice" data-value="6" type="button">6</button><button class="tap-choice" data-value="9" type="button">9</button></div></div>
-            </div>
-          </div>
-          <button class="btn secondary" id="checkA2Factors" type="button">Periksa Jawaban</button><div class="feedback" id="a2FactorsFeedback"></div>
+          <div class="pair-stage muted-stage" id="a2PairStage"><strong>Ketuk faktor di kiri, pasangannya muncul mengikuti panah:</strong><div class="factor-pair-lesson-grid compact-pairs"><div class="factor-pair-panel"><h3>24</h3><div class="pair-source"><button class="factor-pair-source" draggable="true" data-pair-group="a2-24" data-left="1" data-right="24" type="button">1</button><button class="factor-pair-source" draggable="true" data-pair-group="a2-24" data-left="2" data-right="12" type="button">2</button><button class="factor-pair-source" draggable="true" data-pair-group="a2-24" data-left="3" data-right="8" type="button">3</button><button class="factor-pair-source" draggable="true" data-pair-group="a2-24" data-left="4" data-right="6" type="button">4</button></div><div class="factor-pair-drop" data-pair-drop="a2-24"><span>Pasangan faktor 24</span></div></div><div class="factor-pair-panel"><h3>36</h3><div class="pair-source"><button class="factor-pair-source" draggable="true" data-pair-group="a2-36" data-left="1" data-right="36" type="button">1</button><button class="factor-pair-source" draggable="true" data-pair-group="a2-36" data-left="2" data-right="18" type="button">2</button><button class="factor-pair-source" draggable="true" data-pair-group="a2-36" data-left="3" data-right="12" type="button">3</button><button class="factor-pair-source" draggable="true" data-pair-group="a2-36" data-left="4" data-right="9" type="button">4</button><button class="factor-pair-source" draggable="true" data-pair-group="a2-36" data-left="6" data-right="6" type="button">6</button></div><div class="factor-pair-drop" data-pair-drop="a2-36"><span>Pasangan faktor 36</span></div></div></div></div>
+          <div class="fpb-choice-stage muted-stage" id="a2FpbChoiceStage"><strong>Pilih faktor yang sama dan paling besar:</strong><div class="tap-choice-group" id="a2fpb2436"><button class="tap-choice" data-value="6" type="button">6</button><button class="tap-choice" data-value="12" type="button">12</button><button class="tap-choice" data-value="18" type="button">18</button></div></div>
+          <div class="prime-minimum-auto hidden" id="a2PrimeMinimum"><span>Dari pohon faktor</span><div class="factor-cards prime-source-cards"><div class="factor-eq">24 = <span>2³</span> × <span>3</span></div><div class="factor-eq">36 = <span>2²</span> × <span>3²</span></div></div><p>Pangkat terkecil yang sama langsung disorot:</p><div class="prime-choice-explain"><span class="prime-min">2²</span><span class="prime-min">3</span></div><div class="formula-box success">FPB = 2² × 3 = <strong>12</strong></div></div>
+          <div class="feedback" id="a2FactorsFeedback"></div>
         </article>
 
         <article class="learning-card reveal task-card">
@@ -363,7 +362,7 @@
       </div>
       <div class="factor-tree-workspace" id="factorTreeWorkspace"></div>
       <div class="factor-tree-summary" id="factorTreeSummary" aria-live="polite"></div>
-      <div class="factor-tree-actions"><button class="btn ghost" id="resetFactorTree" type="button">↻ Ulangi Pohon</button><button class="btn primary" id="useFactorTreeResult" type="button" disabled>Masukkan ke Jawaban →</button></div>
+      <div class="factor-tree-actions"><button class="btn ghost" id="resetFactorTree" type="button">↻ Ulangi Pohon</button><button class="btn primary" id="useFactorTreeResult" type="button" disabled>Gunakan Hasil Pohon →</button></div>
     </div>
   </div>
 

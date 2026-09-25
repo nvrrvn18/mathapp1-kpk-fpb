@@ -42,3 +42,31 @@
   .btn:hover:not(:disabled),.choice-btn:hover,.package-options button:hover,.tap-choice:hover,.select-chip:hover,.factor-drag-card:hover{transform:none;box-shadow:none}
   .factor-drag-card{cursor:pointer}
 }
+
+/* V4 mobile-first refinements */
+@media (max-width: 720px){
+  .prime-source-cards,.prime-tree-pair,.factor-pair-lesson-grid{grid-template-columns:1fr}
+  .prime-compare-row{grid-template-columns:1fr;gap:.55rem}
+  .prime-compare-row>strong{font-size:.9rem}
+  .tree-only-builder .factor-builder-head{align-items:stretch;flex-direction:column}
+  .tree-only-builder .factor-tree-btn{width:100%;min-height:50px}
+  .prime-selection-stage,.pair-stage,.fpb-choice-stage{padding:.85rem}
+  .factor-pair-source{min-width:56px;min-height:56px}
+  .factor-pair-drop{min-height:76px}
+  .revealed-factor-pair{flex:1 1 130px}
+  .move-object-source{justify-content:center}
+  .source-label{text-align:left}
+  .move-package-grid{grid-template-columns:1fr 1fr;gap:.55rem}
+  .move-package-bin{min-height:210px;padding:.65rem}
+  .move-package-bin>strong{font-size:.9rem}
+  .bin-objects{gap:.3rem}
+  .move-package-bin .move-object{width:42px;height:42px}
+  .auto-product strong{font-size:1.2rem}
+}
+@media (max-width: 390px){
+  .move-package-grid{gap:.4rem}
+  .move-package-bin{padding:.5rem}
+  .move-package-bin .move-object{width:38px;height:38px;font-size:1.1rem}
+  .move-package-bin .eraser-shape{width:22px;height:14px}
+  .factor-pair-source{min-width:50px;min-height:50px}
+}

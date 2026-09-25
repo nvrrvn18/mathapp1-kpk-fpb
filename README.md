@@ -1,4 +1,19 @@
-# Matematika Kelas VII: KPK dan FPB
+# KPK & FPB Interaktif Mobile V4
+
+Versi ini memperbaiki alur pembelajaran berdasarkan evaluasi materi terbaru. Fokus utama V4 adalah mengurangi bagian yang membingungkan, mengutamakan pohon faktor, pasangan faktor visual, hasil perkalian otomatis, dan manipulasi objek yang nyaman di HP.
+
+## Perubahan V4
+
+- Simulasi lampu KPK berjalan sampai detik ke-24 sehingga siswa melihat pertemuan bersama pada detik ke-12 dan ke-24.
+- Bagian pola menampilkan label **Kelipatan Persekutuan Terkecil** secara eksplisit.
+- Tabel faktor prima KPK dan FPB dihapus. Konsep pangkat terbesar/terkecil kini ditampilkan dengan kartu faktor yang lebih sederhana.
+- Contoh KPK ditambah dengan 40 dan 28 untuk memperlihatkan pangkat berbeda serta faktor prima 5 dan 7.
+- Aktivitas 1A menjadi memilih kelanjutan kelipatan. Aktivitas 1B hanya satu soal.
+- Aktivitas 1C dan 1D menggunakan pohon faktor sebagai interaksi utama, dilanjutkan pemilihan pangkat terbesar dan hasil otomatis.
+- Pertemuan 2 menampilkan pernyataan hasil pengelompokan buah setelah tombol **Coba Kelompokkan**.
+- Faktor 12 dan 18 dipelajari melalui pasangan faktor. Saat satu angka dipilih/ditarik, pasangannya muncul otomatis dengan animasi panah.
+- Aktivitas 2A memakai 4 pensil dan 6 penghapus yang benar-benar dapat dipindahkan ke dua paket. Di HP gunakan pola ketuk benda lalu ketuk paket.
+- Aktivitas 2B fokus pada pohon faktor 24 dan 36, pasangan faktor, FPB terbesar, dan sorotan pangkat terkecil yang sama.
 
 Aplikasi web pembelajaran interaktif berbasis **HTML5, CSS3, dan Vanilla JavaScript**. Dirancang untuk siswa SMP/MTs Kelas VII dan dapat dipublikasikan langsung menggunakan **GitHub Pages** tanpa backend.
 
@@ -10,8 +25,8 @@ Aplikasi web pembelajaran interaktif berbasis **HTML5, CSS3, dan Vanilla JavaScr
 - Garis bilangan dan pola kelipatan interaktif.
 - Interaksi touch-first: matching kartu angka, pilihan kartu, dan multi-select faktor/kelipatan menggantikan input teks.
 - Tidak ada textarea atau input angka yang harus diketik siswa; evaluasi numerik juga memakai kartu pilihan.
-- Faktorisasi prima tanpa mengetik pangkat: kartu faktor prima dapat di-drag-and-drop atau diketuk pada HP.
-- Pohon faktor interaktif: siswa memilih pasangan faktor sampai semua daun menjadi prima, lalu hasil dapat dimasukkan otomatis ke jawaban.
+- Faktorisasi prima tanpa mengetik pangkat: pohon faktor menjadi interaksi utama.
+- Pohon faktor interaktif: siswa memilih pasangan faktor sampai semua daun menjadi prima, lalu aplikasi menampilkan hasil faktorisasi untuk dipakai memilih pangkat terbesar/terkecil.
 - Visual pembagian buah/paket untuk memahami FPB.
 - LKPD interaktif dengan validasi otomatis dan petunjuk.
 - Kuis akhir 10 soal acak dengan komposisi konsep, KPK, FPB, strategi, dan soal cerita.

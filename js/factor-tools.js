@@ -55,17 +55,20 @@
     if (!zone) return;
     const tokens = getTokens(target);
     zone.innerHTML = '';
+    const treeOnly = zone.classList.contains('tree-only-result');
     if (!tokens.length) {
-      zone.innerHTML = '<span class="drop-placeholder">Ketuk kartu untuk mengisi</span>';
+      zone.innerHTML = `<span class="drop-placeholder">${treeOnly ? 'Selesaikan pohon faktor' : 'Ketuk kartu untuk mengisi'}</span>`;
     } else {
       tokens.forEach((token, index) => {
-        const chip = document.createElement('button');
-        chip.type = 'button';
-        chip.className = 'dropped-factor';
-        chip.dataset.removeFactor = target;
-        chip.dataset.factorIndex = String(index);
-        chip.innerHTML = `<span>${tokenLabel(token)}</span><small aria-hidden="true">×</small>`;
-        chip.setAttribute('aria-label', `Hapus faktor ${tokenLabel(token)}`);
+        const chip = document.createElement(treeOnly ? 'span' : 'button');
+        if (!treeOnly) chip.type = 'button';
+        chip.className = 'dropped-factor' + (treeOnly ? ' readonly-factor' : '');
+        if (!treeOnly) {
+          chip.dataset.removeFactor = target;
+          chip.dataset.factorIndex = String(index);
+          chip.setAttribute('aria-label', `Hapus faktor ${tokenLabel(token)}`);
+        }
+        chip.innerHTML = treeOnly ? `<span>${tokenLabel(token)}</span>` : `<span>${tokenLabel(token)}</span><small aria-hidden="true">×</small>`;
         zone.appendChild(chip);
       });
     }
