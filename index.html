@@ -183,7 +183,7 @@
 
         <article class="learning-card reveal task-card" data-a1-step="1">
           <div class="section-heading"><div><span class="eyebrow">A. Lanjutkan Kelipatan</span><h2>Pilih angka yang melanjutkan pola kelipatan</h2></div><span class="task-badge">1/4</span></div>
-          <p class="tap-instruction">Ketuk semua angka yang benar. Tidak perlu mengetik.</p>
+          <p class="tap-instruction">Pilih semua angka yang benar</p>
           <div class="question-grid">
             <div class="mini-question"><h3>4, 8, ...</h3><div class="multi-select-grid sequence-pick-grid" id="a1Continue4" data-multi-select><button class="select-chip" data-value="10" type="button">10</button><button class="select-chip" data-value="12" type="button">12</button><button class="select-chip" data-value="16" type="button">16</button><button class="select-chip" data-value="18" type="button">18</button><button class="select-chip" data-value="20" type="button">20</button><button class="select-chip" data-value="24" type="button">24</button></div><small class="sequence-hint">Lanjutkan dengan menambah 4.</small></div>
             <div class="mini-question"><h3>6, 12, ...</h3><div class="multi-select-grid sequence-pick-grid" id="a1Continue6" data-multi-select><button class="select-chip" data-value="14" type="button">14</button><button class="select-chip" data-value="18" type="button">18</button><button class="select-chip" data-value="20" type="button">20</button><button class="select-chip" data-value="24" type="button">24</button><button class="select-chip" data-value="30" type="button">30</button><button class="select-chip" data-value="32" type="button">32</button></div><small class="sequence-hint">Lanjutkan dengan menambah 6.</small></div>
@@ -198,13 +198,13 @@
         </article>
 
         <article class="learning-card reveal task-card" data-a1-step="3" id="a1PrimeTreeTask">
-          <div class="section-heading"><div><span class="eyebrow">C. Susun Faktor Prima</span><h2>Gunakan pohon faktor saja</h2><p class="section-help">Selesaikan pohon faktor untuk 8 dan 12. Setelah itu pilih faktor prima dengan <strong>pangkat terbesar</strong>.</p></div><span class="task-badge">3/4</span></div>
+          <div class="section-heading"><div><span class="eyebrow">C. Susun Faktor Prima</span><h2>Gunakan pohon faktor </h2><p class="section-help">Selesaikan pohon faktor untuk 8 dan 12. Setelah itu pilih faktor prima dengan <strong>pangkat terbesar</strong>.</p></div><span class="task-badge">3/4</span></div>
           <div class="prime-tree-pair">
             <div class="tree-only-builder factor-builder" data-number="8" data-target="a1f8"><div class="factor-builder-head"><strong>8</strong><button class="factor-tree-btn" data-factor-tree-number="8" data-factor-tree-target="a1f8" type="button">🌳 Buka Pohon Faktor</button></div><input id="a1f8" type="hidden"><div class="factor-dropzone tree-only-result" data-factor-drop="a1f8"><span class="drop-placeholder">Belum diselesaikan</span></div><span class="factor-product" data-factor-product="a1f8">Belum disusun</span></div>
             <div class="tree-only-builder factor-builder" data-number="12" data-target="a1f12"><div class="factor-builder-head"><strong>12</strong><button class="factor-tree-btn" data-factor-tree-number="12" data-factor-tree-target="a1f12" type="button">🌳 Buka Pohon Faktor</button></div><input id="a1f12" type="hidden"><div class="factor-dropzone tree-only-result" data-factor-drop="a1f12"><span class="drop-placeholder">Belum diselesaikan</span></div><span class="factor-product" data-factor-product="a1f12">Belum disusun</span></div>
           </div>
           <div class="prime-selection-stage hidden" id="a1PrimeSelectionStage"><strong>Pilih semua faktor prima dengan pangkat terbesar:</strong><div class="multi-select-grid prime-power-select" id="a1PrimeSelect" data-multi-select><button class="select-chip" data-value="8" data-label="2³" type="button">2³</button><button class="select-chip" data-value="4" data-label="2²" type="button">2²</button><button class="select-chip" data-value="3" data-label="3" type="button">3</button></div><div class="selected-prime-tray" id="a1PrimePicked" aria-live="polite">Belum ada faktor yang dipilih.</div></div>
-          <div class="auto-product hidden" id="a1PrimeAutoResult"><span>Hasil perkalian otomatis</span><strong>2³ × 3 = 24</strong><small>KPK (8,12) = 24</small></div>
+          <div class="auto-product hidden" id="a1PrimeAutoResult"><span>Hasil perkalian Faktor Prima : </span><strong>2³ × 3 = 24</strong><small>KPK (8,12) = 24</small></div>
           <div class="feedback" id="a1PrimeFeedback"></div>
         </article>
 
@@ -217,7 +217,7 @@
             <div class="tree-only-builder factor-builder" data-number="8" data-target="a1bus8"><div class="factor-builder-head"><strong>8</strong><button class="factor-tree-btn" data-factor-tree-number="8" data-factor-tree-target="a1bus8" type="button">🌳 Pohon Faktor 8</button></div><input id="a1bus8" type="hidden"><div class="factor-dropzone tree-only-result" data-factor-drop="a1bus8"><span class="drop-placeholder">Belum diselesaikan</span></div><span class="factor-product" data-factor-product="a1bus8">Belum disusun</span></div>
           </div>
           <div class="prime-selection-stage hidden" id="a1BusPrimeStage"><strong>Pilih semua faktor prima dengan pangkat terbesar:</strong><div class="multi-select-grid prime-power-select" id="a1BusPrimeSelect" data-multi-select><button class="select-chip" data-value="8" data-label="2³" type="button">2³</button><button class="select-chip" data-value="2" data-label="2¹" type="button">2¹</button><button class="select-chip" data-value="3" data-label="3" type="button">3</button></div><div class="selected-prime-tray" id="a1BusPrimePicked" aria-live="polite">Belum ada faktor yang dipilih.</div></div>
-          <div class="auto-product hidden" id="a1BusAutoResult"><span>Hasil perkalian otomatis</span><strong>2³ × 3 = 24</strong><small>Kedua bus datang bersama lagi setelah 24 menit.</small></div>
+          <div class="auto-product hidden" id="a1BusAutoResult"><span>Hasil perkalian Faktor Prima : </span><strong>2³ × 3 = 24</strong><small>Kedua bus datang bersama lagi setelah 24 menit.</small></div>
           <div class="feedback" id="a1BusFeedback"></div>
         </article>
 
