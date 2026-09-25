@@ -80,3 +80,29 @@
 @keyframes pairReveal{from{opacity:0;transform:translateX(-8px)}to{opacity:1;transform:none}}
 @keyframes arrowNudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
 @keyframes objectDrop{0%{transform:scale(.85)}60%{transform:scale(1.08)}100%{transform:scale(1)}}
+
+/* V5 interaction fixes */
+.prime-pick-guide{margin-top:14px;padding:14px;border:1px solid #dbe7f1;border-radius:18px;background:#fbfdff}
+.prime-source-summary{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 12px}
+.prime-source-summary>div{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:11px 12px;border:1px solid #d7e4ee;border-radius:14px;background:#fff}
+.prime-source-summary>div>span{display:grid;place-items:center;min-width:38px;height:38px;border-radius:11px;background:var(--navy);color:#fff;font-weight:900}
+.prime-source-summary b{display:grid;place-items:center;min-width:50px;min-height:44px;padding:6px 10px;border-radius:12px;background:var(--blue-soft);border:1px solid #bcd7ec;color:var(--navy);font-size:1.05rem}
+.prime-concept-picks{grid-template-columns:repeat(4,minmax(0,1fr))}
+.selected-prime-tray{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;min-height:52px;margin-top:10px;padding:10px 12px;border:2px dashed #bcd1e3;border-radius:14px;background:#fff;color:#6b7d8f;font-weight:800}
+.selected-prime-tray span{color:#5b7083}
+.selected-prime-tray b{display:inline-grid;place-items:center;min-width:48px;min-height:38px;padding:5px 10px;border-radius:10px;background:var(--green-soft);border:1px solid var(--green);color:#205f46}
+.selected-prime-tray i{font-style:normal;color:#6e8090;font-weight:900}
+.prime-selection-stage.ready-stage{animation:fadeUp .28s ease both}
+.factor-pair-source.used{opacity:.58;transform:scale(.96);border-color:var(--green);background:var(--green-soft);color:#215f47}
+.factor-pair-drop.pair-has-result{border-style:solid;border-color:#a9cce8;background:#f7fbff}
+.prime-min-expression{display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap}
+.math-times{font-size:1.2rem;color:#52677b}
+.move-object-source.objects-ready{border-color:#9fbfd9;background:#f7fbff}
+.move-object{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+.move-object:active,.factor-pair-source:active,.select-chip:active{transform:scale(.97)}
+
+@media (max-width:640px){
+  .prime-source-summary{grid-template-columns:1fr}
+  .prime-concept-picks{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .selected-prime-tray{justify-content:flex-start}
+}

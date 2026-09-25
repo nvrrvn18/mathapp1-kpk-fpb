@@ -1,9 +1,16 @@
-# KPK & FPB Interaktif Mobile V4
+# KPK & FPB Interaktif Mobile V5
 
-Versi ini memperbaiki alur pembelajaran berdasarkan evaluasi materi terbaru. Fokus utama V4 adalah mengurangi bagian yang membingungkan, mengutamakan pohon faktor, pasangan faktor visual, hasil perkalian otomatis, dan manipulasi objek yang nyaman di HP.
+Versi ini memperbaiki alur pembelajaran berdasarkan evaluasi materi terbaru. Fokus utama V5 adalah mengurangi bagian yang membingungkan, mengutamakan pohon faktor, pasangan faktor visual, hasil perkalian otomatis, dan manipulasi objek yang nyaman di HP.
 
-## Perubahan V4
+## Perubahan V5
 
+
+- Pertemuan 1C disederhanakan: siswa melihat faktor prima beserta pangkatnya, lalu memilih langsung faktor berpangkat terbesar yang digunakan untuk KPK.
+- Validasi Aktivitas 1B diperbaiki agar membaca pilihan kartu langsung dari keadaan visual tombol, bukan hanya state global.
+- Aktivitas 1C dan 1D menampilkan panel pilihan faktor segera setelah kedua pohon faktor selesai, lengkap dengan tray “Dipilih” yang berubah pada saat siswa mengetuk kartu.
+- Interaksi pasangan faktor Pertemuan 2 dan Aktivitas 2B diperbaiki dengan event langsung pada tombol. Pasangan muncul pada ketukan yang sama dan tidak lagi bergantung pada atribut `disabled`.
+- Simbol perkalian ditambahkan di antara `2¹ × 3¹` pada penjelasan pangkat terkecil FPB.
+- Benda Aktivitas 2A kini ditulis langsung di HTML agar selalu terlihat walaupun proses inisialisasi JavaScript terlambat. Tap tetap menjadi cara utama di HP, dengan drag sebagai tambahan di desktop.
 - Simulasi lampu KPK berjalan sampai detik ke-24 sehingga siswa melihat pertemuan bersama pada detik ke-12 dan ke-24.
 - Bagian pola menampilkan label **Kelipatan Persekutuan Terkecil** secara eksplisit.
 - Tabel faktor prima KPK dan FPB dihapus. Konsep pangkat terbesar/terkecil kini ditampilkan dengan kartu faktor yang lebih sederhana.
