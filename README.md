@@ -110,3 +110,17 @@ Tipe yang tersedia: `mcq`, `number`, `truefalse`, dan `drag`.
 Pada Aktivitas 1 dan Aktivitas 2, siswa tidak perlu mengetik simbol pangkat. Di HP, ketuk kotak faktorisasi lalu ketuk kartu seperti `2²`, `2³`, atau `3²`. Di desktop, kartu juga dapat diseret. Tombol **Pohon Faktor** memandu pemecahan bilangan komposit menjadi pasangan faktor sampai seluruh ujungnya merupakan bilangan prima. Setelah selesai, tombol **Masukkan ke Jawaban** mengubah daun pohon menjadi bentuk berpangkat secara otomatis.
 
 Untuk layar sentuh, tap adalah interaksi utama. Drag-and-drop HTML5 tetap tersedia pada desktop. Target sentuh dibuat besar dan layout utama berubah menjadi satu kolom pada layar HP.
+
+## V6 - Eksplorasi Awal Faktor Bilangan
+
+Sebelum materi KPK, aplikasi kini memiliki eksplorasi pictorial faktor bilangan yang dirancang mobile-first:
+
+- penjelasan singkat tentang faktor sebagai pembagi tanpa sisa;
+- contoh bilangan 4 melalui susunan kotak `1 × 4` dan `2 × 2`;
+- eksplorasi interaktif bilangan 6 dan 12 dengan beberapa orientasi susunan baris × kolom;
+- penjelasan bahwa `2 × 3` dan `3 × 2` adalah orientasi berbeda dari pasangan faktor yang sama;
+- eksplorasi bilangan prima 3 dan 5 dengan susunan `1 × n` dan `n × 1`;
+- animasi kotak setiap kali susunan dipilih;
+- kontrol tap besar dan progressive disclosure agar nyaman di HP.
+
+Logika eksplorasi berada di `js/factor-exploration.js`. Teks utamanya berada di `index.html`, sedangkan tampilannya berada di `css/style.css` dan `css/responsive.css`.
