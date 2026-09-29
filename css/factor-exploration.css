@@ -55,3 +55,14 @@
 }
 
 @media (max-width:720px){.factor-array-grid.compact-array .factor-cell{width:21px;min-width:21px}.factor-array-grid.compact-array{gap:3px}}
+
+/* V7: standalone prerequisite module */
+.module-banner.factor-intro-banner{background:linear-gradient(135deg,#28745e,#6abf9a)}
+.factor-task-hint{margin:.55rem 0 .8rem;padding:.65rem .8rem;border-radius:12px;background:#f6f9fc;color:#607488;font-weight:800;font-size:.9rem;border:1px solid #e1eaf1}
+.factor-task-hint.done{background:#e8f7ee;border-color:#a8d9b7;color:#276342}
+.composite-number-switch{grid-template-columns:repeat(4,minmax(0,1fr))}
+#factorIntro .factor-exploration-card{border-color:#cfe8dc;box-shadow:0 12px 34px rgba(40,116,94,.08)}
+#factorIntro .completion-card{border-color:#b9dfc8}
+@media (max-width:720px){
+  .composite-number-switch{grid-template-columns:repeat(2,minmax(0,1fr))}
+}

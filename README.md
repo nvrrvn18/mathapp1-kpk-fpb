@@ -1,8 +1,15 @@
-# KPK & FPB Interaktif Mobile V5
+# KPK & FPB Interaktif Mobile V7
 
-Versi ini memperbaiki alur pembelajaran berdasarkan evaluasi materi terbaru. Fokus utama V5 adalah mengurangi bagian yang membingungkan, mengutamakan pohon faktor, pasangan faktor visual, hasil perkalian otomatis, dan manipulasi objek yang nyaman di HP.
+Versi V7 menambahkan **Materi Awal: Eksplorasi Faktor Bilangan** sebagai modul prasyarat tersendiri. Siswa harus menyelesaikan modul ini sebelum Pertemuan 1 terbuka. Pendekatannya tetap mobile-first, pictorial, touch-friendly, dan progresif.
 
-## Perubahan V5
+## Perubahan utama V7
+
+
+- **Materi Awal: Eksplorasi Faktor Bilangan** kini berdiri sebagai screen/modul tersendiri sebelum Pertemuan 1.
+- Pertemuan 1 terkunci sampai Materi Awal selesai. Status unlock tersimpan di `localStorage`.
+- Progress utama menjadi: Materi Awal → Pertemuan 1 → Aktivitas 1 → Pertemuan 2 → Aktivitas 2 → Evaluasi.
+- Eksplorasi bilangan komposit sekarang mencakup **6, 8, 10, dan 12**, sehingga siswa melihat pasangan seperti `2 × 4 ↔ 4 × 2` serta `2 × 5 ↔ 5 × 2`.
+- Untuk menyelesaikan Materi Awal, siswa perlu mencoba kedua susunan faktor 4, mengamati 6/8/10/12, mengamati bilangan prima 3 dan 5, lalu menekan tombol selesai.
 
 
 - Pertemuan 1C disederhanakan: siswa melihat faktor prima beserta pangkatnya, lalu memilih langsung faktor berpangkat terbesar yang digunakan untuk KPK.
@@ -26,7 +33,7 @@ Aplikasi web pembelajaran interaktif berbasis **HTML5, CSS3, dan Vanilla JavaScr
 
 ## Fitur
 
-- Alur progresif: Pertemuan 1 → Aktivitas 1 → Pertemuan 2 → Aktivitas 2 → Evaluasi.
+- Alur progresif: Materi Awal Faktor → Pertemuan 1 → Aktivitas 1 → Pertemuan 2 → Aktivitas 2 → Evaluasi.
 - Progress belajar tersimpan otomatis di `localStorage`.
 - Simulasi lampu untuk memahami KPK.
 - Garis bilangan dan pola kelipatan interaktif.
@@ -111,13 +118,13 @@ Pada Aktivitas 1 dan Aktivitas 2, siswa tidak perlu mengetik simbol pangkat. Di 
 
 Untuk layar sentuh, tap adalah interaksi utama. Drag-and-drop HTML5 tetap tersedia pada desktop. Target sentuh dibuat besar dan layout utama berubah menjadi satu kolom pada layar HP.
 
-## V6 - Eksplorasi Awal Faktor Bilangan
+## V7 - Materi Awal Faktor Bilangan
 
-Sebelum materi KPK, aplikasi kini memiliki eksplorasi pictorial faktor bilangan yang dirancang mobile-first:
+Sebelum Pertemuan 1, aplikasi memiliki modul prasyarat pictorial faktor bilangan yang dirancang mobile-first. Pertemuan 1 tidak dapat dibuka sebelum modul ini selesai:
 
 - penjelasan singkat tentang faktor sebagai pembagi tanpa sisa;
 - contoh bilangan 4 melalui susunan kotak `1 × 4` dan `2 × 2`;
-- eksplorasi interaktif bilangan 6 dan 12 dengan beberapa orientasi susunan baris × kolom;
+- eksplorasi interaktif bilangan 6, 8, 10, dan 12 dengan beberapa orientasi susunan baris × kolom;
 - penjelasan bahwa `2 × 3` dan `3 × 2` adalah orientasi berbeda dari pasangan faktor yang sama;
 - eksplorasi bilangan prima 3 dan 5 dengan susunan `1 × n` dan `n × 1`;
 - animasi kotak setiap kali susunan dipilih;

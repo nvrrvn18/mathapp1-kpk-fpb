@@ -62,10 +62,11 @@
       </div>
 
       <div class="container stage-grid" id="landingStages">
-        <article class="stage-card fade-up delay-1"><span>1</span><div><strong>Kenali KPK</strong><small>Pola dan pertemuan</small></div></article>
-        <article class="stage-card fade-up delay-2"><span>2</span><div><strong>Latihan KPK</strong><small>Worksheet interaktif</small></div></article>
-        <article class="stage-card fade-up delay-3"><span>3</span><div><strong>Kenali FPB</strong><small>Faktor dan pembagian</small></div></article>
-        <article class="stage-card fade-up delay-4"><span>4</span><div><strong>Terapkan KPK & FPB</strong><small>Masalah sehari-hari</small></div></article>
+        <article class="stage-card fade-up delay-1"><span>1</span><div><strong>Kenali Faktor</strong><small>Eksplorasi pictorial</small></div></article>
+        <article class="stage-card fade-up delay-1"><span>2</span><div><strong>Kenali KPK</strong><small>Pola dan pertemuan</small></div></article>
+        <article class="stage-card fade-up delay-2"><span>3</span><div><strong>Latihan KPK</strong><small>Worksheet interaktif</small></div></article>
+        <article class="stage-card fade-up delay-3"><span>4</span><div><strong>Kenali FPB</strong><small>Faktor dan pembagian</small></div></article>
+        <article class="stage-card fade-up delay-4"><span>5</span><div><strong>Terapkan KPK & FPB</strong><small>Masalah sehari-hari</small></div></article>
       </div>
 
       <div class="container dashboard-card">
@@ -74,20 +75,21 @@
       </div>
     </section>
 
-    <section class="screen" id="meeting1" data-screen="meeting1">
+    <section class="screen" id="factorIntro" data-screen="factorIntro">
       <div class="container lesson-wrap">
-        <div class="module-banner blue">
-          <div><span class="eyebrow light">PERTEMUAN 1</span><h1>Kelipatan Persekutuan Terkecil (KPK)</h1><p>Mulai dari pola kejadian berulang, lalu temukan konsep KPK.</p></div>
-          <div class="banner-icon">🔁</div>
+        <div class="module-banner factor-intro-banner">
+          <div><span class="eyebrow light">MATERI AWAL</span><h1>Eksplorasi Faktor Bilangan</h1><p>Kenali faktor melalui susunan kotak sebelum mulai belajar KPK.</p></div>
+          <div class="banner-icon">▦</div>
         </div>
 
         <article class="learning-card goal-card reveal">
-          <div class="card-icon">🎯</div><div><h2>Tujuan Pembelajaran</h2><p>Setelah belajar, kamu diharapkan dapat:</p>
-          <ul class="check-list"><li>Memahami konsep kelipatan</li><li>Menemukan kelipatan persekutuan</li><li>Menentukan KPK menggunakan representasi visual</li><li>Menghubungkan KPK dengan faktorisasi prima</li></ul></div>
+          <div class="card-icon">🔎</div><div><h2>Tujuan Eksplorasi</h2><p>Setelah menyelesaikan materi awal ini, kamu dapat:</p>
+          <ul class="check-list"><li>Memahami arti faktor suatu bilangan</li><li>Menemukan faktor melalui susunan baris dan kolom</li><li>Mengenali pasangan faktor dengan orientasi berbeda</li><li>Membedakan bilangan komposit dan bilangan prima</li></ul></div>
         </article>
+
         <article class="learning-card reveal factor-exploration-card" id="factorExplorationCard">
           <div class="section-heading">
-            <div><span class="eyebrow">EKSPLORASI AWAL</span><h2>Mengenal Faktor Bilangan dengan Susunan Kotak</h2></div>
+            <div><span class="eyebrow">MATERI AWAL</span><h2>Mengenal Faktor Bilangan dengan Susunan Kotak</h2></div>
             <span class="pill">Pictorial</span>
           </div>
 
@@ -134,12 +136,15 @@
           <section class="factor-explore-step" data-factor-step="2">
             <div class="factor-example-heading">
               <span class="factor-number-badge" id="factorExploreNumberBadge">6</span>
-              <div><h3>Eksplorasi susunan lainnya</h3><p>Pilih bilangan, lalu pilih susunan baris × kolom.</p></div>
+              <div><h3>Eksplorasi bilangan komposit</h3><p>Pilih setiap bilangan, lalu amati salah satu atau beberapa susunan baris × kolom.</p></div>
             </div>
-            <div class="factor-number-switch" id="factorNumberSwitch">
+            <div class="factor-number-switch composite-number-switch" id="factorNumberSwitch">
               <button class="active" type="button" data-explore-number="6">Bilangan 6</button>
+              <button type="button" data-explore-number="8">Bilangan 8</button>
+              <button type="button" data-explore-number="10">Bilangan 10</button>
               <button type="button" data-explore-number="12">Bilangan 12</button>
             </div>
+            <p class="factor-task-hint" id="factorCompositeProgressText">Amati bilangan 6, lalu coba juga 8, 10, dan 12.</p>
             <div class="factor-arrangement-controls" id="factorCompositeChoices"></div>
             <div class="factor-array-stage large">
               <div class="factor-array-grid" id="factorCompositeGrid" aria-label="Susunan kotak faktor"></div>
@@ -147,7 +152,7 @@
             <div class="factor-array-caption" id="factorCompositeCaption" aria-live="polite"></div>
             <div class="factor-orientation-note">
               <span>↔</span>
-              <p><strong>Perhatikan:</strong> misalnya 2 × 3 dan 3 × 2 memiliki jumlah kotak yang sama. Bentuknya berubah arah, tetapi pasangan faktornya tetap <strong>2 dan 3</strong>.</p>
+              <p><strong>Perhatikan:</strong> susunan seperti 2 × 3 dan 3 × 2 memiliki jumlah kotak yang sama. Bentuknya berubah arah, tetapi faktor yang digunakan tetap <strong>2 dan 3</strong>. Hal yang sama dapat kamu amati pada 2 × 4 dan 4 × 2, atau 2 × 5 dan 5 × 2.</p>
             </div>
             <div class="factor-discovery-note" id="factorCompositeFactors"></div>
           </section>
@@ -155,12 +160,13 @@
           <section class="factor-explore-step" data-factor-step="3">
             <div class="factor-example-heading">
               <span class="factor-number-badge prime">P</span>
-              <div><h3>Bagaimana dengan bilangan prima?</h3><p>Pilih 3 atau 5 dan amati semua susunan kotak yang mungkin.</p></div>
+              <div><h3>Bagaimana dengan bilangan prima?</h3><p>Amati bilangan 3, lalu pilih 5. Bandingkan banyak faktor yang dimiliki keduanya.</p></div>
             </div>
             <div class="factor-number-switch" id="primeNumberSwitch">
               <button class="active" type="button" data-prime-number="3">Bilangan 3</button>
               <button type="button" data-prime-number="5">Bilangan 5</button>
             </div>
+            <p class="factor-task-hint" id="factorPrimeProgressText">Setelah mengamati 3, ketuk bilangan 5 untuk menyelesaikan bagian ini.</p>
             <div class="factor-arrangement-controls" id="primeArrangementChoices"></div>
             <div class="factor-array-stage">
               <div class="factor-array-grid prime-grid" id="primeFactorGrid" aria-label="Susunan kotak bilangan prima"></div>
@@ -176,9 +182,27 @@
             <button class="btn ghost" id="factorExplorePrev" type="button" disabled>← Sebelumnya</button>
             <button class="btn primary" id="factorExploreNext" type="button">Mulai Contoh →</button>
           </div>
-          <div class="factor-explore-complete hidden" id="factorExploreComplete" role="status">✓ Eksplorasi faktor selesai. Sekarang lanjutkan ke pola KPK.</div>
+          <div class="factor-explore-complete hidden" id="factorExploreComplete" role="status">✓ Materi awal faktor selesai. Pertemuan 1 sekarang sudah terbuka.</div>
         </article>
 
+        <div class="completion-card hidden" id="factorIntroCompletion">
+          <span class="completion-icon">✓</span><h2>Materi awal selesai!</h2><p>Kamu sudah siap masuk ke Pertemuan 1 dan mempelajari KPK.</p>
+        </div>
+        <div class="module-nav"><button class="btn ghost" data-go="landing" type="button">← Beranda</button><button class="btn primary" id="factorIntroNext" data-go="meeting1" type="button" disabled>Lanjut ke Pertemuan 1 →</button></div>
+      </div>
+    </section>
+
+    <section class="screen" id="meeting1" data-screen="meeting1">
+      <div class="container lesson-wrap">
+        <div class="module-banner blue">
+          <div><span class="eyebrow light">PERTEMUAN 1</span><h1>Kelipatan Persekutuan Terkecil (KPK)</h1><p>Mulai dari pola kejadian berulang, lalu temukan konsep KPK.</p></div>
+          <div class="banner-icon">🔁</div>
+        </div>
+
+        <article class="learning-card goal-card reveal">
+          <div class="card-icon">🎯</div><div><h2>Tujuan Pembelajaran</h2><p>Setelah belajar, kamu diharapkan dapat:</p>
+          <ul class="check-list"><li>Memahami konsep kelipatan</li><li>Menemukan kelipatan persekutuan</li><li>Menentukan KPK menggunakan representasi visual</li><li>Menghubungkan KPK dengan faktorisasi prima</li></ul></div>
+        </article>
         <article class="learning-card reveal focus-card" id="lampSimulationCard">
           <div class="section-heading"><div><span class="eyebrow">A. Masalah Pemantik</span><h2>Dua lampu, kapan menyala bersama?</h2></div><span class="pill">Simulasi</span></div>
           <p class="lead">Lampu A berkedip setiap <strong>4 detik</strong>. Lampu B berkedip setiap <strong>6 detik</strong>. Keduanya berkedip bersama pada detik ke-0.</p>
@@ -266,7 +290,7 @@
           <div class="feedback" id="alarmFeedback" aria-live="polite"></div>
         </article>
 
-        <div class="module-nav"><button class="btn ghost" data-go="landing" type="button">← Sebelumnya</button><button class="btn primary" id="meeting1Next" data-go="activity1" type="button" disabled>Lanjut ke Aktivitas 1 →</button></div>
+        <div class="module-nav"><button class="btn ghost" data-go="factorIntro" type="button">← Materi Awal</button><button class="btn primary" id="meeting1Next" data-go="activity1" type="button" disabled>Lanjut ke Aktivitas 1 →</button></div>
       </div>
     </section>
 
@@ -466,7 +490,7 @@
 
   <nav class="bottom-nav" aria-label="Navigasi mobile">
     <button type="button" data-go="landing"><span>⌂</span>Beranda</button>
-    <button type="button" data-go="meeting1"><span>📖</span>Materi</button>
+    <button type="button" data-go="factorIntro"><span>📖</span>Materi</button>
     <button type="button" data-go="activity1"><span>✍️</span>Aktivitas</button>
     <button type="button" id="mobileProgressBtn"><span>◔</span>Progress</button>
   </nav>

@@ -1,5 +1,5 @@
 (() => {
-  const labels = {meeting1:'Pertemuan 1',activity1:'Aktivitas 1',meeting2:'Pertemuan 2',activity2:'Aktivitas 2'};
+  const labels = {factorIntro:'Faktor',meeting1:'Pertemuan 1',activity1:'Aktivitas 1',meeting2:'Pertemuan 2',activity2:'Aktivitas 2'};
   function toast(message){
     const el=document.getElementById('toast'); if(!el) return;
     el.textContent=message; el.classList.add('show'); clearTimeout(toast.t); toast.t=setTimeout(()=>el.classList.remove('show'),2600);
@@ -15,7 +15,7 @@
     return true;
   }
   function updateTopProgress(){
-    const state=window.LearnProgress.get(); const order=['meeting1','activity1','meeting2','activity2'];
+    const state=window.LearnProgress.get(); const order=['factorIntro','meeting1','activity1','meeting2','activity2'];
     const stepper=document.getElementById('topStepper');
     if(stepper){stepper.innerHTML=order.map(k=>`<span class="step-chip ${state[k].completed?'complete':(!state[k].completed&&window.LearnProgress.isUnlocked(k)?'current':'')}"><span>${labels[k]}</span></span>`).join('');}
     const pct=window.LearnProgress.overallPercent();
@@ -25,7 +25,7 @@
   }
   function updateDashboard(){
     const root=document.getElementById('dashboardProgress'); if(!root) return;
-    const items=[['meeting1','Pertemuan 1','KPK'],['activity1','Aktivitas 1','KPK'],['meeting2','Pertemuan 2','FPB'],['activity2','Aktivitas 2','Penerapan']];
+    const items=[['factorIntro','Materi Awal','Faktor Bilangan'],['meeting1','Pertemuan 1','KPK'],['activity1','Aktivitas 1','KPK'],['meeting2','Pertemuan 2','FPB'],['activity2','Aktivitas 2','Penerapan']];
     root.innerHTML=items.map(([key,title,sub])=>{
       const pct=window.LearnProgress.percentFor(key); const unlocked=window.LearnProgress.isUnlocked(key);
       return `<div class="dash-item"><strong>${title}</strong><small>${sub}</small><div class="dash-meter"><span style="width:${unlocked?pct:0}%"></span></div><small>${!unlocked?'Terkunci':pct===100?'100% ✓':pct?`${pct}%`:'Belum dimulai'}</small></div>`;
@@ -36,7 +36,7 @@
       const trigger=e.target.closest('[data-go], [data-nav]');
       if(trigger){ e.preventDefault(); navigateTo(trigger.dataset.go || trigger.dataset.nav); }
     });
-    document.getElementById('startBtn')?.addEventListener('click',()=>navigateTo('meeting1'));
+    document.getElementById('startBtn')?.addEventListener('click',()=>navigateTo('factorIntro'));
     document.getElementById('resumeBtn')?.addEventListener('click',()=>navigateTo(window.LearnProgress.nextIncomplete()));
     document.getElementById('mobileProgressBtn')?.addEventListener('click',()=>{navigateTo('landing',true); setTimeout(()=>document.querySelector('.dashboard-card')?.scrollIntoView({behavior:'smooth'}),220);});
   }

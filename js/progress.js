@@ -1,15 +1,24 @@
 (() => {
   const KEY = 'kpkFpbLearningStateV1';
   const freshState = () => ({
-    version: 1,
+    version: 2,
     sound: true,
     lastScreen: 'landing',
+    factorIntro: { four:false, composites:false, primes:false, finish:false, completed:false },
     meeting1: { simulation:false, pattern:false, challenge:false, completed:false },
     activity1: { jump:false, multiples:false, prime:false, application:false, reflection:false, completed:false },
     meeting2: { grouped:false, factors:false, concepts:false, challenge:false, completed:false },
     activity2: { grouping:false, factors:false, strategy:false, stories:false, reflection:false, completed:false },
     quiz: { completed:false, lastScore:null, bestScore:null, categoryScores:{} }
   });
+
+  const requirements = {
+    factorIntro:['four','composites','primes','finish'],
+    meeting1:['simulation','pattern','challenge'],
+    activity1:['jump','multiples','prime','application','reflection'],
+    meeting2:['grouped','factors','concepts','challenge'],
+    activity2:['grouping','factors','strategy','stories','reflection']
+  };
 
   function deepMerge(base, incoming){
     if (!incoming || typeof incoming !== 'object') return base;
@@ -33,26 +42,20 @@
   function get(){ return state; }
   function setFlag(module, key, value=true){ if(state[module] && key in state[module]){ state[module][key]=value; recompute(module); save(); } }
   function recompute(module){
-    const requirements = {
-      meeting1:['simulation','pattern','challenge'],
-      activity1:['jump','multiples','prime','application','reflection'],
-      meeting2:['grouped','factors','concepts','challenge'],
-      activity2:['grouping','factors','strategy','stories','reflection']
-    };
     if(requirements[module]) state[module].completed = requirements[module].every(k => state[module][k]);
   }
   function percentFor(module){
-    const requirements = {
-      meeting1:['simulation','pattern','challenge'],activity1:['jump','multiples','prime','application','reflection'],
-      meeting2:['grouped','factors','concepts','challenge'],activity2:['grouping','factors','strategy','stories','reflection']
-    };
     const keys = requirements[module] || [];
     if(!keys.length) return 0;
     return Math.round(keys.filter(k=>state[module][k]).length/keys.length*100);
   }
-  function overallPercent(){ return ['meeting1','activity1','meeting2','activity2'].filter(m=>state[m].completed).length*25; }
+  function overallPercent(){
+    const modules=['factorIntro','meeting1','activity1','meeting2','activity2'];
+    return Math.round(modules.filter(m=>state[m].completed).length/modules.length*100);
+  }
   function isUnlocked(screen){
-    if(screen==='landing' || screen==='meeting1') return true;
+    if(screen==='landing' || screen==='factorIntro') return true;
+    if(screen==='meeting1') return state.factorIntro.completed;
     if(screen==='activity1') return state.meeting1.completed;
     if(screen==='meeting2') return state.activity1.completed;
     if(screen==='activity2') return state.meeting2.completed;
@@ -61,9 +64,9 @@
     return false;
   }
   function nextIncomplete(){
-    for(const s of ['meeting1','activity1','meeting2','activity2']) if(isUnlocked(s) && !state[s].completed) return s;
+    for(const s of ['factorIntro','meeting1','activity1','meeting2','activity2']) if(isUnlocked(s) && !state[s].completed) return s;
     if(isUnlocked('quiz') && !state.quiz.completed) return 'quiz';
-    return state.quiz.completed ? 'result' : 'meeting1';
+    return state.quiz.completed ? 'result' : 'factorIntro';
   }
   function updateQuiz(data){
     state.quiz.completed = true;
